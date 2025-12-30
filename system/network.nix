@@ -28,6 +28,6 @@
     networkmanager
     aria2
     bluez
-    bluez-utils
+    # bluez-utils
   ];
 }

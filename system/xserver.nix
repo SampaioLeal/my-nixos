@@ -4,7 +4,7 @@
     xserver = {
       enable = true;
       xkb = {
-        layout = "pt";
+        layout = "br";
         variant = "";
       };
     };

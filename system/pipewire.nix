@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  sound.enable = true;
-  
   services.pulseaudio.enable = false;
   
   services.pipewire = {
@@ -16,6 +14,7 @@
 
   environment.systemPackages = with pkgs; [ 
     playerctl
+    wiremix
     # TODO: move this
     imagemagick 
   ];

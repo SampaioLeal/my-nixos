@@ -1,7 +1,11 @@
 { pkgs, ... }:
 {
-  users.defaultUserShell = pkgs.zsh;
-
+  home-manager.useGlobalPkgs = true;
+  
+  #
+  # Antonio Sampaio
+  #
+  
   users.users.sampaiol = {
     isNormalUser = true;
     description = "Antonio Sampaio";
@@ -10,15 +14,6 @@
       "wheel"
       "docker"
     ];
-    packages = with pkgs; [
-      wofi
-      waybar
-      kitty
-      zathura
-      cliphist
-      dunst
-      jq
-      fastfetch
-    ];
+    packages = with pkgs; [];
   };
 }

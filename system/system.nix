@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   nix = {
     settings = {
@@ -10,6 +10,15 @@
     };
   };
   nixpkgs.config.allowUnfree = true;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+       command = "${pkgs.tuigreet}/bin/tuigreet --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --remember --remember-user-session --user-menu --user-menu-min-uid 1000 --asterisks --power-shutdown 'shutdown -P now' --power-reboot 'shutdown -r now'";
+      };
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     curl
@@ -57,7 +66,7 @@
     };
   };
 
-  console.keyMap = "pt";
+  console.keyMap = "br-abnt2";
 
   system.autoUpgrade.enable = true;
   system.stateVersion = "25.11";

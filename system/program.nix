@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs = {
+    hyprland.enable = true;
     dconf.enable = true;
     zsh.enable = true;
 
@@ -13,4 +14,8 @@
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [ ];
   };
+
+  environment.systemPackages = [
+    pkgs.kitty
+  ];
 }

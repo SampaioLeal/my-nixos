@@ -2,25 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz;
+in
 {
-  imports =
-    [ 
-      "./bootloader.nix"
-      "./flatpak.nix"
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./hyprland.nix
-      ./network.nix
-      ./nvidia.nix
-      ./pipewire.nix
-      ./program.nix
-      ./security.nix
-      ./system.nix
-      ./users.nix
-      ./xserver.nix
-    ];
-   
-  services.flatpak.enable = true;
+  imports = [
+    (import "${home-manager}/nixos")
+    ./system
+    ./hardware-configuration.nix
+    ./users.nix
+  ];
+
+  home-manager.users.sampaiol = import ./home.nix;
 }
