@@ -2,7 +2,7 @@
 {
     imports = [
         inputs.zen-browser.homeModules.beta
-        ./shell
+        ./terminal
     ];
     
     home = {
