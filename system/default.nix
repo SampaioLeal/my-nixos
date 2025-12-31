@@ -9,5 +9,6 @@
       ./security.nix
       ./system.nix
       ./xserver.nix
+      ./zsh.nix
     ];
 }

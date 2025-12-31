@@ -33,6 +33,7 @@
     nerd-fonts.noto
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
+    nerd-fonts.meslo-lg
     font-awesome
   ];
   

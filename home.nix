@@ -2,8 +2,7 @@
 {
     imports = [
         inputs.zen-browser.homeModules.beta
-        ./shell/kitty.nix
-        ./shell/zsh.nix
+        ./shell
     ];
     
     home = {
