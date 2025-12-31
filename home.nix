@@ -955,14 +955,15 @@
                 "nofocus on, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
                 "move 20 monitor_h-120, float, class:hyprland-run"
             ];
+
+            "plugin:dynamic-cursors" = {
+                enabled = true;
+                mode = "none";
+            };
         };
     };
 
     programs.hyprlock = {
-        enable = true;
-    };
-
-    programs.hyprpanel = {
         enable = true;
     };
 

@@ -13,6 +13,10 @@
             update = "sudo nixos-rebuild switch";
         };
 
+        initContent = ''
+            bindkey "''${key[Up]}" up-line-or-search
+        '';
+
         plugins = [
             {
                 name = "powerlevel10k-config";

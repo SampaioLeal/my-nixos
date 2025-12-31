@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {  
+  users.defaultUserShell = pkgs.zsh;
+  
   #
   # Antonio Sampaio
   #
@@ -13,7 +15,6 @@
       "docker"
     ];
 
-    packages = with pkgs; [];
     shell = pkgs.zsh;
   };
 }
