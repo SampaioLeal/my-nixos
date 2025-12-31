@@ -1,0 +1,11 @@
+- Customize waybar
+- Customize Hyprland
+- Customize Zen
+- Add more CLI and TUI tools
+- COnfigure Hyprlock
+- COnfigure Hyprshot
+- COnfigure Hypridle
+- COnfigure Hyprpaper
+- COnfigure Hyprpolkitagent
+- COnfigure Hyprsunset
+- COnfigure Flatpak

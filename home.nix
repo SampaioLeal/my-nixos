@@ -22,7 +22,6 @@
             fastfetch
             spotify
             discord
-            hyprlauncher
         ];
     };
 
