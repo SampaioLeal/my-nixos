@@ -16,7 +16,7 @@
         plugins = [
             {
                 name = "powerlevel10k-config";
-                src = "./";
+                src = ./p10k;
                 file = "p10k.zsh";
             }
         ];
