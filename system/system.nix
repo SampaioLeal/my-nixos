@@ -26,14 +26,21 @@
     git
     vim
     nano
-
     libnotify
   ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.noto
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    font-awesome
+  ];
+  
   environment.sessionVariables = {
     # Default applications
     EDITOR = "nvim";
     VISUAL = "nvim";
-    TERMINAL = "warp-terminal";
+    TERMINAL = "kitty";
     BROWSER = "zen";
 
     # XDG Base Directories

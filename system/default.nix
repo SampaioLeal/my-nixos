@@ -2,7 +2,6 @@
     imports = [
       ./bootloader.nix
       # ./flatpak.nix
-      ./hyprland.nix
       ./network.nix
       ./nvidia.nix
       ./pipewire.nix

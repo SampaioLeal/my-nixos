@@ -1,7 +1,5 @@
 { pkgs, ... }:
-{
-  home-manager.useGlobalPkgs = true;
-  
+{  
   #
   # Antonio Sampaio
   #
