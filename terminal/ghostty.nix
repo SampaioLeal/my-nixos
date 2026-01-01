@@ -13,9 +13,9 @@
       font-size = 12;
       font-family = "FiraCode Nerd Font Mono";
       font-family-bold = "FiraCode Nerd Font Mono Bold";
-      background-opacity = 0.85;
-      background-blur = 40;
-      background = "#000000";
+      background = "#ffffff";
+      background-opacity = 0.25;
+      # background-blur = 40;
 
       confirm-close-surface = false;
     };
