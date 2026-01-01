@@ -8,8 +8,8 @@
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier
     "$terminal" = "ghostty";
-    "$fileManager" = "thunar";
-    "$menu" = "hyprlauncher";
+    "$fileManager" = "nautilus";
+    "$menu" = "wofi";
 
     # https://wiki.hypr.land/Configuring/Variables/#input
     input = {
@@ -28,9 +28,6 @@
       };
     };
 
-    # See https://wiki.hypr.land/Configuring/Gestures
-    gesture = "3, horizontal, workspace";
-
     monitor = [
       "DP-3, 2560x1080@75, 0x0, 1"
       "HDMI-A-1, 2560x1080@60, 2560x-800, 1, transform, 1"
@@ -39,6 +36,7 @@
     exec-once = [
       "waybar"
       "hyprpaper"
+      "hyprlock"
     ];
 
     env = [
@@ -50,10 +48,10 @@
       gaps_in = 5;
       gaps_out = 20;
       border_size = 2;
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+      "col.active_border" = "rgb(0789ad)";
       "col.inactive_border" = "rgba(595959aa)";
-      resize_on_border = false;
-      allow_tearing = false;
+      resize_on_border = true;
+      allow_tearing = true;
       layout = "dwindle";
     };
 
@@ -62,8 +60,9 @@
       rounding_power = 2;
 
       # Change transparency of focused and unfocused windows
-      active_opacity = 1.0;
-      inactive_opacity = 1.0;
+      active_opacity = 1;
+      inactive_opacity = 0.8;
+      fullscreen_opacity = 1;
 
       shadow = {
         enabled = true;
@@ -75,9 +74,24 @@
       # https://wiki.hypr.land/Configuring/Variables/#blur
       blur = {
         enabled = true;
-        size = 3;
-        passes = 1;
-        vibrancy = 0.1696;
+
+        brightness = 0.9;
+        contrast = 1;
+        noise = 0;
+
+        vibrancy = 0.2;
+        vibrancy_darkness = 0.5;
+
+        passes = 3;
+        size = 10;
+
+        ignore_opacity = true;
+        xray = true;
+        
+        new_optimizations = true;
+
+        popups = true;
+        popups_ignorealpha = 0.2;
       };
     };
 
@@ -137,9 +151,9 @@
     bind = [
       # Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
       "$mainMod, Q, exec, $terminal"
+      "$mainMod, E, exec, $fileManager"
       "$mainMod, C, killactive,"
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
-      "$mainMod, E, exec, $fileManager"
       "$mainMod, V, togglefloating,"
       "$mainMod, R, exec, $menu"
       "$mainMod, P, pseudo," # dwindle
@@ -225,6 +239,13 @@
       "suppressevent maximize, class:^(.*)$"
       "nofocus on, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
       "move 20 monitor_h-120, float, class:hyprland-run"
+
+      "float, title:^(Picture-in-Picture)$"
+      "pin, title:^(Picture-in-Picture)$"
+
+      "dimaround on, class:^(xdg-desktop-portal-gtk)$"
+      "dimaround on, class:^(polkit-gnome-authentication-agent-1)$"
+      "dimaround on, class:^(zen)$, title:^(File Upload)$"
     ];
 
     "plugin:dynamic-cursors" = {

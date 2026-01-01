@@ -254,11 +254,7 @@ in
     #     };
     #   };
     # };
-    logind = {
-      extraConfig = ''
-        HandlePowerKey=suspend
-      '';
-    };
+
     cloudflare-warp.enable = true;
     # supergfxd.enable = true;
     # asusd = {

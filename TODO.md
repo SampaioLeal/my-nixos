@@ -15,6 +15,7 @@
 - Configurar dunst
 - Configurar TUIGreet
 - Configurar Wofi
+- Configurar tecla PrintScreen (região, salvar e copiar pra clipboard)
 - Configurar cursor (talvez um igual do mac)
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->

@@ -5,6 +5,7 @@
   ...
 }:
 {
-  programs.wofi.style = {
-  };
+  programs.wofi.style = ''
+    
+  '';
 }

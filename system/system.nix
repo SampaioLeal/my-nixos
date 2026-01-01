@@ -20,6 +20,8 @@
     };
   };
 
+  services.logind.settings.Login.HandlePowerKey = "suspend";
+
   # this is a life saver.
   # literally no documentation about this anywhere.
   # might be good to write about this...
