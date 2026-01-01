@@ -141,10 +141,6 @@
     enable = true;
   };
 
-  services.hyprpaper = {
-    enable = true;
-  };
-
   services.hyprpolkitagent = {
     enable = true;
   };
