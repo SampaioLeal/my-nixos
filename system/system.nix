@@ -15,7 +15,7 @@
     enable = true;
     settings = {
       default_session = {
-       command = "${pkgs.tuigreet}/bin/tuigreet --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --time --remember --remember-user-session --user-menu --user-menu-min-uid 1000 --asterisks --power-shutdown 'shutdown -P now' --power-reboot 'shutdown -r now'";
+        command = "${pkgs.tuigreet}/bin/tuigreet --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --time --remember --remember-user-session --user-menu --user-menu-min-uid 1000 --asterisks --power-shutdown 'shutdown -P now' --power-reboot 'shutdown -r now'";
       };
     };
   };
@@ -51,7 +51,7 @@
     nerd-fonts.meslo-lg
     font-awesome
   ];
-  
+
   environment.sessionVariables = {
     # XDG Base Directories
     XDG_CONFIG_HOME = "$HOME/.config";

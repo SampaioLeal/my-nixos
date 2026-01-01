@@ -1,4 +1,9 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 {
     imports = [
         inputs.zen-browser.homeModules.beta
@@ -54,6 +59,7 @@
             openssl
             git-graph
             hyprpicker
+      nixfmt
             
             # Multimedia
             spotify
@@ -230,8 +236,14 @@
                     };
                     "persistent-workspaces" = {
                         "*" = 10;
-                        "DP-3" = [11 12];
-                        "HDMI-A-1" = [11 12];
+            "DP-3" = [
+              11
+              12
+            ];
+            "HDMI-A-1" = [
+              11
+              12
+            ];
                     };
                 };
 
@@ -247,10 +259,10 @@
                     tooltip-format = "<tt><small>{calendar}</small></tt>";
                     format-alt = "{:L%a %d/%m/%y (%H:%M:%S)}";
                     calendar = {
-                        mode          = "month";
-                        mode-mon-col  = 3;
-                        weeks-pos     = "right";
-                        on-scroll     = 1;
+            mode = "month";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
                         format = {
                             months = "<span color='#ffead3'><b>{}</b></span>";
                             days = "<span color='#ecc6d9'><b>{}</b></span>";
@@ -337,7 +349,7 @@
                     "thermal-zone" = 7;
                     interval = 5;
                     format = "{icon}{temperatureC}°C";
-                    "format-icons" = [" "];
+          "format-icons" = [ " " ];
                     "format-alt-click" = "click-right";
                     "critical-threshold" = 80;
                     "format-critical" = " {temperatureC}°C";
@@ -385,7 +397,7 @@
 
                 "custom/power_btn" = {
                     format = "{icon}";
-                    "format-icons" = [""];
+          "format-icons" = [ "" ];
                     # "on-click" = "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown";
                     "on-click" = "wlogout --protocol layer-shell";
                     "tooltip-format" = "Opzioni di Spegnimento";
@@ -394,7 +406,7 @@
 
                 "custom/lock_screen" = {
                     format = "{icon}";        
-                    "format-icons" = [""];
+          "format-icons" = [ "" ];
                     "on-click" = "swaylock";
                     "tooltip-format" = "Schermata di Blocco";
                     tooltip = true;
@@ -409,20 +421,22 @@
                     exec = "~/.config/waybar/scripts/updates.sh";
                     "restart-interval" = 3600;
                     "on-click" = "ghostty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installaupdates.sh";
-                    "on-click-right" = "ghostty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh";
+          "on-click-right" =
+            "ghostty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh";
                     tooltip = true;
                 };
 
                 "custom/wol" = {
                     format = "{icon}";
-                    "format-icons" = [""];
+          "format-icons" = [ "" ];
                     "tooltip-format" = "Sveglia e Connetti ad Host:\n<small>{}</small>";
                     escape = true;
                     "return-type" = "json";
                     exec = "~/.config/waybar/scripts/tailscaleinfo.sh";
                     interval = 60;
                     "on-click" = "~/.config/waybar/scripts/wol.sh";
-                    "on-click-right" = "ghostty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh";
+          "on-click-right" =
+            "ghostty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh";
                     tooltip = true;
                 };
 
@@ -454,7 +468,7 @@
 
                 "custom/rofi" = {
                     format = "{icon} Cerca";
-                    "format-icons" = ["󰀻 "];
+          "format-icons" = [ "󰀻 " ];
                     "tooltip-format" = "Aplicações";
                     "on-click" = "rofi -show drun";
                 };
@@ -462,10 +476,12 @@
                 "custom/wl-gammarelay-temperature" = {
                     format = "{} {icon}";
                     format-alt = "{icon}"; 
-                    "format-icons" = [""];
+          "format-icons" = [ "" ];
                     exec = "wl-gammarelay --subscribe Temperature";
-                    "on-scroll-up" = "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100";
-                    "on-scroll-down" = "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100";
+          "on-scroll-up" =
+            "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100";
+          "on-scroll-down" =
+            "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100";
                     "tooltip-format" = "Temperatura Schermo: {} K";
                     tooltip = true;
                 };

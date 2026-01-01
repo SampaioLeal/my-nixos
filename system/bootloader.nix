@@ -15,12 +15,12 @@
       device = "nodev";
       useOSProber = true;
       extraEntries = ''
-          menuentry "Reboot" {
-              reboot
-          }
-          menuentry "Power off" {
-              halt
-          }
+        menuentry "Reboot" {
+            reboot
+        }
+        menuentry "Power off" {
+            halt
+        }
       '';
     };
   };

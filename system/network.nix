@@ -2,15 +2,15 @@
 {
   networking = {
     hostName = "workstation";
-    
+
     networkmanager.enable = true;
-    
+
     nameservers = [
       "8.8.8.8"
       "8.8.4.4"
       "1.1.1.1"
     ];
-    
+
     firewall = {
       enable = true;
       allowedTCPPorts = [
@@ -23,7 +23,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     # Network and Bluetooth
     networkmanager
     aria2

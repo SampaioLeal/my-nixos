@@ -1,7 +1,12 @@
-{ lib, pkgs, inputs, ... }:
 {
-    imports = [
-      ./ghostty.nix
-      ./zsh.nix
-    ];
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    ./ghostty.nix
+    ./zsh.nix
+  ];
 }

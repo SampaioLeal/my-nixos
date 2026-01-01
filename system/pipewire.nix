@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.pulseaudio.enable = false;
-  
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -9,11 +9,11 @@
     pulse.enable = true;
     # lowLatency.enable = true;
   };
-  
+
   hardware.alsa.enablePersistence = true;
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     playerctl
-    wiremix 
+    wiremix
   ];
 }
