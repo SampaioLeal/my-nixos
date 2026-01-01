@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {  
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.bash;
   
   #
   # Antonio Sampaio
