@@ -8,6 +8,7 @@
   imports = [
     inputs.zen-browser.homeModules.beta
     ./hyprland
+    ./notifications
     ./spotify
     ./terminal
     ./waybar
@@ -41,10 +42,6 @@
       wl-clipboard
       cliphist
       xdg-utils
-
-      # Notifications
-      dunst
-      libnotify
 
       # Developer Tools
       jq

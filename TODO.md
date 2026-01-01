@@ -3,6 +3,8 @@
 - Customizar waybar
 - Customizar Hyprland
 - Customizar Zen
+- Customizar git
+- Customizar VSCode
 - Configurar Hyprlock
 - Configurar Hyprshot
 - Configurar Hypridle
@@ -13,6 +15,10 @@
 - Configurar dunst
 - Configurar TUIGreet
 - Configurar Wofi
+
+<!-- https://mynixos.com/home-manager/options/programs.obsidian -->
+- Configurar obsidian (home-manager) 
+
 - Definir alias pro ripgrep (grep -> rg)
 - Definir alias pro bat (cat -> bat)
 - Definir alias pro gping (ping -> gping)
