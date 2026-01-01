@@ -60,7 +60,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
     XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_SCREENSHOTS_DIR = "$HOME/Imagens/Capturas de Tela";
+    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Schreenshots";
 
     # Localization
     LC_ALL = "pt_BR.UTF-8";

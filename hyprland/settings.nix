@@ -60,8 +60,8 @@
       rounding_power = 2;
 
       # Change transparency of focused and unfocused windows
-      active_opacity = 1;
-      inactive_opacity = 0.8;
+      active_opacity = 0.9;
+      inactive_opacity = 0.9;
       fullscreen_opacity = 1;
 
       shadow = {
@@ -196,6 +196,9 @@
       # Scroll through existing workspaces with mainMod + scroll
       "$mainMod, mouse_down, workspace, e+1"
       "$mainMod, mouse_up, workspace, e-1"
+
+      # Print screen
+      ", Print, exec, hyprshot -m region" 
     ];
     # ++ (
     #     # workspaces
@@ -245,7 +248,10 @@
 
       "dimaround on, class:^(xdg-desktop-portal-gtk)$"
       "dimaround on, class:^(polkit-gnome-authentication-agent-1)$"
-      "dimaround on, class:^(zen)$, title:^(File Upload)$"
+      "dimaround on, class:^(zen-beta)$, title:^(File Upload)$"
+
+      "opacity 1 override, class:com.mitchellh.ghostty"
+      "opacity 1 override, class:zen-beta"
     ];
 
     "plugin:dynamic-cursors" = {

@@ -1,21 +1,20 @@
 - OK Configurar e customizar Terminal/Shell
 - OK Adicionar mais funcionalidades pra CLI e mais ferramentas TUI
+- OK Customizar Hyprland
+- OK Configurar Hyprpaper
+- OK Configurar Hyprshot
 - Customizar waybar
-- Customizar Hyprland
 - Customizar Zen
 - Customizar git
 - Customizar VSCode
 - Configurar Hyprlock
-- Configurar Hyprshot
 - Configurar Hypridle
-- Configurar Hyprpaper
 - Configurar Hyprpolkitagent
 - Configurar Hyprsunset
 - Configurar cliphist
 - Configurar dunst
 - Configurar TUIGreet
 - Configurar Wofi
-- Configurar tecla PrintScreen (região, salvar e copiar pra clipboard)
 - Configurar cursor (talvez um igual do mac)
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->
