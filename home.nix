@@ -8,6 +8,7 @@
   imports = [
     inputs.zen-browser.homeModules.beta
     ./hyprland
+    ./launcher
     ./notifications
     ./spotify
     ./terminal

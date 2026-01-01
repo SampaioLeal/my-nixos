@@ -15,6 +15,7 @@
 - Configurar dunst
 - Configurar TUIGreet
 - Configurar Wofi
+- Configurar cursor (talvez um igual do mac)
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->
 - Configurar obsidian (home-manager) 
