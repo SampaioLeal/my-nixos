@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
     programs.zsh = {
         enable = true;
-        # enableCompletion = true;
+        enableCompletion = false;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
 
@@ -13,12 +13,21 @@
             update = "sudo nixos-rebuild switch";
         };
 
-        initContent = ''
-            # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-            #     source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-            # fi
-            bindkey "''${key[Up]}" up-line-or-search
-        '';
+        initContent = 
+            let 
+                zshConfigEarlyInit = lib.mkOrder 500 ''
+                    if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+                        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+                    fi
+                '';
+                zshConfig = lib.mkOrder 1000 ''
+                    bindkey '^[[1;5C' emacs-forward-word
+                    bindkey '^[[1;5D' emacs-backward-word
+                    bindkey '^H' backward-kill-word
+                    bindkey '^[[3;5~' kill-word
+                '';
+            in 
+                lib.mkMerge [ zshConfigEarlyInit zshConfig ];
 
         plugins = [
             {

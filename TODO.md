@@ -2,10 +2,10 @@
 - Customize Hyprland
 - Customize Zen
 - Add more CLI and TUI tools
-- COnfigure Hyprlock
-- COnfigure Hyprshot
-- COnfigure Hypridle
-- COnfigure Hyprpaper
-- COnfigure Hyprpolkitagent
-- COnfigure Hyprsunset
-- COnfigure Flatpak
+- Configure Hyprlock
+- Configure Hyprshot
+- Configure Hypridle
+- Configure Hyprpaper
+- Configure Hyprpolkitagent
+- Configure Hyprsunset
+- Configure Flatpak

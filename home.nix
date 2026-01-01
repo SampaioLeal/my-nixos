@@ -22,6 +22,7 @@
             fastfetch
             spotify
             discord
+            moreutils
         ];
     };
 
@@ -117,18 +118,12 @@
                 "hyprland/window" = {
                     format = "{}";
                     rewrite = {
-                        "(.*) - Chromium" = " $1";
-                        "(.*) - VSCodium" = "󰨞 $1";
+                        "(.*) - Zen Browser" = " $1";
+                        "(.*) - Visual Studio Code" = "󰨞 $1";
                         "(.*) - Thunar" = " $1";
                         "(.*) - Discord" = " $1";
-                        "Unity - (.*)" = " $1";
-                        "Steam" = " Steam";
-                        "WhatsDesk" = " WhatsDesk";
-                        "Kitty" = " $1";
-                        "class<org.telegram.desktop>" = " $1";
+                        "Ghostty" = " $1";
                         "class<spotify>" = " Spotify";
-                        "class<unityhub>" = " UnityHub";
-                        "class<zenity>" = "  Lenovo Vantage";
                     };
                     icon = false;
                     separate-output = true;
@@ -148,22 +143,14 @@
                     # TODO: complete
                     "window-rewrite" = { 
                         "title<.*youtube.*>" = " "; 
-                        "(.*) - Chromium" = " ";
-                        "(.*)VSCodium" = "󰨞 ";
-                        "class<Codium>" = "󰨞 ";
+                        "(.*) - Zen Browser" = " ";
+                        "(.*)Visual Studio Code" = "󰨞 ";
+                        "class<Code>" = "󰨞 ";
                         "(.*) - Thunar" = " ";
                         "class<discord>" = " ";
-                        "Steam" = " ";
-                        "class<org.telegram.desktop>" = " ";
-                        "WhatsDesk" = " ";
-                        "Kitty" = " ";
+                        "Ghostty" = " ";
                         "class<spotify>" = " ";
-                        "class<unityhub>" = " ";
-                        "class<Unity>" = " ";
-                        "class<zenity" = " ";
-                        "class<MuPDF>" = " ";
-                        "title<Aggiornamenti>" = " ";
-                        "title<Pacchetti Installati>" = " ";
+                        "class<zathura>" = " ";
                     };
                     "persistent-workspaces" = {
                         "*" = 10;
@@ -278,7 +265,7 @@
                     "format-alt-click" = "click-right";
                     "critical-threshold" = 80;
                     "format-critical" = " {temperatureC}°C";
-                    "on-click" = "kitty --title btop sh -c 'btop'";
+                    "on-click" = "ghostty --title btop sh -c 'btop'";
                     "tooltip-format" = "Temperatura CPU";
                     tooltip = true;
                 };
@@ -293,7 +280,7 @@
                     format-disconnected = "Disconnesso 󰌙";
                     format-alt = "{ifname}: {ipaddr}/{cidr}";
                     interval = 1;
-                    "on-click-right" = "kitty -e nmtui";
+                    "on-click-right" = "ghostty -e nmtui";
                     "max-length" = 30;
                 };
 
@@ -345,8 +332,8 @@
                     "return-type" = "json";
                     exec = "~/.config/waybar/scripts/updates.sh";
                     "restart-interval" = 3600;
-                    "on-click" = "kitty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installaupdates.sh";
-                    "on-click-right" = "kitty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh";
+                    "on-click" = "ghostty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installaupdates.sh";
+                    "on-click-right" = "ghostty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh";
                     tooltip = true;
                 };
 
@@ -359,7 +346,7 @@
                     exec = "~/.config/waybar/scripts/tailscaleinfo.sh";
                     interval = 60;
                     "on-click" = "~/.config/waybar/scripts/wol.sh";
-                    "on-click-right" = "kitty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh";
+                    "on-click-right" = "ghostty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh";
                     tooltip = true;
                 };
 
@@ -735,7 +722,7 @@
         ];
         settings = {
             "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier
-            "$terminal" = "kitty";
+            "$terminal" = "ghostty";
             "$fileManager" = "thunar";
             "$menu" = "hyprlauncher";
 

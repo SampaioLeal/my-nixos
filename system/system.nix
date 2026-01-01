@@ -38,12 +38,6 @@
   ];
   
   environment.sessionVariables = {
-    # Default applications
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    TERMINAL = "kitty";
-    BROWSER = "zen";
-
     # XDG Base Directories
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
