@@ -15,14 +15,90 @@
         };
 
         packages = with pkgs; [
-            zathura
-            cliphist
-            dunst
-            jq
+            # CLI Utils
             fastfetch
-            spotify
-            discord
             moreutils
+            ripgrep
+            lshw
+            appimage-run
+            tldr
+            fzf
+            bat
+            asciinema
+            asciinema-agg
+            progress
+            htop
+            btop
+            lm_sensors
+            wl-clipboard
+            cliphist
+            xdg-utils
+            
+            # Notifications
+            dunst
+            libnotify
+            
+            # Developer Tools
+            jq
+            gh
+            lazygit
+            lazydocker
+            bruno
+            bruno-cli
+            warp-terminal
+            gping
+            hyperfine
+            pastel
+            scooter
+            tokei
+            openssl
+            git-graph
+            hyprpicker
+            
+            # Multimedia
+            spotify
+            lowfi
+            zathura
+            imv
+            mpv
+            ffmpeg
+            ffmpegthumbnailer
+            imagemagick
+            
+            # Communication
+            discord
+
+            # Productivity and office
+            obsidian
+            
+            # File management and archives
+            fd
+            eza
+            yazi
+            broot
+            p7zip
+            unzip
+            zip
+            unrar
+            file-roller
+
+            # Disk Management
+            ncdu
+            duf
+            caligula
+            udiskie
+
+            # Misc
+            obs-studio
+            cmatrix
+            lolcat
+            swappy
+            asciiquarium-transparent
+            countryfetch
+            cowsay
+            figlet
+            lavat
+            bemoji
         ];
     };
 

@@ -1,11 +1,20 @@
-- Customize waybar
-- Customize Hyprland
-- Customize Zen
-- Add more CLI and TUI tools
-- Configure Hyprlock
-- Configure Hyprshot
-- Configure Hypridle
-- Configure Hyprpaper
-- Configure Hyprpolkitagent
-- Configure Hyprsunset
-- Configure Flatpak
+- OK Configurar e customizar Terminal/Shell
+- OK Adicionar mais funcionalidades pra CLI e mais ferramentas TUI
+- Customizar waybar
+- Customizar Hyprland
+- Customizar Zen
+- Configurar Hyprlock
+- Configurar Hyprshot
+- Configurar Hypridle
+- Configurar Hyprpaper
+- Configurar Hyprpolkitagent
+- Configurar Hyprsunset
+- Configurar cliphist
+- Configurar dunst
+- Configurar TUIGreet
+- Configurar Wofi
+- Definir alias pro ripgrep (grep -> rg)
+- Definir alias pro bat (cat -> bat)
+- Definir alias pro gping (ping -> gping)
+- Definir alias pro fd (find -> fd)
+- Definir alias pro fd (ls -> eza)
