@@ -14,13 +14,13 @@
     enable = true;
     settings = {
       preload = [
-        "${config.home.homeDirectory}/Pictures/Wallpapers/fazendinha.jpg"
-        "${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg"
+        "${config.home.homeDirectory}/Pictures/Wallpapers/looking-skyline-city.jpg"
+        "${config.home.homeDirectory}/Pictures/Wallpapers/the_starry_night.jpg"
       ];
 
       wallpaper = [
-        "DP-3, ${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg"
-        "HDMI-A-1, ${config.home.homeDirectory}/Pictures/Wallpapers/fazendinha.jpg"
+        "DP-3, ${config.home.homeDirectory}/Pictures/Wallpapers/looking-skyline-city.jpg"
+        "HDMI-A-1, ${config.home.homeDirectory}/Pictures/Wallpapers/the_starry_night.jpg"
       ];
     };
   };
