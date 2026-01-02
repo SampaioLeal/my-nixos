@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    inputs.zen-browser.homeModules.beta
+    ./browser
     ./hyprland
     ./launcher
     ./notifications
@@ -106,10 +106,6 @@
       lavat
       bemoji
     ];
-  };
-
-  programs.zen-browser = {
-    enable = true;
   };
 
   programs.git = {
