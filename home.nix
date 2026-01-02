@@ -87,6 +87,7 @@
       zip
       unrar
       file-roller
+      nautilus
 
       # Disk Management
       ncdu
@@ -105,7 +106,58 @@
       figlet
       lavat
       bemoji
+      gnome-calculator
     ];
+  };
+
+  # home.pointerCursor = {
+  #   package = pkgs.catppuccin-cursors.mochaPink;
+  #   name = "Catppuccin-Mocha-Pink-Cursors";
+  #   size = 40;
+  #   gtk.enable = true;
+  # };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Adwaita-dark";
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+
+    font = {
+      name = "FiraCode Nerd Font";
+      size = 10;
+    };
+
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "Adwaita-dark";
+
+  qt = {
+    enable = true;
+    platformTheme.name = "Adwaita-dark";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   programs.git = {
@@ -144,6 +196,33 @@
   services.hyprsunset = {
     enable = true;
   };
+
+  # xdg.mime = {
+  #   enable = true;
+  #   defaultApplications = {
+  #     "application/pdf" = "org.pwmt.zathura.desktop";
+  #     "application/vnd.apple.mpegurl" = "vlc.desktop";
+  #     "application/x-extension-htm" = "firefox.desktop";
+  #     "application/x-extension-html" = "firefox.desktop";
+  #     "application/x-extension-shtml" = "firefox.desktop";
+  #     "application/x-extension-xht" = "firefox.desktop";
+  #     "application/x-extension-xhtml" = "firefox.desktop";
+  #     "application/x-shellscript" = "emacsclient.desktop";
+  #     "application/xhtml+xml" = "firefox.desktop";
+  #     "audio/x-mpegurl" = "vlc.desktop";
+  #     "image/png" = "feh.desktop";
+  #     "text/*" = "emacsclient.desktop";
+  #     "text/css" = "emacsclient.desktop";
+  #     "text/html" = "firefox.desktop";
+  #     "text/markdown" = "calibre-ebook-viewer.desktop";
+  #     "text/plain" = "emacsclient.desktop";
+  #     "video/*" = "umpv.desktop";
+  #     "x-scheme-handler/chrome" = "firefox.desktop";
+  #     "x-scheme-handler/http" = "firefox.desktop";
+  #     "x-scheme-handler/https" = "firefox.desktop";
+  #     "x-scheme-handler/mpv" = "open-in-mpv.desktop";
+  #   };
+  # };
 }
 
 # https://github.com/hyprland-community/awesome-hyprland

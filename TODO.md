@@ -3,8 +3,9 @@
 - OK Customizar Hyprland
 - OK Configurar Hyprpaper
 - OK Configurar Hyprshot
+- OK Customizar Zen
+- OK Customizar tema GTK
 - Customizar waybar
-- Customizar Zen
 - Customizar git
 - Customizar VSCode
 - Configurar Hyprlock
