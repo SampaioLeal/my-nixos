@@ -37,7 +37,8 @@
     exec-once = [
       "waybar"
       "hyprpaper"
-      "hyprlock"
+      "hypridle"
+      "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
     ];
 
     env = [
@@ -88,7 +89,7 @@
 
         ignore_opacity = true;
         xray = true;
-        
+
         new_optimizations = true;
 
         popups = true;
@@ -160,6 +161,7 @@
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
       "$mainMod, V, togglefloating,"
       "$mainMod, R, exec, $menu"
+      "$mainMod, L, exec, hyprlock"
       "$mainMod, P, pseudo," # dwindle
       "$mainMod, J, togglesplit," # dwindle
 
@@ -202,7 +204,7 @@
       "$mainMod, mouse_up, workspace, e-1"
 
       # Print screen
-      ", Print, exec, hyprshot -m region" 
+      ", Print, exec, hyprshot -m region"
     ];
     # ++ (
     #     # workspaces
@@ -257,6 +259,11 @@
       "opacity 1 override, class:com.mitchellh.ghostty"
       "opacity 1 override, class:zen-beta"
     ];
+
+    misc = {
+      mouse_move_enables_dpms = true;
+      key_press_enables_dpms = true;
+    };
 
     "plugin:dynamic-cursors" = {
       enabled = true;
