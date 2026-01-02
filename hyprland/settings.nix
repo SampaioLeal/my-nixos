@@ -10,6 +10,7 @@
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
     "$menu" = "wofi";
+    "$browser" = "zen";
 
     # https://wiki.hypr.land/Configuring/Variables/#input
     input = {
@@ -152,6 +153,7 @@
       # Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
       "$mainMod, Q, exec, $terminal"
       "$mainMod, E, exec, $fileManager"
+      "$mainMod, B, exec, $browser"
       "$mainMod, C, killactive,"
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
       "$mainMod, V, togglefloating,"
