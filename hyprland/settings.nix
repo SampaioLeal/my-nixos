@@ -10,7 +10,7 @@
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
     "$menu" = "wofi";
-    "$browser" = "zen";
+    "$browser" = "zen-beta";
 
     # https://wiki.hypr.land/Configuring/Variables/#input
     input = {
@@ -136,6 +136,8 @@
     dwindle = {
       pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
       preserve_split = true; # You probably want this
+      smart_resizing = true;
+      permanent_direction_override = false;
     };
 
     # See https://wiki.hypr.land/Configuring/Master-Layout/ for more
