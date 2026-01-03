@@ -9,8 +9,8 @@
 - Customizar git
 - Customizar VSCode
 - Configurar Hyprlock
-- Configurar Hypridle
-- Configurar Hyprpolkitagent
+- Configurar Hypridle (resolver problema da hibernação)
+- Configurar gnome-polkit-agent
 - Configurar Hyprsunset
 - Configurar cliphist
 - Configurar dunst

@@ -110,6 +110,7 @@
       lavat
       bemoji
       gnome-calculator
+      polkit_gnome
     ];
   };
 
@@ -150,7 +151,7 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "Adwaita-dark";
+    platformTheme = "adwaita";
     style = {
       name = "adwaita-dark";
       package = pkgs.adwaita-qt;
