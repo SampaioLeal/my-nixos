@@ -211,6 +211,24 @@
         biomejs.biome
       ];
 
+      keybindings = [
+        {
+          key = "ctrl+d";
+          command = "-editor.action.addSelectionToNextFindMatch";
+          when = "editorFocus";
+        }
+        {
+          key = "ctrl+d";
+          command = "editor.action.deleteLines";
+          when = "textInputFocus && !editorReadonly";
+        }
+        {
+          key = "ctrl+shift+k";
+          command = "-editor.action.deleteLines";
+          when = "textInputFocus && !editorReadonly";
+        }
+      ];
+
       userSettings = {
         "files.eol" = "\n";
         "files.exclude" = {
