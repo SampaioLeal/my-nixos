@@ -39,6 +39,7 @@
     "workbench.list.smoothScrolling" = true;
     "workbench.colorTheme" = "Dracula Theme";
     "workbench.editor.empty.hint" = "hidden";
+    "workbench.secondarySideBar.defaultVisibility" = "hidden";
 
     "git.enableSmartCommit" = true;
     "git.confirmSync" = false;
