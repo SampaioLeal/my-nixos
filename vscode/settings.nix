@@ -164,6 +164,7 @@
     "github.copilot.chat.newWorkspaceCreation.enabled" = false;
     "github.copilot.nextEditSuggestions.enabled" = true;
 
+    "chat.disableAIFeatures" = true;
     "chat.tools.terminal.autoApprove" = {
       "rm" = false;
       "rmdir" = false;
