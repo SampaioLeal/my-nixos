@@ -35,6 +35,7 @@
     ];
 
     exec-once = [
+      "hyprctl setcursor macOS 24"
       "waybar"
       "hyprpaper"
       "hypridle"

@@ -12,6 +12,7 @@
     };
 
     nix-ld.enable = true;
-    nix-ld.libraries = with pkgs; [ ];
+    nix-ld.libraries = with pkgs; [
+    ];
   };
 }

@@ -5,373 +5,529 @@
   ...
 }:
 {
+  # TODO: include scripts in home
+
   programs.waybar.settings.mainBar = {
-    layer = "top";
-    position = "top";
-    mod = "dock";
-    exclusive = true;
-    passthrough = false;
-    gtk-layer-shell = true;
-    height = 30;
     output = [
       "DP-3"
       "HDMI-A-1"
     ];
+    # position = "top";
+    # exclusive = true;
+    # passthrough = false;
+    # gtk-layer-shell = true;
+    # height = 30;
+    layer = "top";
+    height = 0;
+    width = 0;
+    margin = "0";
+    spacing = 0;
+    mode = "dock";
 
     modules-left = [
-      "clock"
-      "network"
-      "bluetooth"
+      "hyprland/workspaces"
+      "custom/right_div#1"
       "hyprland/window"
     ];
     modules-center = [
-      "custom/rofi"
-      "hyprland/workspaces"
-      "group/exit"
-      "custom/wol"
-      "custom/updates"
-      "custom/github"
+      "hyprland/windowcount"
+      "custom/left_div#2"
+      "temperature"
+      "custom/left_div#3"
+      "memory"
+      "custom/left_div#4"
+      "cpu"
+      "custom/left_inv#1"
+      "custom/left_div#5"
+      "custom/distro"
+      "custom/right_div#2"
+      "custom/right_inv#1"
+      "idle_inhibitor"
+      "clock#time"
+      "custom/right_div#3"
+      "clock#date"
+      "custom/right_div#4"
+      "network"
+      "bluetooth"
+      "custom/system_update"
+      "custom/right_div#5"
     ];
     modules-right = [
-      "custom/media"
-      "group/hardware"
-      "group/audio"
+      "mpris"
+      "custom/left_div#6"
       "tray"
-      "custom/swaync"
+      "custom/left_div#7"
+      "privacy"
+      "custom/left_div#8"
+      "group/wireplumber"
+      "custom/left_inv#2"
+      "custom/power_menu"
     ];
 
-    # Group Hardware
-    "group/hardware" = {
-      orientation = "horizontal";
-      modules = [
-        "temperature"
-        "battery"
-        "power-profiles-daemon"
-        "custom/wl-gammarelay-temperature"
-        "backlight"
-      ];
+    #
+    # CPU
+    #
+
+    cpu = {
+      interval = 10;
+      format = "󰍛 {usage}%";
+      format-warning = "󰀨 {usage}%";
+      format-critical = "󰀨 {usage}%";
+      min-length = 7;
+      max-length = 7;
+      states = {
+        warning = 75;
+        critical = 90;
+      };
+      # tooltip = false;
+      tooltip-format = "CPU Usage: {usage}%";
     };
 
-    # Group IO Audio
-    "group/audio" = {
-      orientation = "horizontal";
-      modules = [
-        "pulseaudio"
-        "pulseaudio#microphone"
-      ];
+    #
+    # Clock
+    #
+
+    "clock#time" = {
+      format = "{:%H:%M}";
+      min-length = 5;
+      max-length = 5;
+      tooltip-format = "<b>Standard Time</b>: <span text_transform='lowercase'>{:%I:%M %p}</span>";
+    };
+    "clock#date" = {
+      format = "󰸗 {:%d-%m}";
+      min-length = 8;
+      max-length = 8;
+      tooltip-format = "{calendar}";
+      calendar = {
+        mode = "month";
+        mode-mon-col = 4;
+        format = {
+          months = "<span alpha='100%'><b>{}</b></span>";
+          days = "<span alpha='90%'>{}</span>";
+          weekdays = "<span alpha='80%'><i>{}</i></span>";
+          today = "<span alpha='100%'><b><u>{}</u></b></span>";
+        };
+      };
+      actions = {
+        on-click = "mode";
+      };
     };
 
-    # Group Exit
-    "group/exit" = {
+    #
+    # Bluetooth
+    #
+
+    bluetooth = {
+      format = "󰂯";
+      format-disabled = "󰂲";
+      format-off = "󰂲";
+      format-on = "󰂰";
+      format-connected = "󰂱";
+      min-length = 2;
+      max-length = 2;
+      on-click = "ghostty -e ~/.config/waybar/scripts/bluetooth.sh";
+      on-click-right = "bluetoothctl power off && notify-send 'Bluetooth Off' -i 'network-bluetooth-inactive' -h string:x-canonical-private-synchronous:bluetooth";
+      tooltip-format = "Device Addr: {device_address}";
+      tooltip-format-disabled = "Bluetooth Disabled";
+      tooltip-format-off = "Bluetooth Off";
+      tooltip-format-on = "Bluetooth Disconnected";
+      tooltip-format-connected = "Device: {device_alias}";
+      tooltip-format-enumerate-connected = "Device: {device_alias}";
+      tooltip-format-connected-battery = "Device: {device_alias}\nBattery: {device_battery_percentage}%";
+      tooltip-format-enumerate-connected-battery = "Device: {device_alias}\nBattery: {device_battery_percentage}%";
+    };
+
+    #
+    # Idle Inhibitor
+    #
+
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        activated = "󰈈";
+        deactivated = "󰈉";
+      };
+      min-length = 3;
+      max-length = 3;
+      tooltip-format-activated = "<b>Idle Inhibitor</b>: Activated";
+      tooltip-format-deactivated = "<b>Idle Inhibitor</b>: Deactivated";
+      start-activated = false;
+    };
+
+    #
+    # Memory
+    #
+
+    memory = {
+      interval = 10;
+      format = "󰘚 {percentage}%";
+      format-warning = "󰀧 {percentage}%";
+      format-critical = "󰀧 {percentage}%";
+      states = {
+        warning = 75;
+        critical = 90;
+      };
+      min-length = 7;
+      max-length = 7;
+      tooltip-format = "Memory Used: {used:0.0f}/{total:0.0f} GB";
+    };
+
+    #
+    # Multimedia
+    #
+
+    mpris = {
+      format = "{player_icon} {title} - {artist}";
+      format-paused = "{status_icon} {title} - {artist}";
+      tooltip-format = "Playing: {title} - {artist}";
+      tooltip-format-paused = "Paused: {title} - {artist}";
+      player-icons = {
+        default = "󰐊";
+        spotify = "";
+      };
+      status-icons = {
+        paused = "󰏤";
+      };
+      max-length = 1000;
+    };
+
+    #
+    # Network
+    #
+
+    network = {
+      interval = 10;
+      format = "󰤨";
+      format-ethernet = "󰈀";
+      format-wifi = "{icon}";
+      format-disconnected = "󰤯";
+      format-disabled = "󰤮";
+      format-icons = [
+        "󰤟"
+        "󰤢"
+        "󰤥"
+        "󰤨"
+      ];
+      min-length = 2;
+      max-length = 2;
+      # on-click = "ghostty -e ~/.config/waybar/scripts/network.sh";
+      # on-click-right = "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -i 'network-wireless-off' -h string:x-canonical-private-synchronous:network";
+      tooltip-format = "<b>Gateway</b>: {gwaddr}";
+      tooltip-format-ethernet = "<b>Interface</b>: {ifname}";
+      tooltip-format-wifi = "<b>Network</b>: {essid}\n<b>IP Addr</b>: {ipaddr}/{cidr}\n<b>Strength</b>: {signalStrength}%\n<b>Frequency</b>: {frequency} GHz";
+      tooltip-format-disconnected = "Wi-Fi Disconnected";
+      tooltip-format-disabled = "Wi-Fi Disabled";
+    };
+
+    #
+    # Wireplumber
+    #
+
+    "group/wireplumber" = {
       orientation = "horizontal";
       modules = [
-        "custom/power_btn"
-        "custom/lock_screen"
+        "wireplumber#output"
+        "wireplumber#input"
       ];
+      drawer = {
+        transition-left-to-right = false;
+      };
     };
+    "wireplumber#output" = {
+      format = "{icon} {volume}%";
+      format-muted = "󰝟 {volume}%";
+      format-icons = [
+        "󰕿"
+        "󰖀"
+        "󰕾"
+      ];
+      min-length = 7;
+      max-length = 7;
+      on-click = "~/.config/waybar/scripts/volume.sh output mute";
+      on-scroll-up = "~/.config/waybar/scripts/volume.sh output raise";
+      on-scroll-down = "~/.config/waybar/scripts/volume.sh output lower";
+      tooltip-format = "Device: {node_name}";
+      node-type = "Audio/Sink";
+    };
+    "wireplumber#input" = {
+      format = "󰍬 {volume}%";
+      format-muted = "󰍭 {volume}%";
+      min-length = 7;
+      max-length = 7;
+      on-click = "~/.config/waybar/scripts/volume.sh input mute";
+      on-scroll-up = "~/.config/waybar/scripts/volume.sh input raise";
+      on-scroll-down = "~/.config/waybar/scripts/volume.sh input lower";
+      tooltip-format = "Device: {node_name}";
+      node-type = "Audio/Source";
+    };
+
+    #
+    # PulseAudio
+    #
+
+    # "group/pulseaudio" = {
+    #   orientation = "horizontal";
+    #   modules = [
+    #     "pulseaudio#output"
+    #     "pulseaudio#input"
+    #   ];
+    #   drawer = {
+    #     transition-left-to-right = false;
+    #   };
+    # };
+    # "pulseaudio#output" = {
+    #   format = "{icon} {volume}%";
+    #   format-muted = "{icon} {volume}%";
+    #   format-icons = {
+    #     default = [
+    #       "󰕿"
+    #       "󰖀"
+    #       "󰕾"
+    #     ];
+    #     default-muted = "󰝟";
+    #     headphone = "󰋋";
+    #     headphone-muted = "󰟎";
+    #     headset = "󰋎";
+    #     headset-muted = "󰋐";
+    #   };
+    #   min-length = 7;
+    #   max-length = 7;
+    #   on-click = "~/.config/waybar/scripts/volume.sh output mute";
+    #   on-scroll-up = "~/.config/waybar/scripts/volume.sh output raise";
+    #   on-scroll-down = "~/.config/waybar/scripts/volume.sh output lower";
+    #   tooltip-format = "<b>Output Device</b>: {desc}";
+    # };
+    # "pulseaudio#input" = {
+    #   format = "{format_source}";
+    #   format-source = "󰍬 {volume}%";
+    #   format-source-muted = "󰍭 {volume}%";
+    #   min-length = 7;
+    #   max-length = 7;
+    #   on-click = "~/.config/waybar/scripts/volume.sh input mute";
+    #   on-scroll-up = "~/.config/waybar/scripts/volume.sh input raise";
+    #   on-scroll-down = "~/.config/waybar/scripts/volume.sh input lower";
+    #   tooltip-format = "<b>Input Device</b>: {desc}";
+    # };
+
+    #
+    # Temperature
+    #
+
+    temperature = {
+      # thermal-zone = 0;
+      hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+      critical-threshold = 90;
+      interval = 10;
+      format-critical = "󰀦 {temperatureC}°C";
+      format = "{icon} {temperatureC}°C";
+      format-icons = [
+        "󱃃"
+        "󰔏"
+        "󱃂"
+      ];
+      min-length = 8;
+      max-length = 8;
+      tooltip-format = "Fahrenheit: {temperatureF}°F";
+    };
+
+    #
+    # Distro
+    #
+
+    "custom/distro" = {
+      format = "";
+      tooltip = false;
+      on-click = "xdg-open https://mynixos.com/";
+    };
+
+    #
+    # Power Menu
+    #
+
+    "custom/power_menu" = {
+      format = "󰤄";
+      on-click = "ghostty -e ~/.config/waybar/scripts/power-menu.sh";
+      tooltip-format = "Power Menu";
+    };
+
+    #
+    # System Update
+    #
+
+    "custom/system_update" = {
+      # https://nlewo.github.io/nixos-manual-sphinx/installation/upgrading.xml.html
+      # exec = "~/.config/waybar/scripts/system-update.sh module";
+      return-type = "json";
+      interval = 3600;
+      signal = 1;
+      format = "{}";
+      min-length = 2;
+      max-length = 2;
+      # on-click = "ghostty -e ~/.config/waybar/scripts/system-update.sh";
+      on-click-right = "pkill -RTMIN+1 waybar";
+    };
+
+    #
+    # Tray
+    #
+    # Style
+    # #tray
+    # #tray menu for the context menu
+    # #tray > .passive for icons with status Passive
+    # #tray > .active for icons with status Active
+    # #tray > .needs-attention for icons with status NeedsAttention
+
+    tray = {
+      icon-size = 16;
+      spacing = 12;
+      cursor = true;
+    };
+
+    #
+    # Hyprland
+    #
 
     "hyprland/window" = {
       format = "{}";
       rewrite = {
-        "(.*) - Zen Browser" = " $1";
-        "(.*) - Visual Studio Code" = "󰨞 $1";
-        "(.*) - Thunar" = " $1";
-        "(.*) - Discord" = " $1";
-        "Ghostty" = " $1";
-        "class<spotify>" = " Spotify";
+        "" = "Desktop";
+        kitty = "Terminal";
+        zsh = "Terminal";
+        "~" = "Terminal";
       };
-      icon = false;
-      separate-output = true;
+      swap-icon-label = false;
     };
-
+    "hyprland/windowcount" = {
+      format = "[{}]";
+      swap-icon-label = false;
+    };
     "hyprland/workspaces" = {
-      "disable-scroll" = true;
-      "active-only" = false;
-      "all-outputs" = true;
-      "on-click" = "activate";
-      format = "{name}{icon}{windows}";
-      "format-icons" = {
-        "urgent" = "  ";
-        "default" = " ";
-        "empty" = "";
+      format = "{icon}";
+      format-icons = {
+        active = "";
+        default = "";
       };
-      # TODO: complete
-      "window-rewrite" = {
-        "title<.*youtube.*>" = " ";
-        "(.*) - Zen Browser" = " ";
-        "(.*)Visual Studio Code" = "󰨞 ";
-        "class<Code>" = "󰨞 ";
-        "(.*) - Thunar" = " ";
-        "class<discord>" = " ";
-        "Ghostty" = " ";
-        "class<spotify>" = " ";
-        "class<zathura>" = " ";
+      persistent-workspaces = {
+        "*" = 5;
       };
-      "persistent-workspaces" = {
-        "*" = 10;
-        "DP-3" = [
-          11
-          12
-        ];
-        "HDMI-A-1" = [
-          11
-          12
-        ];
+      workspace-taskbar = {
       };
+      on-scroll-up = "hyprctl dispatch workspace +1";
+      on-scroll-down = "hyprctl dispatch workspace -1";
+      cursor = true;
     };
 
-    tray = {
-      icon-size = 16;
-      spacing = 10;
-    };
+    #
+    # Privacy
+    #
+    # Styles:
+    # #privacy
+    # #privacy-item
+    # #privacy-item.screenshare
+    # #privacy-item.audio-in
+    # #privacy-item.audio-out
 
-    clock = {
-      interval = 1;
-      format = "{:%H:%M:%S}";
-      locale = "pt_BR.UTF-8";
-      tooltip-format = "<tt><small>{calendar}</small></tt>";
-      format-alt = "{:L%a %d/%m/%y (%H:%M:%S)}";
-      calendar = {
-        mode = "month";
-        mode-mon-col = 3;
-        weeks-pos = "right";
-        on-scroll = 1;
-        format = {
-          months = "<span color='#ffead3'><b>{}</b></span>";
-          days = "<span color='#ecc6d9'><b>{}</b></span>";
-          weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-          weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-          today = "<span color='#ff6699'><b><u>{}</u></b></span>";
-        };
-      };
-    };
-
-    "backlight" = {
-      "device" = "intel_backlight";
-      format = "{icon} {percent}%";
-      "format-icons" = [
-        "󰃞"
-        "󰃟"
-        "󰃠"
+    privacy = {
+      icon-spacing = 4;
+      icon-size = 18;
+      transition-duration = 250;
+      modules = [
+        {
+          type = "screenshare";
+          tooltip = true;
+          tooltip-icon-size = 24;
+        }
+        {
+          type = "audio-out";
+          tooltip = true;
+          tooltip-icon-size = 24;
+        }
+        {
+          type = "audio-in";
+          tooltip = true;
+          tooltip-icon-size = 24;
+        }
       ];
-      "on-scroll-up" = "brightnessctl set 1%+";
-      "on-scroll-down" = "brightnessctl set 1%-";
-      "tooltip-format" = "Luminosità";
-      tooltip = true;
-    };
-
-    "battery" = {
-      "states" = {
-        "good" = 75;
-        "warning" = 35;
-        "critical" = 20;
-      };
-      format = "{icon} {capacity}%";
-      format-charging = " {capacity}%";
-      format-plugged = " {capacity}%";
-      format-alt = "{time} {icon}";
-      "format-icons" = [
-        "󰂎"
-        "󰁺"
-        "󰁻"
-        "󰁼"
-        "󰁽"
-        "󰁾"
-        "󰁿"
-        "󰂀"
-        "󰂁"
-        "󰂂"
-        "󰁹"
+      ignore-monitor = true;
+      ignore = [
+        {
+          type = "audio-in";
+          name = "cava";
+        }
+        {
+          type = "screenshare";
+          name = "obs";
+        }
       ];
     };
 
-    "pulseaudio" = {
-      format = "{icon} {volume}%";
-      tooltip = true;
-      "format-muted" = "";
-      "on-click" = "pamixer -t";
-      "on-scroll-up" = "pamixer -i 5";
-      "on-scroll-down" = "pamixer -d 5";
-      "scroll-step" = 5;
-      "format-icons" = {
-        "headphone" = "";
-        "hands-free" = "";
-        "headset" = "";
-        "phone" = "";
-        "portable" = "";
-        "car" = "";
-        "default" = [
-          ""
-          ""
-          ""
-        ];
-      };
-    };
+    #
+    # Dividers
+    #
 
-    "pulseaudio#microphone" = {
-      format = "{format_source}";
-      "format-source" = " {volume}%";
-      "format-source-muted" = " ";
-      "on-click" = "pamixer --default-source -t";
-      "on-scroll-up" = "pamixer --default-source -i 5";
-      "on-scroll-down" = "pamixer --default-source -d 5";
-      "scroll-step" = 5;
-    };
-
-    "temperature" = {
-      "thermal-zone" = 7;
-      interval = 5;
-      format = "{icon}{temperatureC}°C";
-      "format-icons" = [ " " ];
-      "format-alt-click" = "click-right";
-      "critical-threshold" = 80;
-      "format-critical" = " {temperatureC}°C";
-      "on-click" = "ghostty --title btop sh -c 'btop'";
-      "tooltip-format" = "Temperatura CPU";
-      tooltip = true;
-    };
-
-    "network" = {
-      # "interface": "wlp2*"; // (Optional) To force the use of this interface
-      # internet speed: "
-      format-wifi = "{essid} ({signalStrength}%)  ";
-      format-ethernet = "{ipaddr}/{cidr} ";
-      tooltip-format = "{ifname}: via {gwaddr} \uea9a\n<small>down/up:  {bandwidthDownBytes}   {bandwidthUpBytes}</small>";
-      format-linked = "{ifname} (No IP) ";
-      format-disconnected = "Disconnesso 󰌙";
-      format-alt = "{ifname}: {ipaddr}/{cidr}";
-      interval = 1;
-      "on-click-right" = "ghostty -e nmtui";
-      "max-length" = 30;
-    };
-
-    "bluetooth" = {
-      format = "  ";
-      "format-disabled" = "  ";
-      "format-connected" = " {num_connections}";
-      "tooltip-format" = "{device_alias}";
-      "tooltip-format-connected" = " {device_enumerate}";
-      "tooltip-format-enumerate-connected" = "{device_alias}";
-      "on-click" = "rfkill toggle bluetooth";
-      "on-click-right" = "blueman-manager";
-    };
-
-    "power-profiles-daemon" = {
-      format = "{icon} ";
-      "tooltip-format" = "Opzione di Risparmio: {profile}\nDriver: {driver}";
-      tooltip = true;
-      "format-icons" = {
-        "default" = "";
-        "performance" = "";
-        "balanced" = "";
-        "power-saver" = "";
-      };
-    };
-
-    "custom/power_btn" = {
-      format = "{icon}";
-      "format-icons" = [ "" ];
-      # "on-click" = "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown";
-      "on-click" = "wlogout --protocol layer-shell";
-      "tooltip-format" = "Opzioni di Spegnimento";
-      tooltip = true;
-    };
-
-    "custom/lock_screen" = {
-      format = "{icon}";
-      "format-icons" = [ "" ];
-      "on-click" = "swaylock";
-      "tooltip-format" = "Schermata di Blocco";
-      tooltip = true;
-    };
-
-    "custom/updates" = {
-      # format = " {}";
-      format = " {}";
-      # "tooltip-format" = "Aggiorna il Sistema\n<small>Pacchetti: {}</small>";
-      escape = true;
-      "return-type" = "json";
-      exec = "~/.config/waybar/scripts/updates.sh";
-      "restart-interval" = 3600;
-      "on-click" = "ghostty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installaupdates.sh";
-      "on-click-right" =
-        "ghostty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh";
-      tooltip = true;
-    };
-
-    "custom/wol" = {
-      format = "{icon}";
-      "format-icons" = [ "" ];
-      "tooltip-format" = "Sveglia e Connetti ad Host:\n<small>{}</small>";
-      escape = true;
-      "return-type" = "json";
-      exec = "~/.config/waybar/scripts/tailscaleinfo.sh";
-      interval = 60;
-      "on-click" = "~/.config/waybar/scripts/wol.sh";
-      "on-click-right" =
-        "ghostty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh";
-      tooltip = true;
-    };
-
-    "custom/swaync" = {
-      format = "{icon}";
-      "format-icons" = {
-        "notification" = "<span foreground='red'><small><sup>⬤</sup></small></span>";
-        "none" = " ";
-        "dnd-notification" = "<span foreground='red'><small><sup>⬤</sup></small></span>";
-        "dnd-none" = " ";
-      };
-      "return-type" = "json";
-      "exec-if" = "which swaync-client";
-      exec = "swaync-client -swb";
-      "on-click" = "sleep 0.1 && swaync-client -t -sw";
-      escape = true;
+    "custom/left_div#1" = {
+      format = "";
       tooltip = false;
     };
-
-    "custom/github" = {
-      format = " {}";
-      "tooltip-format" = "Notifiche GitHub";
-      "return-type" = "json";
-      interval = 60;
-      exec = "~/.config/waybar/scripts/github.sh";
-      "on-click" = "xdg-open https://github.com/notifications";
-      tooltip = true;
+    "custom/left_div#2" = {
+      format = "";
+      tooltip = false;
     };
-
-    "custom/rofi" = {
-      format = "{icon} Cerca";
-      "format-icons" = [ "󰀻 " ];
-      "tooltip-format" = "Aplicações";
-      "on-click" = "rofi -show drun";
+    "custom/left_div#3" = {
+      format = "";
+      tooltip = false;
     };
-
-    "custom/wl-gammarelay-temperature" = {
-      format = "{} {icon}";
-      format-alt = "{icon}";
-      "format-icons" = [ "" ];
-      exec = "wl-gammarelay --subscribe Temperature";
-      "on-scroll-up" =
-        "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100";
-      "on-scroll-down" =
-        "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100";
-      "tooltip-format" = "Temperatura Schermo: {} K";
-      tooltip = true;
+    "custom/left_div#4" = {
+      format = "";
+      tooltip = false;
     };
-
-    "custom/media" = {
-      format = "{}";
-      escape = true;
-      "return-type" = "json";
-      "max-length" = 40;
-      "on-click" = "playerctl play-pause";
-      "on-click-right" = "playerctl stop";
-      "smooth-scrolling-threshold" = 10; # This value was tested using a trackpad, it should be lowered if using a mouse.
-      "on-scroll-up" = "playerctl next";
-      "on-scroll-down" = "playerctl previous";
-      exec = "~/.config/waybar/scripts/mediaplayer.py"; # Script in resources/custom_modules folder
-      tooltip = true;
-      "tooltip-format" = "{}";
+    "custom/left_div#5" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/left_div#6" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/left_div#7" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/left_div#8" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/left_inv#1" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/left_inv#2" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/right_div#1" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/right_div#2" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/right_div#3" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/right_div#4" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/right_div#5" = {
+      format = "";
+      tooltip = false;
+    };
+    "custom/right_inv#1" = {
+      format = "";
+      tooltip = false;
     };
   };
 }

@@ -8,7 +8,13 @@
         "flakes"
       ];
     };
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 30d";
+    };
   };
+
   nixpkgs.config.allowUnfree = true;
 
   services.greetd = {
@@ -87,6 +93,9 @@
 
   console.keyMap = "br-abnt2";
 
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+  };
   system.stateVersion = "25.11";
 }

@@ -99,6 +99,11 @@
       caligula
       udiskie
 
+      # Cursors
+      apple-cursor
+      whitesur-cursors
+      bibata-cursors
+      
       # Misc
       obs-studio
       cmatrix
@@ -112,19 +117,16 @@
       bemoji
       gnome-calculator
       polkit_gnome
+      nwg-look
+      bluez
+      cava
     ];
   };
-
-  # home.pointerCursor = {
-  #   package = pkgs.catppuccin-cursors.mochaPink;
-  #   name = "Catppuccin-Mocha-Pink-Cursors";
-  #   size = 40;
-  #   gtk.enable = true;
-  # };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       gtk-theme = "Adwaita-dark";
+      cursor-theme = "macOS";
       color-scheme = "prefer-dark";
     };
   };
