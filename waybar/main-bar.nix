@@ -188,7 +188,7 @@
       status-icons = {
         paused = "󰏤";
       };
-      max-length = 1000;
+      max-length = 40;
     };
 
     #
@@ -390,8 +390,10 @@
     "hyprland/window" = {
       format = "{}";
       rewrite = {
+        # TODO: fix this
         "" = "Desktop";
-        kitty = "Terminal";
+        zen-beta = "Zen Browser";
+        ghostty = "Terminal";
         zsh = "Terminal";
         "~" = "Terminal";
       };
