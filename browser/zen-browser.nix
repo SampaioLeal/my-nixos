@@ -102,7 +102,7 @@
             container = containers.Personal.id;
             theme = {
               type = "gradient";
-              opacity = 0.7;
+              opacity = 0.8;
               texture = 0.0;
               colors = [
                 {
@@ -125,15 +125,15 @@
               type = "gradient";
               colors = [
                 {
-                  red = 4;
-                  green = 99;
-                  blue = 125;
+                  red = 10;
+                  green = 10;
+                  blue = 10;
                   algorithm = "floating";
                   type = "explicit-lightness";
                 }
               ];
-              opacity = 0.2;
-              texture = 0.5;
+              opacity = 0.7;
+              texture = 0.0;
             };
           };
         };
