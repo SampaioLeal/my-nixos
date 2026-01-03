@@ -61,6 +61,9 @@
       git-graph
       hyprpicker
       nixfmt
+      dnsutils
+      nmap
+      rdap
 
       # Multimedia
       lowfi
