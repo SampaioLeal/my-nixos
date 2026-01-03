@@ -209,31 +209,18 @@
       };
 
       listener = [
-        # {
-        #   # monitor backlight restore.
-        #   timeout = 150; # 2.5min.
-        #   on-timeout = "brightnessctl -s set 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-        #   on-resume = "brightnessctl -r";
-        # }
-        # {
-        #   # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
-        #   timeout = 150; # 2.5min.
-        #   on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0"; # turn off keyboard backlight.
-        #   on-resume = "brightnessctl -rd rgb:kbd_backlight"; # turn on keyboard backlight.
-        # }
         {
-          timeout = 600; # 10min
-          on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
+          timeout = 600;
+          on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 900; # 15min
-          on-timeout = "hyprctl dispatch dpms off"; # screen off when timeout has passed
-          on-resume = "hyprctl dispatch dpms on"; # screen on when activity is detected after timeout has fired.
+          timeout = 900;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
         }
         {
-          # TODO: fix this
-          timeout = 3600; # 30min
-          on-timeout = "systemctl suspend"; # suspend pc
+          timeout = 3600;
+          on-timeout = "systemctl suspend";
         }
       ];
     };
