@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./keybindings.nix
@@ -18,7 +19,6 @@
         jnoortheen.nix-ide
         pkief.material-icon-theme
         prisma.prisma
-        opentofu.vscode-opentofu
         mikestead.dotenv
         mhutchie.git-graph
         hashicorp.terraform
