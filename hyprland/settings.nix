@@ -162,7 +162,7 @@
       "$mainMod, C, killactive,"
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
       "$mainMod, V, togglefloating,"
-      "$mainMod, R, exec, rofi --show drun"
+      "$mainMod, R, exec, rofi"
       "$mainMod, L, exec, hyprlock"
       "$mainMod, P, pseudo," # dwindle
       "$mainMod, J, togglesplit," # dwindle

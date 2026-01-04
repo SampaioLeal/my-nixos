@@ -5,23 +5,24 @@
   ...
 }:
 {
-  home.file."${config.xdg.configHome}/rofi" = {
-    source = ./configs;
+  home.file."${config.xdg.configHome}/rofi/themes" = {
+    source = ./themes;
   };
 
   programs.rofi = {
     enable = true;
-    font = "FiraCode Nerd Font 12";
-    location = "center";
+
+    plugins = with pkgs; [
+      rofi-emoji
+      rofi-calc
+    ];
     modes = [
       "drun"
       "emoji"
-    ];
-    plugins = with pkgs; [
-      rofi-emoji
+      "calc"
     ];
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
-    configPath = "${config.home.homeDirectory}/rofi/config.rasi";
+    theme = "${config.home.homeDirectory}/rofi/themes/dracula.rasi"
   };
 }
