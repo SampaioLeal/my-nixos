@@ -127,8 +127,6 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      gtk-theme = "Adwaita-dark";
-      cursor-theme = "macOS";
       color-scheme = "prefer-dark";
     };
   };
@@ -149,6 +147,11 @@
     iconTheme = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
+    };
+
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      size = 28;
     };
   };
 

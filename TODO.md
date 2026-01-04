@@ -6,7 +6,7 @@
 - Configurar Hyprlock
 - Customizar waybar
 - Configurar GRUB
-- Configurar apps para abrir sem XWayland (problema dos cursores)
+- Configurar greetd para desbloquear o keyring
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->
 - Configurar obsidian (home-manager) 

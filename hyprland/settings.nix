@@ -34,16 +34,18 @@
     ];
 
     exec-once = [
-      "hyprctl setcursor macOS 24"
       "waybar"
       "hyprpaper"
       "hypridle"
       "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
     ];
 
+# TODO: add cursor name and size to configs/global variables
     env = [
-      "XCURSOR_SIZE,24"
-      "HYPRCURSOR_SIZE,24"
+      "XCURSOR_THEME,Bibata-Modern-Classic"
+      "XCURSOR_SIZE,28"
+      "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+      "HYPRCURSOR_SIZE,28"
     ];
 
     general = {
@@ -163,12 +165,12 @@
       "$mainMod, C, killactive,"
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
       "$mainMod, V, togglefloating,"
-      
+
       # Rofi Launcher
       # TODO: maybe i can make something like omarchy walker menu
       "$mainMod, R, exec, rofi -show drun"
       "$mainMod, code:60, exec, rofi -show emoji"
-      
+
       "$mainMod, L, exec, hyprlock"
       "$mainMod, P, pseudo," # dwindle
       "$mainMod, J, togglesplit," # dwindle
