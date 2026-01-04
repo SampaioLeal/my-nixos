@@ -25,42 +25,43 @@
     mode = "dock";
 
     modules-left = [
+      "custom/left_div#1"
       "hyprland/workspaces"
       "custom/right_div#1"
       "hyprland/window"
     ];
     modules-center = [
       "hyprland/windowcount"
-      "custom/left_div#2"
+      "custom/left_div#1"
       "temperature"
-      "custom/left_div#3"
+      "custom/left_div#2"
       "memory"
-      "custom/left_div#4"
+      "custom/left_div#3"
       "cpu"
       "custom/left_inv#1"
-      "custom/left_div#5"
+      "custom/left_div#4"
       "custom/distro"
-      "custom/right_div#2"
+      "custom/right_div#4"
       "custom/right_inv#1"
       "idle_inhibitor"
       "clock#time"
       "custom/right_div#3"
       "clock#date"
-      "custom/right_div#4"
+      "custom/right_div#2"
       "network"
       "bluetooth"
       "custom/system_update"
-      "custom/right_div#5"
+      "custom/right_div#1"
     ];
     modules-right = [
       "mpris"
-      "custom/left_div#6"
+      "custom/left_div#1"
       "tray"
-      "custom/left_div#7"
+      "custom/left_div#2"
       "privacy"
-      "custom/left_div#8"
+      "custom/left_div#3"
       "group/wireplumber"
-      "custom/left_inv#2"
+      "custom/left_inv#1"
       "custom/power_menu"
     ];
 
@@ -471,6 +472,7 @@
       format = "";
       tooltip = false;
     };
+
     "custom/left_div#2" = {
       format = "";
       tooltip = false;
@@ -503,10 +505,7 @@
       format = "";
       tooltip = false;
     };
-    "custom/left_inv#2" = {
-      format = "";
-      tooltip = false;
-    };
+    
     "custom/right_div#1" = {
       format = "";
       tooltip = false;

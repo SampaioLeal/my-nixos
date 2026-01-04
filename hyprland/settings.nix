@@ -251,6 +251,10 @@
       ", XF86AudioPrev, exec, playerctl previous"
     ];
 
+    layerrule = [
+      "blur, waybar"
+    ];
+
     windowrule = [
       # Ignore maximize requests from all apps. You'll probably like this.
       "suppressevent maximize, class:^(.*)$"
