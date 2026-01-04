@@ -1,17 +1,4 @@
-# TODO: adapt to wireplumber
-# https://wiki.archlinux.org/title/WirePlumber#Keyboard_volume_control
-
 #!/usr/bin/env bash
-#
-# Adjust default device volume and send a notification with the current level
-#
-# Requirements:
-# 	wpctl (wireplumber)
-# 	notify-send (libnotify)
-#
-# Author:  Jesse Mirabel <sejjymvm@gmail.com>
-# Date:    September 07, 2025
-# License: MIT
 
 VALUE=1
 MIN=0
@@ -46,13 +33,9 @@ usage() {
 	exit 1
 }
 
-pactl() {
-	command pactl "$1" "$d_default" "${@:2}"
-}
-
 get-state() {
 	local state
-	state=$(pactl "get-$d_state" | awk '{print $2}')
+	state=$(wpctl "get-$d_state" | awk '{print $2}')
 
 	case $state in
 		"yes") printf "Muted" ;;
@@ -61,14 +44,15 @@ get-state() {
 }
 
 get-volume() {
-	pactl "get-$d_volume" | awk '{print $5}' | tr -d "%"
+	volume=$(wpctl get-volume $d_default | awk '{print $2}')
+	echo "$volume * $MAX / 1" | bc
 }
 
 get-icon() {
 	local state level new_level
 	state=$(get-state)
 	level=$(get-volume)
-	new_level=${1:-$level}
+	new_level=$level
 
 	if [[ $state == "Muted" ]]; then
 		printf "%s" "$n_icon-muted"
@@ -84,26 +68,28 @@ get-icon() {
 }
 
 set-volume() {
-	local level new_level
+	local level new_level_int new_level_float
 	level=$(get-volume)
 
 	case $action in
 		"raise")
-			new_level=$((level + value))
-			((new_level > MAX)) && new_level=$MAX
+			new_level_int=$(echo "$level + $value" | bc)
+			((new_level_int > MAX)) && exit 0
+			new_level_float=$(awk "BEGIN { printf $new_level_int / $MAX }")
 			;;
 		"lower")
-			new_level=$((level - value))
-			((new_level < MIN)) && new_level=$MIN
+			new_level_int=$(echo "$level - $value" | bc)
+			((new_level_int < MIN)) && exit 0
+			new_level_float=$(awk "BEGIN { printf $new_level_int / $MAX }")
 			;;
 	esac
 
-	pactl "set-$d_volume" "${new_level}%"
+	wpctl set-volume $d_default $new_level_float
 
 	local icon
-	icon=$(get-icon "$new_level")
+	icon=$(get-icon)
 
-	notify-send "$n_name: ${new_level}%" -h int:value:$new_level -i "$icon" \
+	notify-send "$n_name: $new_level_int" -h int:value:$new_level_int -i "$icon" \
 		-h string:x-canonical-private-synchronous:volume
 }
 
@@ -116,16 +102,14 @@ main() {
 
 	case $device in
 		"input")
-			d_default="@DEFAULT_SOURCE@"
-			d_state="source-mute"
-			d_volume="source-volume"
+			d_default="@DEFAULT_AUDIO_SOURCE@"
+			d_state="mute"
 			n_icon="mic-volume"
 			n_name="Microphone"
 			;;
 		"output")
-			d_default="@DEFAULT_SINK@"
-			d_state="sink-mute"
-			d_volume="sink-volume"
+			d_default="@DEFAULT_AUDIO_SINK@"
+			d_state="mute"
 			n_icon="audio-volume"
 			n_name="Volume"
 			;;
@@ -134,7 +118,7 @@ main() {
 
 	case $action in
 		"mute")
-			pactl "set-$d_state" toggle
+			wpctl "set-$d_state" toggle
 
 			local state icon
 			state=$(get-state)

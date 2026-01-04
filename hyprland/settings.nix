@@ -40,7 +40,7 @@
       "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
     ];
 
-# TODO: add cursor name and size to configs/global variables
+    # TODO: add cursor name and size to configs/global variables
     env = [
       "XCURSOR_THEME,Bibata-Modern-Classic"
       "XCURSOR_SIZE,28"

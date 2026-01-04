@@ -46,6 +46,7 @@
       wl-clipboard
       cliphist
       xdg-utils
+      bc
 
       # Developer Tools
       jq
