@@ -159,10 +159,16 @@
       "$mainMod, Q, exec, $terminal"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, B, exec, $browser"
+      "$mainMod, S, exec, spotify"
       "$mainMod, C, killactive,"
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
       "$mainMod, V, togglefloating,"
-      "$mainMod, R, exec, rofi"
+      
+      # Rofi Launcher
+      # TODO: maybe i can make something like omarchy walker menu
+      "$mainMod, R, exec, rofi -show drun"
+      "$mainMod, code:60, exec, rofi -show emoji"
+      
       "$mainMod, L, exec, hyprlock"
       "$mainMod, P, pseudo," # dwindle
       "$mainMod, J, togglesplit," # dwindle

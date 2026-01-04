@@ -23,6 +23,6 @@
     ];
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
-    theme = "${config.home.homeDirectory}/rofi/themes/dracula.rasi";
+    theme = "${config.xdg.configHome}/rofi/themes/dracula.rasi";
   };
 }
