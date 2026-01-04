@@ -5,12 +5,11 @@
   ...
 }:
 {
-  programs.wofi = {
+  programs.rofi = {
     enable = true;
   };
-  
+
   imports = [
     ./settings.nix
-    ./style.nix
   ];
 }

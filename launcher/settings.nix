@@ -5,10 +5,15 @@
   ...
 }:
 {
-  programs.wofi.settings = {
-    mode = "drun,run";
-    width = "50%";
-    height = "40%";
-    term = "ghostty";
+  programs.rofi.settings = {
+    font = "FiraCode Nerd Font";
+    location = "center";
+    modes = [
+      "drun"
+      "emoji"
+    ];
+    plugins = [];
+    terminal = "${pkgs.ghostty}/bin/ghostty";
+    theme = builtins.readFile ./styles.css;
   };
 }

@@ -23,6 +23,7 @@
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
+      GTK_THEME = "Adwaita-dark";
     };
 
     packages = with pkgs; [
@@ -103,7 +104,7 @@
       apple-cursor
       whitesur-cursors
       bibata-cursors
-      
+
       # Misc
       obs-studio
       cmatrix
@@ -149,8 +150,6 @@
       name = "Adwaita";
     };
   };
-
-  home.sessionVariables.GTK_THEME = "Adwaita-dark";
 
   qt = {
     enable = true;

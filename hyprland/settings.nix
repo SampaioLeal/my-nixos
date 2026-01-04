@@ -9,7 +9,6 @@
     "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
-    "$menu" = "wofi";
     "$browser" = "zen-beta";
 
     # https://wiki.hypr.land/Configuring/Variables/#input
@@ -163,7 +162,7 @@
       "$mainMod, C, killactive,"
       "$mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
       "$mainMod, V, togglefloating,"
-      "$mainMod, R, exec, $menu"
+      "$mainMod, R, exec, rofi --show drun"
       "$mainMod, L, exec, hyprlock"
       "$mainMod, P, pseudo," # dwindle
       "$mainMod, J, togglesplit," # dwindle
