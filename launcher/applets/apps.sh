@@ -6,7 +6,7 @@
 ## Applets : Favorite Applications
 
 # Import Current Theme
-theme="./themes/default-apps-launcher.rasi"
+theme="./theme/default-apps-launcher.rasi"
 
 # Theme Elements
 prompt='Applications'
