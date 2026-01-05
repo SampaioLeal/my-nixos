@@ -5,8 +5,8 @@
   ...
 }:
 {
-  home.file."${config.xdg.configHome}/rofi/themes" = {
-    source = ./themes;
+  home.file."${config.xdg.configHome}/rofi/theme" = {
+    source = ./theme;
   };
   home.file."${config.xdg.configHome}/rofi/images" = {
     source = ./images;
@@ -26,6 +26,6 @@
     ];
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
-    theme = "${config.xdg.configHome}/rofi/themes/cyan-rice.rasi";
+    theme = "${config.xdg.configHome}/rofi/theme/launcher.rasi";
   };
 }

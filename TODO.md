@@ -6,6 +6,8 @@
 - Configurar Hyprlock
 - Customizar waybar
 - Configurar GRUB
+- Update hyprland
+- Configurar applets do Rofi
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->
 - Configurar obsidian (home-manager) 

@@ -19,16 +19,8 @@ configuration {
 	window-format:              "{w} · {c} · {t}";
 }
 
-/*****----- Global Properties -----*****/
-* {
-    font:                        "FiraCode Nerd Font Mono 10";
-    background:                  #07404d7a;
-    background-alt:              #085466;
-    foreground:                  #FFFFFF;
-    selected:                    #24798bff;
-    active:                      #2E3F34;
-    urgent:                      #D08261;
-}
+@import "./fonts.rasi"
+@import "./colors.rasi"
 
 /*****----- Main Window -----*****/
 window {
