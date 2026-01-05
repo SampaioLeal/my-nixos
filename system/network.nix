@@ -27,7 +27,5 @@
     # Network and Bluetooth
     networkmanager
     aria2
-    bluez
-    # bluez-utils
   ];
 }
