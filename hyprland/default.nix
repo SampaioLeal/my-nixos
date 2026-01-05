@@ -9,5 +9,6 @@
     ./hyprland.nix
     ./hyprpaper.nix
     ./settings.nix
+    ./window-rules.nix
   ];
 }
