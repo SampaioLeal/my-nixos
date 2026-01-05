@@ -30,4 +30,18 @@
       ];
     };
   };
+
+  home.file.".vscode/argv.json" = {
+    text = ''
+      {
+        "enable-crash-reporter": true,
+
+        "crash-reporter-id": "2837d826-01c9-4aae-922d-9daffc753f01",
+
+        "password-store":"gnome-libsecret",
+
+        "locale": "pt-br"
+      }
+    '';
+  };
 }
