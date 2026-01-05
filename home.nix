@@ -47,6 +47,7 @@
       cliphist
       xdg-utils
       bc
+      bluetui
 
       # Developer Tools
       jq
