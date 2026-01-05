@@ -124,7 +124,7 @@
       format-connected = "󰂱";
       min-length = 2;
       max-length = 2;
-      on-click = "ghostty -e ~/.config/waybar/scripts/bluetooth.sh";
+      on-click = "hyprctl dispatch exec '[float]' 'ghostty -e bluetui'";
       on-click-right = "bluetoothctl power off && notify-send 'Bluetooth Off' -i 'network-bluetooth-inactive' -h string:x-canonical-private-synchronous:bluetooth";
       tooltip-format = "Device Addr: {device_address}";
       tooltip-format-disabled = "Bluetooth Disabled";
@@ -209,7 +209,7 @@
       ];
       min-length = 2;
       max-length = 2;
-      # on-click = "ghostty -e ~/.config/waybar/scripts/network.sh";
+      on-click = "hyprctl dispatch exec '[float; size 36 8; center]' 'ghostty -e nmtui";
       # on-click-right = "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -i 'network-wireless-off' -h string:x-canonical-private-synchronous:network";
       tooltip-format = "<b>Gateway</b>: {gwaddr}";
       tooltip-format-ethernet = "<b>Interface</b>: {ifname}";
@@ -261,54 +261,6 @@
     };
 
     #
-    # PulseAudio
-    #
-
-    # "group/pulseaudio" = {
-    #   orientation = "horizontal";
-    #   modules = [
-    #     "pulseaudio#output"
-    #     "pulseaudio#input"
-    #   ];
-    #   drawer = {
-    #     transition-left-to-right = false;
-    #   };
-    # };
-    # "pulseaudio#output" = {
-    #   format = "{icon} {volume}%";
-    #   format-muted = "{icon} {volume}%";
-    #   format-icons = {
-    #     default = [
-    #       "󰕿"
-    #       "󰖀"
-    #       "󰕾"
-    #     ];
-    #     default-muted = "󰝟";
-    #     headphone = "󰋋";
-    #     headphone-muted = "󰟎";
-    #     headset = "󰋎";
-    #     headset-muted = "󰋐";
-    #   };
-    #   min-length = 7;
-    #   max-length = 7;
-    #   on-click = "~/.config/waybar/scripts/volume.sh output mute";
-    #   on-scroll-up = "~/.config/waybar/scripts/volume.sh output raise";
-    #   on-scroll-down = "~/.config/waybar/scripts/volume.sh output lower";
-    #   tooltip-format = "<b>Output Device</b>: {desc}";
-    # };
-    # "pulseaudio#input" = {
-    #   format = "{format_source}";
-    #   format-source = "󰍬 {volume}%";
-    #   format-source-muted = "󰍭 {volume}%";
-    #   min-length = 7;
-    #   max-length = 7;
-    #   on-click = "~/.config/waybar/scripts/volume.sh input mute";
-    #   on-scroll-up = "~/.config/waybar/scripts/volume.sh input raise";
-    #   on-scroll-down = "~/.config/waybar/scripts/volume.sh input lower";
-    #   tooltip-format = "<b>Input Device</b>: {desc}";
-    # };
-
-    #
     # Temperature
     #
 
@@ -345,7 +297,7 @@
 
     "custom/power_menu" = {
       format = "󰤄";
-      on-click = "ghostty -e ~/.config/waybar/scripts/power-menu.sh";
+      on-click = "hyprctl dispatch exec '[float; size 36 8; center]' 'ghostty -e ~/.config/waybar/scripts/power-menu.sh'";
       tooltip-format = "Power Menu";
     };
 
