@@ -1,12 +1,11 @@
+- Configurar Hyprland workspaces corretamente
 - Configurar Hyprsunset
 - Configurar cliphist
 - Configurar TUIGreet
 - Configurar dunst
-- Configurar Wofi
 - Configurar Hyprlock
 - Customizar waybar
 - Configurar GRUB
-- Configurar greetd para desbloquear o keyring
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->
 - Configurar obsidian (home-manager) 

@@ -90,7 +90,7 @@
         size = 10;
 
         ignore_opacity = true;
-        xray = true;
+        # xray = true;
 
         new_optimizations = true;
 
@@ -206,8 +206,8 @@
       "$mainMod SHIFT, 0, movetoworkspace, 10"
 
       # Example special workspace (scratchpad)
-      "$mainMod, S, togglespecialworkspace, magic"
-      "$mainMod SHIFT, S, movetoworkspace, special:magic"
+      "$mainMod, K, togglespecialworkspace, magic"
+      "$mainMod SHIFT, K, movetoworkspace, special:magic"
 
       # Scroll through existing workspaces with mainMod + scroll
       "$mainMod, mouse_down, workspace, e+1"
@@ -257,6 +257,10 @@
       "blur, waybar"
       "blur, rofi"
       "ignorezero, rofi"
+    ];
+
+    workspace = [
+      "10, monitor:HDMI-A-1, default:true, persistent:true"
     ];
 
     "plugin:dynamic-cursors" = {
