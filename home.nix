@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./ags
     ./browser
     ./hyprland
     ./launcher

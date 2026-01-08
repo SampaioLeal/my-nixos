@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    astal.url = "github:aylur/astal";
+
+    ags.url = "github:aylur/ags";
   };
 
   outputs =
