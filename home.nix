@@ -85,6 +85,7 @@
 
       # Productivity and office
       obsidian
+      bitwarden-desktop
 
       # File management and archives
       fd

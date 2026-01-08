@@ -5,6 +5,12 @@
     ./settings.nix
   ];
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.vscode = {
     enable = true;
 
@@ -27,11 +33,14 @@
         github.vscode-github-actions
         denoland.vscode-deno
         biomejs.biome
+        # prettier.prettier-vscode
+        mkhl.direnv
       ];
     };
   };
 
   home.file.".vscode/argv.json" = {
+    force = true;
     text = ''
       {
         "enable-crash-reporter": true,
