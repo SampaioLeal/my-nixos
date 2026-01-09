@@ -2,7 +2,7 @@
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-$accent: #bb9af7;
+$accent: #27c5ff;
 $secondary: #3B4261;
 
 * {
@@ -21,12 +21,6 @@ window.Bar {
 
   color: $fg-color;
   font-size: 16px;
-
-  .system {
-    color: $accent;
-    min-width: 32px;
-    min-height: 32px;
-  }
 
   .module {
     border-radius: 16px;
@@ -65,12 +59,68 @@ window.Bar {
     background: rgba(255, 255, 255, 0.5);
   }
 
-  // Time
+  // Cava Visualizer
 
-  // TODO: fix menubutton background
+  .cava {
+    padding: 0 8px;
+    min-width: 120px;
+  }
+
+  .cava-bar {
+    background: $fg-color;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    transition: 50ms linear;
+  }
+
+  /* Opcional: Efeito de gradiente para as barras */
+  .cava:hover .cava-bar {
+    background-color: #12fcfc;
+  }
+
+  $phi: 1.618;
+  $phi-min: $phi - 1;
+
+  .cavavis {
+    padding: 0px;
+    margin: 0px;
+    font-size: $phi_min + em;
+  }
+
+  // Time
+  // TODO: customize calendar
+
+  .time button {
+    background: transparent;
+  }
+
   .time .calendar {
     font-size: 14px;
     font-weight: normal;
+  }
+
+  .time calendar {
+    border: none;
+    background: transparent;
+    padding: 5px;
+  }
+
+  .time calendar>grid>label {
+    /* Altera os números dos dias */
+    padding: 8px;
+    color: #eeeeec;
+  }
+
+  .time calendar:selected {
+    background-color: #3584e4;
+    border-radius: 99px;
+    /* Faz o círculo no dia selecionado */
+  }
+
+  // Power Menu
+
+  .powermenu {
+    color: $accent;
   }
 
   // Tooltips

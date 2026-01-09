@@ -1,12 +1,13 @@
+import { Astal, Gdk } from "ags/gtk4";
 import app from "ags/gtk4/app";
-import { Astal, Gtk, Gdk } from "ags/gtk4";
+import { Networks } from "./Networks";
+import { PowerMenu } from "./PowerMenu";
+import { Time } from "./Time";
 import { Volume } from "./Volume";
 import { Workspaces } from "./Workspaces";
-import { Time } from "./Time";
-import { Networks } from "./Networks";
+import { CavaVis } from "./Cava";
 
 const MARGIN = 8;
-const NIX_LOGO = "";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
 	const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -28,18 +29,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 			<centerbox cssName="centerbox">
 				<box $type="start" spacing={6}>
 					<Workspaces />
-					<button
-						class="system"
-						css="background: transparent;"
-						halign={Gtk.Align.CENTER}
-						// onClicked={() => {
-						//   const cc = app.get_window("controll-center");
-						//   if (cc) cc.visible = !cc.visible;
-						// }}
-						focusOnClick={false}
-					>
-						<label label={NIX_LOGO} />
-					</button>
+					<CavaVis />
 				</box>
 
 				<box $type="center">
@@ -48,8 +38,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
 				<box $type="end" spacing={6}>
 					{/* Tray */}
-					<Volume />
 					<Networks />
+					<Volume />
+					<PowerMenu />
 				</box>
 			</centerbox>
 		</window>
