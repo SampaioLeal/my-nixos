@@ -1,7 +1,8 @@
 import { Gtk } from "ags/gtk4";
 import { createPoll } from "ags/time";
 
-export function Time() {
+export function TimeAndNotifications() {
+	// TODO: add notifications center like gnome shell
 	const time = createPoll("", 1000, "date +'%d de %b %H:%M'");
 
 	return (

@@ -5,6 +5,8 @@ $bg-color: #{"@theme_bg_color"};
 $accent: #27c5ff;
 $secondary: #3B4261;
 
+$font-size: 16px;
+
 * {
   min-height: 0px;
   min-width: 0px;
@@ -20,7 +22,7 @@ window.Bar {
   min-height: 32px;
 
   color: $fg-color;
-  font-size: 16px;
+  font-size: $font-size;
 
   .module {
     border-radius: 16px;
@@ -62,29 +64,43 @@ window.Bar {
   // Cava Visualizer
 
   .cava {
-    padding: 0 8px;
-    min-width: 120px;
+    .cava-container {
+      cava {
+        opacity: 0.2;
+      }
+    }
   }
 
-  .cava-bar {
-    background: $fg-color;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    transition: 50ms linear;
+  .media {
+    padding: 0;
+
+    button {
+      background: transparent;
+    }
+
+    .cover {
+      margin-left: 8px;
+    }
+
+    .title {
+      margin-right: 8px;
+    }
+
+    .cava {
+      color: $accent;
+      opacity: 0.2;
+    }
   }
 
-  /* Opcional: Efeito de gradiente para as barras */
-  .cava:hover .cava-bar {
-    background-color: #12fcfc;
+  .media>box {
+    transition: 400ms cubic-bezier(0.05, 0.7, 0.1, 1);
+    border-radius: 16px;
+    margin: 0.4rem;
   }
 
-  $phi: 1.618;
-  $phi-min: $phi - 1;
 
-  .cavavis {
-    padding: 0px;
-    margin: 0px;
-    font-size: $phi_min + em;
+  .media.active>box {
+    background: rgba(71, 53, 48, 0.6);
   }
 
   // Time
@@ -117,6 +133,18 @@ window.Bar {
     /* Faz o círculo no dia selecionado */
   }
 
+  // System Tray
+
+  .system-tray {
+    image {
+      -gtk-icon-size: $font-size;
+    }
+
+    .tray-item button {
+      background: transparent;
+    }
+  }
+
   // Power Menu
 
   .powermenu {
@@ -137,5 +165,18 @@ window.Bar {
     font-size: 14px;
     font-weight: 500;
     margin: 4px;
+  }
+
+  // Popover Menu
+
+  popover.menu modelbutton {
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #eeeeec;
+  }
+
+  popover.menu modelbutton:hover {
+    background-color: $accent;
+    color: white;
   }
 }

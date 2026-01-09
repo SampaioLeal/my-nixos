@@ -1,16 +1,19 @@
-import { Astal, Gdk } from "ags/gtk4";
 import app from "ags/gtk4/app";
-import { Networks } from "./Networks";
+import { Astal, Gdk } from "ags/gtk4";
 import { PowerMenu } from "./PowerMenu";
-import { Time } from "./Time";
+import { TimeAndNotifications } from "./TimeAndNotifications";
+import { Media } from "./Media";
+import { Networks } from "./Networks";
 import { Volume } from "./Volume";
 import { Workspaces } from "./Workspaces";
-import { CavaVis } from "./Cava";
+import { Tray } from "./Tray";
 
 const MARGIN = 8;
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
 	const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
+
+	// TODO: add CPU and Memory usage
 
 	return (
 		<window
@@ -29,15 +32,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 			<centerbox cssName="centerbox">
 				<box $type="start" spacing={6}>
 					<Workspaces />
-					<CavaVis />
+					<Media />
 				</box>
 
 				<box $type="center">
-					<Time />
+					<TimeAndNotifications />
 				</box>
 
 				<box $type="end" spacing={6}>
-					{/* Tray */}
+					<Tray />
 					<Networks />
 					<Volume />
 					<PowerMenu />
