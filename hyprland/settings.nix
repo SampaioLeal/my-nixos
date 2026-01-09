@@ -255,6 +255,8 @@
 
     layerrule = [
       "blur, waybar"
+      "blur, gtk4-layer-shell"
+      "ignorezero, gtk4-layer-shell"
       "blur, rofi"
       "ignorezero, rofi"
     ];

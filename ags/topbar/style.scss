@@ -1,0 +1,91 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+
+$accent: #bb9af7;
+$secondary: #3B4261;
+
+* {
+  min-height: 0px;
+  min-width: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+window.Bar {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 4px;
+  min-height: 32px;
+
+  color: $fg-color;
+  font-size: 16px;
+
+  .system {
+    color: $accent;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .module {
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    transition: 200ms;
+    background: transparent;
+  }
+
+  .module:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  // Workspaces
+
+  .workspaces {
+    padding: 8px;
+  }
+
+  .workspaces button {
+    border-radius: 8px;
+    min-width: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    transition: 200ms;
+  }
+
+  .workspaces button.focused {
+    background: $fg-color;
+    min-width: 28px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  .workspaces button.unfocused {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  // Time
+
+  // TODO: fix menubutton background
+  .time .calendar {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  // Tooltips
+
+  tooltip {
+    background-color: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 4px 8px;
+  }
+
+  tooltip label {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px;
+  }
+}

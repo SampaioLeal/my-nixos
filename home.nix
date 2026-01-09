@@ -25,7 +25,6 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-      GTK_THEME = "Adwaita-dark";
       TERMINAL = "ghostty";
     };
 
@@ -53,6 +52,7 @@
 
       # Developer Tools
       jq
+      entr
       gh
       lazygit
       lazydocker
@@ -144,11 +144,6 @@
       size = 10;
     };
 
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
-
     iconTheme = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
@@ -157,6 +152,17 @@
     cursorTheme = {
       name = "Bibata-Modern-Classic";
       size = 28;
+    };
+
+    gtk3 = {
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
+
+    gtk4 = {
+      theme = null;
     };
   };
 

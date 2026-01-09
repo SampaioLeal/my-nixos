@@ -1,1 +1,0 @@
-ags run ./$0/main.tsx
