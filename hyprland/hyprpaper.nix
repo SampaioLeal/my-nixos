@@ -14,13 +14,13 @@
     enable = true;
     settings = {
       preload = [
-        "${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.png"
-        "${config.home.homeDirectory}/Pictures/Wallpapers/banks-of-the-seine-vetheuil.png"
+        "${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg"
+        "${config.home.homeDirectory}/Pictures/Wallpapers/forest.jpeg"
       ];
 
       wallpaper = [
-        "DP-3,${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.png"
-        "HDMI-A-1,${config.home.homeDirectory}/Pictures/Wallpapers/cyan-windows.png"
+        "DP-3,${config.home.homeDirectory}/Pictures/Wallpapers/forest.jpeg"
+        "HDMI-A-1,${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg"
       ];
     };
   };
