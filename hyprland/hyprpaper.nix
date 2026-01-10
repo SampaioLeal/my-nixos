@@ -17,12 +17,11 @@
         {
           monitor = "DP-3";
           path = "${config.home.homeDirectory}/Pictures/Wallpapers/almond-blossom.png";
-          # path = "${config.home.homeDirectory}/Pictures/Wallpapers/forest.jpeg";
           fit_mode = "cover";
         }
         {
           monitor = "HDMI-A-1";
-          path = "${config.home.homeDirectory}/Pictures/Wallpapers/almond-blossom.png";
+          path = "${config.home.homeDirectory}/Pictures/Wallpapers/island.png";
           fit_mode = "cover";
         }
       ];
