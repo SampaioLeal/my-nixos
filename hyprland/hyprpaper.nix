@@ -21,7 +21,7 @@
         }
         {
           monitor = "HDMI-A-1";
-          path = "${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg";
+          path = "${config.home.homeDirectory}/Pictures/Wallpapers/almond-blossom.jpg";
           fit_mode = "cover";
         }
       ];
