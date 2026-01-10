@@ -14,7 +14,6 @@
     ./spotify
     ./terminal
     ./vscode
-    ./waybar
   ];
 
   home = {
@@ -264,7 +263,6 @@
 
 # https://github.com/hyprland-community/awesome-hyprland
 # https://raw.githubusercontent.com/00Darxk/dotfiles/refs/heads/main/showcases/sayu-showcase.png
-# https://github.com/00Darxk/dotfiles/blob/main/waybar/style.css
 # https://home-manager-options.extranix.com/?query=hyprlock&release=release-25.11
 # https://ghostty.org/
 # https://gitlab.com/Zaney/zaneyos/-/blob/main/modules/core/user.nix?ref_type=heads

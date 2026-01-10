@@ -10,6 +10,7 @@ export function PowerMenu() {
 			"dispatch",
 			"exec",
 			"[float; size 36 8; center]",
+			// TODO: create a widget for this
 			"ghostty -e ~/.config/waybar/scripts/power-menu.sh",
 		]);
 

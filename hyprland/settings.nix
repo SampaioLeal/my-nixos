@@ -34,9 +34,9 @@
     ];
 
     exec-once = [
-      "waybar"
       "hyprpaper"
       "hypridle"
+      "ags run &"
       "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
     ];
 
@@ -254,7 +254,6 @@
     ];
 
     layerrule = [
-      "blur, waybar"
       "blur, gtk4-layer-shell"
       "ignorezero, gtk4-layer-shell"
       "blur, rofi"

@@ -4,7 +4,7 @@
 - Configurar TUIGreet
 - Configurar dunst
 - Configurar Hyprlock
-- Customizar waybar
+- Customizar AGS
 - Configurar GRUB
 - Update hyprland
 - Configurar applets do Rofi
