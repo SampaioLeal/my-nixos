@@ -55,8 +55,8 @@
       gh
       lazygit
       lazydocker
-      bruno
-      bruno-cli
+      # bruno
+      # bruno-cli
       warp-terminal
       gping
       hyperfine
@@ -123,7 +123,6 @@
       bemoji
       gnome-calculator
       polkit_gnome
-      nwg-look
       bluez
       cava
     ];
@@ -158,10 +157,14 @@
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
       };
+
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
     };
 
-    gtk4 = {
-      theme = null;
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
   };
 

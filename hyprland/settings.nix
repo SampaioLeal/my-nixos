@@ -33,13 +33,6 @@
       "HDMI-A-1, 2560x1080@60, 2560x-800, 1, transform, 1"
     ];
 
-    exec-once = [
-      "hyprpaper"
-      "hypridle"
-      "ags run &"
-      "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
-    ];
-
     # TODO: add cursor name and size to configs/global variables
     env = [
       "XCURSOR_THEME,Bibata-Modern-Classic"
@@ -254,10 +247,8 @@
     ];
 
     layerrule = [
-      "blur, gtk4-layer-shell"
-      "ignorezero, gtk4-layer-shell"
-      "blur, rofi"
-      "ignorezero, rofi"
+      "blur on, ignore_alpha 0, match:namespace gtk4-layer-shell"
+      "blur on, ignore_alpha 0, match:namespace rofi"
     ];
 
     workspace = [

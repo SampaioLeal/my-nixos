@@ -13,14 +13,17 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [
-        "${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg"
-        "${config.home.homeDirectory}/Pictures/Wallpapers/forest.jpeg"
-      ];
-
       wallpaper = [
-        "DP-3,${config.home.homeDirectory}/Pictures/Wallpapers/forest.jpeg"
-        "HDMI-A-1,${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg"
+        {
+          monitor = "DP-3";
+          path = "${config.home.homeDirectory}/Pictures/Wallpapers/forest.jpeg";
+          fit_mode = "cover";
+        }
+        {
+          monitor = "HDMI-A-1";
+          path = "${config.home.homeDirectory}/Pictures/Wallpapers/almond_blossom.jpg";
+          fit_mode = "cover";
+        }
       ];
     };
   };

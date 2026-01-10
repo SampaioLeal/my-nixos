@@ -1,18 +1,17 @@
 {
   wayland.windowManager.hyprland.settings.windowrule = [
     # Ignore maximize requests from all apps. You'll probably like this.
-    "suppressevent maximize, class:^(.*)$"
-    "nofocus on, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-    "move 20 monitor_h-120, float, class:hyprland-run"
+    "suppress_event maximize, match:class ^(.*)$"
+    "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+    "move (20) (monitor_h-120), float on, match:class hyprland-run"
 
-    "float, title:^(Picture-in-Picture)$"
-    "pin, title:^(Picture-in-Picture)$"
+    "float on, pin on, match:title ^(Picture-in-Picture)$"
 
-    "dimaround on, class:^(xdg-desktop-portal-gtk)$"
-    "dimaround on, class:^(polkit-gnome-authentication-agent-1)$"
-    "dimaround on, class:^(zen-beta)$, title:^(File Upload)$"
+    "dim_around on, match:class ^(xdg-desktop-portal-gtk)$"
+    "dim_around on, match:class ^(polkit-gnome-authentication-agent-1)$"
+    "dim_around on, match:class ^(zen-beta)$, match:title ^(File Upload)$"
 
-    "opacity 1 override, class:com.mitchellh.ghostty"
-    "opacity 1 override, class:zen-beta"
+    "opacity 1 override, match:class com.mitchellh.ghostty"
+    "opacity 1 override, match:class zen-beta"
   ];
 }
