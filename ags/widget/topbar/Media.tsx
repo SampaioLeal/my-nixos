@@ -9,9 +9,12 @@ interface Props {
 	player: Mpris.Player;
 }
 
+const MAX_COVER_ART = 5
+
 function Cover({ player }: Props) {
+	const [index, setIndex] = createState(1)
 	const [localCover, setLocalCover] = createState(
-		getLocalCoverPath(player.artUrl),
+		getLocalCoverPath(player.artUrl, 1),
 	);
 
 	player.connect("notify::art-url", () => {
@@ -22,9 +25,16 @@ function Cover({ player }: Props) {
 			return;
 		}
 
-		const path = getLocalCoverPath(url);
+		let newIndex = index() + 1
+
+		if(newIndex > MAX_COVER_ART) {
+			newIndex = 1
+		}
+		
+		const path = getLocalCoverPath(url, newIndex);
 
 		setLocalCover(path);
+		setIndex(newIndex)
 	});
 
 	return (

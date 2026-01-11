@@ -12,6 +12,7 @@
   programs.ags = {
     enable = true;
     configDir = ../ags;
+    systemd.enable = true;
     extraPackages = with pkgs; [
       inputs.astal.packages.${pkgs.system}.apps
       inputs.astal.packages.${pkgs.system}.bluetooth
