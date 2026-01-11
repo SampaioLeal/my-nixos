@@ -1,19 +1,14 @@
-- Configurar Hyprland workspaces corretamente
+- Arrumar problema de encerramento de sessão do hyprland/greetd
 - Configurar Hyprsunset
+- Configurar Hyprlock
 - Configurar cliphist
 - Configurar TUIGreet
-- Configurar dunst
-- Configurar Hyprlock
+- Configurar greetd
+- Remover dunst
 - Customizar AGS
+- Configurar mais widgets pro AGS
+- Configurar notificações no AGS
 - Configurar GRUB
-- Update hyprland
-- Configurar applets do Rofi
 
 <!-- https://mynixos.com/home-manager/options/programs.obsidian -->
 - Configurar obsidian (home-manager) 
-
-- Definir alias pro ripgrep (grep -> rg)
-- Definir alias pro bat (cat -> bat)
-- Definir alias pro gping (ping -> gping)
-- Definir alias pro fd (find -> fd)
-- Definir alias pro fd (ls -> eza)

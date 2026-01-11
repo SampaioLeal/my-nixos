@@ -7,6 +7,7 @@
 {
   imports = [
     ./ghostty.nix
+    ./starship.nix
     ./zsh.nix
   ];
 }

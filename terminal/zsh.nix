@@ -18,11 +18,8 @@
 
     initContent =
       let
-        zshConfigEarlyInit = lib.mkOrder 500 ''
-          if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-              source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-          fi
-        '';
+        # zshConfigEarlyInit = lib.mkOrder 500 ''
+        # '';
         zshConfig = lib.mkOrder 1000 ''
           bindkey '^[[1;5C' emacs-forward-word
           bindkey '^[[1;5D' emacs-backward-word
@@ -31,29 +28,14 @@
         '';
       in
       lib.mkMerge [
-        zshConfigEarlyInit
+        # zshConfigEarlyInit
         zshConfig
       ];
-
-    plugins = [
-      {
-        name = "powerlevel10k-config";
-        src = ./p10k;
-        file = "p10k.zsh";
-      }
-    ];
 
     zplug = {
       enable = true;
       plugins = [
         { name = "zsh-users/zsh-autosuggestions"; }
-        {
-          name = "romkatv/powerlevel10k";
-          tags = [
-            "as:theme"
-            "depth:1"
-          ];
-        }
       ];
     };
   };
