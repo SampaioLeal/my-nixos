@@ -9,8 +9,11 @@
     history.size = 10000;
 
     shellAliases = {
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
+      grep = "rg";
+      cat = "bat";
+      ping = "gping";
+      find = "fd";
+      ls = "eza";
     };
 
     initContent =
