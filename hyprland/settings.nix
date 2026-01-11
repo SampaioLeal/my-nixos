@@ -36,9 +36,17 @@
     # TODO: add cursor name and size to configs/global variables
     env = [
       "XCURSOR_THEME,Bibata-Modern-Classic"
-      "XCURSOR_SIZE,28"
+      "XCURSOR_SIZE,24"
       "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-      "HYPRCURSOR_SIZE,28"
+      "HYPRCURSOR_SIZE,24"
+      "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_SESSION_DESKTOP,Hyprland"
+      "XDG_SESSION_TYPE,wayland"
+      "GBM_BACKEND,nvidia-drm"
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      "LIBVA_DRIVER_NAME,nvidia"
+      "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+      "XDG_DESKTOP_PORTAL,gtk"
     ];
 
     general = {
@@ -144,7 +152,8 @@
     # https://wiki.hypr.land/Configuring/Variables/#misc
     misc = {
       force_default_wallpaper = -1; # Set to 0 or 1 to disable the anime mascot wallpapers
-      disable_hyprland_logo = false; # If true disables the random hyprland logo / anime girl background. :(
+      disable_hyprland_logo = true;
+      disable_splash_rendering = true;
       mouse_move_enables_dpms = true;
       key_press_enables_dpms = true;
     };

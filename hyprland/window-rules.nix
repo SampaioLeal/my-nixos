@@ -15,3 +15,34 @@
     "opacity 1 override, match:class zen-beta"
   ];
 }
+
+
+# TODO: make this float and center
+/**
+  Window 557086a68690 -> Extensão: (Bitwarden Gerenciador de Senhas) - Bitwarden — Zen Browser:
+        mapped: 1
+        hidden: 0
+        at: 22,70
+        size: 769,988
+        workspace: 1 (1)
+        floating: 0
+        pseudo: 0
+        monitor: 1
+        class: zen-beta
+        title: Extensão: (Bitwarden Gerenciador de Senhas) - Bitwarden — Zen Browser
+        initialClass: zen-beta
+        initialTitle: Zen Browser
+        pid: 4329
+        xwayland: 0
+        pinned: 0
+        fullscreen: 0
+        fullscreenClient: 0
+        grouped: 0
+        tags:
+        swallowing: 0
+        focusHistoryID: 2
+        inhibitingIdle: 0
+        xdgTag:
+        xdgDescription:
+        contentType: none
+ */

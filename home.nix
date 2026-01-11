@@ -23,7 +23,6 @@
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       TERMINAL = "ghostty";
     };
 
@@ -111,7 +110,6 @@
       bibata-cursors
 
       # Misc
-      obs-studio
       cmatrix
       lolcat
       swappy
@@ -149,22 +147,24 @@
 
     cursorTheme = {
       name = "Bibata-Modern-Classic";
-      size = 28;
+      size = 24;
     };
 
     gtk3 = {
       theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
+        name = "adw-gtk3-dark";
+        package = pkgs.adw-gtk3;
       };
-
       extraConfig = {
         gtk-application-prefer-dark-theme = 1;
       };
     };
 
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+    gtk4 = {
+      enable = true;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+      };
     };
   };
 
