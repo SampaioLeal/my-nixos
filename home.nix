@@ -110,6 +110,7 @@
       bibata-cursors
 
       # Misc
+      obs-studio
       cmatrix
       lolcat
       swappy
