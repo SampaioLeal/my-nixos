@@ -8,5 +8,6 @@
     ./program.nix
     ./security.nix
     ./system.nix
+    ./virtualisation.nix
   ];
 }

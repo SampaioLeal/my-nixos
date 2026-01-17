@@ -33,8 +33,9 @@
         github.vscode-github-actions
         denoland.vscode-deno
         biomejs.biome
-        # prettier.prettier-vscode
         mkhl.direnv
+        github.copilot-chat
+        ms-azuretools.vscode-containers
       ];
     };
   };
