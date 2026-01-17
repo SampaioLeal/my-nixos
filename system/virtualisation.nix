@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   virtualisation.docker = {
     enable = true;
@@ -14,10 +14,10 @@
           size = 24;
         }
       ];
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
+    };
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
     };
   };
 

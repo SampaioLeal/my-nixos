@@ -135,6 +135,7 @@
     "continue.showInlineTip" = false;
 
     "docker.extension.dockerEngineAvailabilityPrompt" = false;
+    "containers.containerClient" = "com.microsoft.visualstudio.containers.docker";
 
     "biome.suggestInstallingGlobally" = false;
 

@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -85,6 +84,7 @@
       # Productivity and office
       obsidian
       bitwarden-desktop
+      xournalpp
 
       # File management and archives
       fd
