@@ -29,8 +29,8 @@
     };
 
     monitor = [
-      "DP-3, 2560x1080@75, 0x0, 1"
-      "HDMI-A-1, 2560x1080@60, 2560x-800, 1, transform, 1"
+      "HDMI-A-1, 2560x1080@75, 0x0, 1"
+      "DP-3, 2560x1080@60, 2560x-800, 1, transform, 1"
     ];
 
     # TODO: add cursor name and size to configs/global variables
@@ -261,7 +261,7 @@
     ];
 
     workspace = [
-      "10, monitor:HDMI-A-1, default:true, persistent:true"
+      "10, monitor:DP-3, default:true, persistent:true"
     ];
 
     "plugin:dynamic-cursors" = {

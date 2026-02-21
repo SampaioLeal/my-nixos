@@ -17,7 +17,7 @@
     xwayland.enable = true;
 
     plugins = [
-      pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      # pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
   };
 }

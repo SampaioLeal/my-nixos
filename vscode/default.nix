@@ -36,6 +36,7 @@
         mkhl.direnv
         github.copilot-chat
         ms-azuretools.vscode-containers
+        ms-vscode-remote.remote-containers
       ];
     };
   };

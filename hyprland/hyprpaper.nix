@@ -15,12 +15,12 @@
     settings = {
       wallpaper = [
         {
-          monitor = "DP-3";
+          monitor = "HDMI-A-1";
           path = "${config.home.homeDirectory}/Pictures/Wallpapers/almond-blossom.png";
           fit_mode = "cover";
         }
         {
-          monitor = "HDMI-A-1";
+          monitor = "DP-3";
           path = "${config.home.homeDirectory}/Pictures/Wallpapers/island.png";
           fit_mode = "cover";
         }

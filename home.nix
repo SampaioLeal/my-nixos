@@ -68,7 +68,8 @@
       dnsutils
       nmap
       rdap
-
+      github-copilot-cli
+      
       # Multimedia
       lowfi
       zathura
