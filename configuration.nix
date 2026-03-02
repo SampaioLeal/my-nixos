@@ -14,4 +14,6 @@
     ./hardware-configuration.nix
     ./users.nix
   ];
+
+  nixpkgs.config.allowBroken = true;
 }

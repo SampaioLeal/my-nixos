@@ -24,9 +24,8 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
-  # boot.extraModulePackages = with config.boot.kernelPackages; [
-  #   rtl8821au
-  # ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/2b509945-2aa3-4017-9ca0-aa59ffb5c3fe";

@@ -38,8 +38,6 @@
       asciinema
       asciinema-agg
       progress
-      htop
-      btop
       lm_sensors
       wl-clipboard
       cliphist
@@ -69,7 +67,7 @@
       nmap
       rdap
       github-copilot-cli
-      
+
       # Multimedia
       lowfi
       zathura
@@ -193,6 +191,10 @@
         email = "sampaioleal14@gmail.com";
       };
     };
+  };
+
+  programs.btop = {
+    enable = true;
   };
 
   #
