@@ -16,8 +16,13 @@
     enable = true;
     xwayland.enable = true;
 
+    package = null;
+    portalPackage = null;
+
     plugins = [
       # pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
+
+    systemd.variables = [ "--all" ];
   };
 }

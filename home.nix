@@ -121,7 +121,7 @@
       lavat
       bemoji
       gnome-calculator
-      polkit_gnome
+      libsecret
       bluez
       cava
     ];
@@ -178,11 +178,11 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  #   configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
+  # };
 
   programs.git = {
     enable = true;

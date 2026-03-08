@@ -15,7 +15,7 @@
     ./users.nix
   ];
 
-  nixpkgs.config.allowBroken = true;
+  # nixpkgs.config.allowBroken = true;
 
   nix.settings = {
     substituters = [
