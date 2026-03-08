@@ -16,6 +16,8 @@
       pkgs.firefoxpwa
     ];
 
+    suppressXdgMigrationWarning = true;
+
     policies = lib.mkForce {
       OfferToSaveLogins = false;
       NoDefaultBookmarks = true;
