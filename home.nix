@@ -110,6 +110,7 @@
 
       # Misc
       obs-studio
+      audacity
       cmatrix
       lolcat
       swappy
