@@ -104,33 +104,95 @@ window.Bar {
   }
 
   // Time
-  // TODO: customize calendar
 
-  .time button {
-    background: transparent;
-  }
+  .time {
+    button {
+      background: transparent;
+    }
 
-  .time .calendar {
-    font-size: 14px;
-    font-weight: normal;
-  }
+    /* Reseta o Popover para não ter bordas extras */
+    popover.calendar {
+      background: transparent;
+      padding: 0;
 
-  .time calendar {
-    border: none;
-    background: transparent;
-    padding: 5px;
-  }
+      >contents {
+        background: #27454a;
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+    }
 
-  .time calendar>grid>label {
-    /* Altera os números dos dias */
-    padding: 8px;
-    color: #eeeeec;
-  }
+    /* Estilo do Calendário */
+    calendar {
+      background: transparent;
+      color: $fg-color;
+      border: none;
+      font-size: 14px;
+      font-weight: normal;
 
-  .time calendar:selected {
-    background-color: #3584e4;
-    border-radius: 99px;
-    /* Faz o círculo no dia selecionado */
+      & :focus,
+      &>grid>label:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      /* Dias da semana (Iniciais) */
+      grid>label.day-name {
+        opacity: 0.5;
+        font-size: 0.8rem;
+        padding-bottom: 8px;
+      }
+
+      /* Todos os dias */
+      grid>label {
+        padding: 0;
+        margin: 2px;
+        color: $fg-color;
+        min-width: 34px;
+        min-height: 34px;
+
+        text-align: center;
+        -gtk-icon-shadow: none;
+      }
+
+      /* O DIA SELECIONADO (Efeito Circular Libadwaita) */
+      & :selected {
+        background-color: $accent;
+        border-radius: 99px;
+        font-weight: bold;
+      }
+
+      /* Dia atual (Hoje), mas não selecionado */
+      & .today {
+        color: $fg-color;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      /* Dias de outros meses */
+      .other-month {
+        opacity: 0.3;
+      }
+    }
+
+    .time-header {
+      margin-bottom: 16px;
+
+      .clock-label {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: $fg-color;
+      }
+
+      .date-label {
+        font-size: 0.95rem;
+        color: $accent;
+        font-weight: 500;
+      }
+    }
   }
 
   // System Tray

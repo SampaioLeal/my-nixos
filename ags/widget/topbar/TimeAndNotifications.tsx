@@ -22,20 +22,19 @@ function TimePopover() {
 	return (
 		<box
 			orientation={Gtk.Orientation.VERTICAL}
-			spacing={16}
+			halign={Gtk.Align.CENTER}
 			class="popover-container"
 		>
-			{/* Bloco do Relógio Centralizado */}
 			<box orientation={Gtk.Orientation.VERTICAL} class="time-header">
-				<label class="clock-label" label={timeSecs} halign={Gtk.Align.CENTER} />
-				<label class="date-label" label={dateFull} halign={Gtk.Align.CENTER} />
+				<label class="clock-label" label={timeSecs} />
+				<label class="date-label" label={dateFull} />
 			</box>
 
-			{/* Calendário GTK */}
 			<Gtk.Calendar
 				visible={true}
 				class="calendar-widget"
-				halign={Gtk.Align.CENTER}
+				showDayNames={true}
+				showHeading={true}
 			/>
 		</box>
 	);
