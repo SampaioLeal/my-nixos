@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -13,6 +14,7 @@
     ./spotify
     ./terminal
     ./vscode
+    inputs.gazelle.homeModules.gazelle
   ];
 
   home = {
@@ -124,6 +126,9 @@
       libsecret
       bluez
       cava
+
+      # Network
+      inputs.gazelle.packages.${pkgs.system}.default
     ];
   };
 
@@ -196,6 +201,13 @@
 
   programs.btop = {
     enable = true;
+  };
+
+  programs.gazelle = {
+    enable = true;
+    settings = {
+      theme = "user-theme";
+    };
   };
 
   #

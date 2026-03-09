@@ -27,6 +27,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.astal.follows = "astal";
     };
+
+    gazelle = {
+      url = "github:Zeus-Deus/gazelle-tui";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

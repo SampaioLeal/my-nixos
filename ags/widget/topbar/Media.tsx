@@ -4,20 +4,16 @@ import { firstActivePlayer } from "./cava/mpris";
 import Mpris from "gi://AstalMpris";
 import { getLocalCoverPath } from "../../utils/cover-art";
 import { CavaDraw } from "./cava/core/CavaWidget";
+import { URL } from "gnim/fetch";
 
 interface Props {
 	player: Mpris.Player;
 }
 
-const MAX_COVER_ART = 5
-
 function Cover({ player }: Props) {
-	const [index, setIndex] = createState(1)
-	const [localCover, setLocalCover] = createState(
-		getLocalCoverPath(player.artUrl, 1),
-	);
+	const [localCover, setLocalCover] = createState("");
 
-	player.connect("notify::art-url", () => {
+	const updateCover = async () => {
 		const url = player.artUrl;
 
 		if (!url) {
@@ -25,20 +21,16 @@ function Cover({ player }: Props) {
 			return;
 		}
 
-		let newIndex = index() + 1
-
-		if(newIndex > MAX_COVER_ART) {
-			newIndex = 1
-		}
-		
-		const path = getLocalCoverPath(url, newIndex);
-
+		const path = await getLocalCoverPath(new URL(url));
 		setLocalCover(path);
-		setIndex(newIndex)
-	});
+	};
+
+	updateCover();
+
+	player.connect("notify::art-url", updateCover);
 
 	return (
-		<image class="cover" overflow={Gtk.Overflow.HIDDEN} file={localCover} />
+		<image class="cover-art" overflow={Gtk.Overflow.HIDDEN} file={localCover} />
 	);
 }
 

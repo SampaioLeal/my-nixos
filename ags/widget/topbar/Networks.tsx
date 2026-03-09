@@ -41,14 +41,14 @@ function WiredConnection() {
 		].join("\n");
 	});
 
-	const openNmTui = () =>
-		execAsync(["hyprctl", "dispatch", "exec", "[float]", "ghostty -e nmtui"]);
+	const openNetworks = () =>
+		execAsync(["hyprctl", "dispatch", "exec", "[float]", "ghostty -e gazelle"]);
 
 	return (
 		<button
 			class="module internet"
 			tooltipText={tooltipText}
-			onClicked={openNmTui}
+			onClicked={openNetworks}
 		>
 			<image iconName={createBinding(network.wired, "iconName")} />
 		</button>
