@@ -1,6 +1,6 @@
 import { createBinding, createState, With } from "ags";
 import { Gtk } from "ags/gtk4";
-import { firstActivePlayer } from "./cava/mpris";
+import { findPlayer } from "./cava/mpris";
 import Mpris from "gi://AstalMpris";
 import { getLocalCoverPath } from "../../utils/cover-art";
 import { CavaDraw } from "./cava/core/CavaWidget";
@@ -39,21 +39,23 @@ const MAX_LEN = 20;
 function MusicBox({ player }: Props) {
 	let measureBox: Gtk.Widget | null = null;
 
-	const title = createBinding(
-		player,
-		"metadata",
-	)(() => {
+	const metadata = createBinding(player, "metadata");
+	const title = metadata(() => {
 		if (!player.title) return "";
 
 		if (player.title.length > MAX_LEN) {
-			return `${player.artist} - ${player.title.substring(0, 20)}...`;
+			return `${player.title.substring(0, 20)}... - ${player.artist}`;
 		}
 
-		return `${player.artist} - ${player.title}`;
+		return `${player.title} - ${player.artist}`;
+	});
+	const tooltipText = metadata(() => {
+		return `${player.title} - ${player.artist}`;
 	});
 
 	return (
 		<overlay
+			tooltipText={tooltipText}
 			$={(self) => {
 				if (measureBox) {
 					self.set_measure_overlay(measureBox, true);
@@ -83,10 +85,19 @@ function MusicBox({ player }: Props) {
 }
 
 export function Media() {
+	const mpris = Mpris.get_default();
+
 	return (
 		<box class="module media">
-			<With value={firstActivePlayer}>
-				{(player) => (player ? <MusicBox player={player} /> : "")}
+			<With value={createBinding(mpris, "players")}>
+				{(players: Mpris.Player[]) => {
+					if (!players.length) return null;
+
+					const activePlayer = findPlayer(players);
+					if (!activePlayer) return null;
+
+					return <MusicBox player={activePlayer} />;
+				}}
 			</With>
 		</box>
 	);

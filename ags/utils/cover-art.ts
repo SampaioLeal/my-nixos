@@ -11,7 +11,7 @@ export async function getLocalCoverPath(url: URL) {
 
 	// 1. Se for arquivo local, retorna direto
 	if (!url.protocol.startsWith("http")) {
-		return url.toString().replace("file://", "");
+		return url.toString().replace("file://", "").replace("?", "");
 	}
 
 	// 2. Checa se o arquivo já existe (usando ls ou test via shell)
