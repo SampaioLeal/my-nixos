@@ -30,7 +30,12 @@ function Cover({ player }: Props) {
 	player.connect("notify::art-url", updateCover);
 
 	return (
-		<image class="cover-art" overflow={Gtk.Overflow.HIDDEN} file={localCover} />
+		<image
+			class="cover-art"
+			overflow={Gtk.Overflow.HIDDEN}
+			pixelSize={20}
+			file={localCover}
+		/>
 	);
 }
 
