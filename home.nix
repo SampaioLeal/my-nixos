@@ -55,7 +55,6 @@
       lazydocker
       # bruno
       # bruno-cli
-      warp-terminal
       gping
       hyperfine
       pastel
