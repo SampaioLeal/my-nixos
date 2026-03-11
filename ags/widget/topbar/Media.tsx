@@ -1,10 +1,11 @@
-import { createBinding, createState, With } from "ags";
+import { createBinding, createComputed, createState, With } from "ags";
 import { Gtk } from "ags/gtk4";
 import { findPlayer } from "./cava/mpris";
 import Mpris from "gi://AstalMpris";
 import { getLocalCoverPath } from "../../utils/cover-art";
 import { CavaDraw } from "./cava/core/CavaWidget";
 import { URL } from "gnim/fetch";
+import { configs } from "../../configs";
 
 interface Props {
 	player: Mpris.Player;
@@ -39,8 +40,6 @@ function Cover({ player }: Props) {
 	);
 }
 
-const MAX_LEN = 20;
-
 function MusicBox({ player }: Props) {
 	let measureBox: Gtk.Widget | null = null;
 
@@ -48,7 +47,7 @@ function MusicBox({ player }: Props) {
 	const title = metadata(() => {
 		if (!player.title) return "";
 
-		if (player.title.length > MAX_LEN) {
+		if (player.title.length > configs.topbar.media.maxTitleLength) {
 			return `${player.title.substring(0, 20)}... - ${player.artist}`;
 		}
 

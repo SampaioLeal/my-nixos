@@ -7,8 +7,7 @@ import { Networks } from "./Networks";
 import { Volume } from "./Volume";
 import { Workspaces } from "./Workspaces";
 import { Tray } from "./Tray";
-
-const MARGIN = 8;
+import { configs } from "../../configs";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
 	const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -24,9 +23,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 			exclusivity={Astal.Exclusivity.EXCLUSIVE}
 			anchor={TOP | LEFT | RIGHT}
 			application={app}
-			marginTop={MARGIN}
-			marginLeft={MARGIN}
-			marginRight={MARGIN}
+			marginTop={configs.topbar.margin}
+			marginLeft={configs.topbar.margin}
+			marginRight={configs.topbar.margin}
 			marginBottom={0}
 		>
 			<centerbox cssName="centerbox">
