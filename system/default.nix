@@ -2,6 +2,7 @@
   imports = [
     ./bluetooth.nix
     ./bootloader.nix
+    ./display-manager.nix
     ./network.nix
     ./nvidia.nix
     ./pipewire.nix
