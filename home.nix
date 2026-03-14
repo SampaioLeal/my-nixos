@@ -24,6 +24,9 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       TERMINAL = "ghostty";
+      BROWSER = "zen";
+      EDITOR = "code";
+      VISUAL = "code";
     };
 
     packages = with pkgs; [
@@ -182,12 +185,6 @@
     };
   };
 
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-  #   configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
-  # };
-
   programs.git = {
     enable = true;
     settings = {
@@ -252,32 +249,49 @@
     enable = true;
   };
 
-  # xdg.mime = {
-  #   enable = true;
-  #   defaultApplications = {
-  #     "application/pdf" = "org.pwmt.zathura.desktop";
-  #     "application/vnd.apple.mpegurl" = "vlc.desktop";
-  #     "application/x-extension-htm" = "firefox.desktop";
-  #     "application/x-extension-html" = "firefox.desktop";
-  #     "application/x-extension-shtml" = "firefox.desktop";
-  #     "application/x-extension-xht" = "firefox.desktop";
-  #     "application/x-extension-xhtml" = "firefox.desktop";
-  #     "application/x-shellscript" = "emacsclient.desktop";
-  #     "application/xhtml+xml" = "firefox.desktop";
-  #     "audio/x-mpegurl" = "vlc.desktop";
-  #     "image/png" = "feh.desktop";
-  #     "text/*" = "emacsclient.desktop";
-  #     "text/css" = "emacsclient.desktop";
-  #     "text/html" = "firefox.desktop";
-  #     "text/markdown" = "calibre-ebook-viewer.desktop";
-  #     "text/plain" = "emacsclient.desktop";
-  #     "video/*" = "umpv.desktop";
-  #     "x-scheme-handler/chrome" = "firefox.desktop";
-  #     "x-scheme-handler/http" = "firefox.desktop";
-  #     "x-scheme-handler/https" = "firefox.desktop";
-  #     "x-scheme-handler/mpv" = "open-in-mpv.desktop";
-  #   };
-  # };
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      # Web and HTML
+      "x-scheme-handler/http" = "zen.desktop";
+      "x-scheme-handler/https" = "zen.desktop";
+      "x-scheme-handler/chrome" = "zen.desktop";
+      "application/x-extension-htm" = "zen.desktop";
+      "application/x-extension-html" = "zen.desktop";
+      "application/x-extension-shtml" = "zen.desktop";
+      "application/x-extension-xht" = "zen.desktop";
+      "application/x-extension-xhtml" = "zen.desktop";
+      "application/xhtml+xml" = "zen.desktop";
+
+      # Videos (MPV)
+      "video/*" = "mpv.desktop";
+      "x-scheme-handler/mpv" = "mpv.desktop";
+      "application/vnd.apple.mpegurl" = "mpv.desktop";
+      "audio/x-mpegurl" = "mpv.desktop";
+
+      # Imagens (IMV)
+      "image/*" = "imv.desktop";
+
+      # Text and Code (VS Code)
+      "text/*" = "code.desktop";
+      "application/x-shellscript" = "code.desktop";
+      "application/javascript" = "code.desktop";
+      "application/json" = "code.desktop";
+
+      # File management
+      "inode/directory" = "org.gnome.Nautilus.desktop";
+
+      # Terminal
+      "x-scheme-handler/terminal" = "com.mitchellh.ghostty.desktop";
+
+      # PDF
+      "application/pdf" = "org.pwmt.zathura.desktop";
+
+      # Other handlers
+      "x-scheme-handler/about" = "zen.desktop";
+      "x-scheme-handler/unknown" = "zen.desktop";
+    };
+  };
 }
 
 # https://github.com/hyprland-community/awesome-hyprland

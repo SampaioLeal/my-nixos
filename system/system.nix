@@ -31,6 +31,8 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.meslo-lg
     font-awesome
+    roboto
+    material-icons
   ];
 
   environment.sessionVariables = {

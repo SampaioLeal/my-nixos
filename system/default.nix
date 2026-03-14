@@ -8,6 +8,7 @@
     ./pipewire.nix
     ./program.nix
     ./security.nix
+    ./services.nix
     ./system.nix
     ./virtualisation.nix
   ];
