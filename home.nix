@@ -6,13 +6,13 @@
 }:
 {
   imports = [
-    ./ags
-    ./browser
-    ./hyprland
-    ./launcher
-    ./spotify
-    ./terminal
-    ./vscode
+    ./home/ags
+    ./home/browser
+    ./home/hyprland
+    ./home/launcher
+    ./home/spotify
+    ./home/terminal
+    ./home/vscode
     inputs.gazelle.homeModules.gazelle
   ];
 
