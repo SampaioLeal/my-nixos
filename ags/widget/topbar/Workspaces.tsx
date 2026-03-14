@@ -1,5 +1,5 @@
 import Hyprland from "gi://AstalHyprland";
-import { createBinding, For } from "gnim";
+import { createBinding, For } from "ags";
 import { attachHoverScroll } from "../../utils/scroll";
 
 export function Workspaces() {

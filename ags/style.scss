@@ -1,11 +1,25 @@
+@use "sass:string";
+
+@function gtkalpha($c, $a) {
+  @return string.unquote("alpha(#{$c},#{$a})");
+}
+
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-$accent: #27c5ff;
+$accent: #1c93bf;
 $secondary: #3B4261;
+$error: red;
 
 $font-size: 16px;
+
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+
+$gentle-curve: cubic-bezier(0.4, 0, 0.2, 1);
 
 * {
   min-height: 0px;
@@ -15,8 +29,8 @@ $font-size: 16px;
 }
 
 window.Bar {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: $radius-md;
   font-weight: bold;
   padding: 4px;
   min-height: 32px;
@@ -25,15 +39,15 @@ window.Bar {
   font-size: $font-size;
 
   .module {
-    border-radius: 16px;
+    border-radius: $radius-xl;
     padding-left: 8px;
     padding-right: 8px;
-    transition: 200ms;
+    transition: background-color 250ms $gentle-curve;
     background: transparent;
-  }
 
-  .module:hover {
-    background: rgba(255, 255, 255, 0.1);
+    &:hover {
+      background: gtkalpha($fg-color, 0.1);
+    }
   }
 
   // Workspaces
@@ -43,7 +57,7 @@ window.Bar {
   }
 
   .workspaces button {
-    border-radius: 8px;
+    border-radius: $radius-md;
     min-width: 8px;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -63,14 +77,6 @@ window.Bar {
 
   // Cava Visualizer
 
-  .cava {
-    .cava-container {
-      cava {
-        opacity: 0.2;
-      }
-    }
-  }
-
   .media {
     padding: 0;
 
@@ -80,21 +86,28 @@ window.Bar {
 
     .cover {
       margin-left: 8px;
+
+      .cover-art {
+        border-radius: $radius-sm;
+        min-width: 24px;
+        min-height: 24px;
+      }
     }
 
     .title {
       margin-right: 8px;
     }
 
+    // TODO: fix cava border-radius; align with the button/module border-radius
     .cava {
       color: $accent;
-      opacity: 0.2;
+      opacity: 0.4;
     }
   }
 
   .media>box {
     transition: 400ms cubic-bezier(0.05, 0.7, 0.1, 1);
-    border-radius: 16px;
+    border-radius: $radius-xl;
     margin: 0.4rem;
   }
 
@@ -116,10 +129,10 @@ window.Bar {
       padding: 0;
 
       >contents {
-        background: #27454a;
-        border-radius: 8px;
+        background-color: gtkalpha($bg-color, 0.2);
+        border-radius: $radius-md;
         padding: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
     }
 
@@ -217,7 +230,7 @@ window.Bar {
   tooltip {
     background-color: rgba(30, 30, 30, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: $radius-md;
     padding: 4px 8px;
   }
 
@@ -232,7 +245,7 @@ window.Bar {
 
   popover.menu modelbutton {
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: $radius-sm;
     color: #eeeeec;
   }
 

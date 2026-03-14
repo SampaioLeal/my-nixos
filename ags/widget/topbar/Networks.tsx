@@ -1,7 +1,7 @@
 import Bluetooth from "gi://AstalBluetooth";
 import Network from "gi://AstalNetwork";
 import { execAsync } from "ags/process";
-import { createBinding } from "gnim";
+import { createBinding } from "ags";
 
 export function Networks() {
 	const network = Network.Network.get_default();

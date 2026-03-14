@@ -1,10 +1,10 @@
-import { createBinding, createComputed, createState, With } from "ags";
+import { createBinding, createState, With } from "ags";
 import { Gtk } from "ags/gtk4";
 import { findPlayer } from "./cava/mpris";
 import Mpris from "gi://AstalMpris";
 import { getLocalCoverPath } from "../../utils/cover-art";
 import { CavaDraw } from "./cava/core/CavaWidget";
-import { URL } from "gnim/fetch";
+import { URL } from "ags/fetch";
 import { configs } from "../../configs";
 
 interface Props {
@@ -34,7 +34,7 @@ function Cover({ player }: Props) {
 		<image
 			class="cover-art"
 			overflow={Gtk.Overflow.HIDDEN}
-			pixelSize={20}
+			pixelSize={24}
 			file={localCover}
 		/>
 	);
@@ -76,6 +76,7 @@ function MusicBox({ player }: Props) {
 					measureBox = self;
 				}}
 				spacing={12}
+				valign={Gtk.Align.CENTER}
 			>
 				<box class="cover">
 					<Cover player={player} />

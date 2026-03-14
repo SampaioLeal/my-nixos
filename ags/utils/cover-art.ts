@@ -1,5 +1,5 @@
 import { execAsync } from "ags/process";
-import { URL } from "gnim/fetch";
+import { URL } from "ags/fetch";
 
 const CACHE_DIR = "/tmp/mpris-cover-arts";
 const MAX_COVERS = 10;

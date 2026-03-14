@@ -1,5 +1,5 @@
 import Wp from "gi://AstalWp";
-import { createBinding } from "gnim";
+import { createBinding } from "ags";
 import { attachHoverScroll } from "../../utils/scroll";
 
 type VolumeAction = "increase" | "decrease" | "mute";
@@ -34,7 +34,7 @@ export function Volume() {
 
 	return (
 		<box spacing={8}>
-			<button class="module volume">
+			<box class="module volume">
 				<box
 					spacing={6}
 					$={(self) => {
@@ -52,9 +52,9 @@ export function Volume() {
 						)((volume) => `${Math.round(volume * 100)}%`)}
 					/>
 				</box>
-			</button>
+			</box>
 
-			<button class="module volume">
+			<box class="module volume">
 				<box
 					spacing={6}
 					$={(self) => {
@@ -72,7 +72,7 @@ export function Volume() {
 						)((volume) => `${Math.round(volume * 100)}%`)}
 					/>
 				</box>
-			</button>
+			</box>
 		</box>
 	);
 }

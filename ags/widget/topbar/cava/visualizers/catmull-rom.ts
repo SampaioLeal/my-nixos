@@ -1,15 +1,20 @@
 import Gsk from "gi://Gsk";
-import {
-	Point,
-	shouldVisualize,
-	getVisualizerDimensions,
-	fillPath,
-} from "../utils";
 import Graphene from "gi://Graphene?version=1.0";
 import { Gtk } from "ags/gtk4";
+import { fillPath } from "../utils/rendering";
+import {
+	getVisualizerDimensions,
+	shouldVisualize,
+} from "../utils/visualization";
+import { CavaWidget } from "../core/CavaWidget";
+
+interface Point {
+	x: number;
+	y: number;
+}
 
 export function drawCatmullRom(
-	widget: any,
+	widget: CavaWidget,
 	snapshot: Gtk.Snapshot,
 	values: number[],
 	bars: number,
@@ -21,10 +26,12 @@ export function drawCatmullRom(
 	// 1. Criamos um retângulo que representa a área do widget
 	const rect = new Graphene.Rect();
 	rect.init(0, 0, width, height);
+
 	// 2. Criamos o RoundedRect (ajuste o radius para bater com seu CSS, ex: 12px)
 	const roundedRect = new Gsk.RoundedRect();
 	const radius = 12; // Valor que você usou no border-radius do CSS
 	roundedRect.init_from_rect(rect, radius);
+
 	// 3. Aplicamos o clip na pilha do snapshot
 	snapshot.push_rounded_clip(roundedRect);
 

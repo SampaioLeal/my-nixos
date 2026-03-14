@@ -1,3 +1,6 @@
+import { Gdk } from "ags/gtk4";
+import { CavaWidget } from "../core/CavaWidget";
+
 export function shouldVisualize(bars: number, values: number[]): boolean {
 	return !(bars === 0 || values.length === 0 || values.every((v) => v < 0.001));
 }
@@ -5,10 +8,10 @@ export function shouldVisualize(bars: number, values: number[]): boolean {
 export interface WidgetDimensions {
 	width: number;
 	height: number;
-	color: any;
+	color: Gdk.RGBA;
 }
 
-export function getVisualizerDimensions(widget: any): WidgetDimensions {
+export function getVisualizerDimensions(widget: CavaWidget): WidgetDimensions {
 	return {
 		width: widget.get_width(),
 		height: widget.get_height(),

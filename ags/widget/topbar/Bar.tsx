@@ -1,7 +1,7 @@
 import app from "ags/gtk4/app";
 import { Astal, Gdk } from "ags/gtk4";
 import { PowerMenu } from "./PowerMenu";
-import { TimeAndNotifications } from "./TimeAndNotifications";
+import { DateTime } from "./center/DateTime";
 import { Media } from "./Media";
 import { Networks } from "./Networks";
 import { Volume } from "./Volume";
@@ -9,7 +9,7 @@ import { Workspaces } from "./Workspaces";
 import { Tray } from "./Tray";
 import { configs } from "../../configs";
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export function Bar(gdkmonitor: Gdk.Monitor) {
 	const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
 	// TODO: add CPU and Memory usage
@@ -35,7 +35,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 				</box>
 
 				<box $type="center">
-					<TimeAndNotifications />
+					<DateTime />
 				</box>
 
 				<box $type="end" spacing={6}>

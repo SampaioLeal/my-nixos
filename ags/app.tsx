@@ -10,5 +10,11 @@ app.start({
 		app.get_monitors().map(Bar);
 		// app.get_monitors().map(Dock);
 	},
-	requestHandler(argv) {},
+	requestHandler(argv: string[], response: (response: string) => void) {
+		const [cmd, arg, ...rest] = argv;
+		if (cmd == "say") {
+			return response(arg);
+		}
+		response("unknown command");
+	},
 });

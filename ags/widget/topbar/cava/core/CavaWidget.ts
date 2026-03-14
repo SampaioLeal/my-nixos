@@ -23,16 +23,10 @@ export class CavaWidget extends Gtk.Widget {
 		});
 	}
 
-	getColor(): Gdk.RGBA {
-		const rgba = new Gdk.RGBA();
-		rgba.parse("#a6da95");
-
+	get_color(): Gdk.RGBA {
 		const styleContext = this.get_style_context();
-		if (styleContext) {
-			return styleContext.get_color();
-		}
 
-		return rgba;
+		return styleContext.get_color();
 	}
 
 	vfunc_snapshot(snapshot: Gtk.Snapshot): void {
