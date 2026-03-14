@@ -1,13 +1,19 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   programs.zsh = {
     enable = true;
 
     dotDir = "${config.xdg.configHome}/zsh";
-    
-    enableCompletion = false;
+
+    # enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
 
     history.size = 10000;
 
@@ -16,7 +22,6 @@
       cat = "bat";
       ping = "gping";
       find = "fd";
-      ls = "eza";
     };
 
     initContent =
