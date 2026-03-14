@@ -3,7 +3,6 @@ import { Accessor } from "ags";
 import { CentralPopover } from "./CentralPopover";
 
 export function DateTime() {
-	// TODO: add notifications center like gnome shell
 	const now = createPoll(new Date(), 1000, () => new Date());
 
 	const formatted = now((date) => {
@@ -18,9 +17,9 @@ export function DateTime() {
 	});
 
 	return (
-		<menubutton class="module time">
+		<menubutton class="module datetime">
 			<label label={formatted} />
-			<popover class="calendar">
+			<popover class="central-popover">
 				<CentralPopover now={now} />
 			</popover>
 		</menubutton>

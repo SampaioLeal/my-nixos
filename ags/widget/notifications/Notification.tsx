@@ -50,19 +50,23 @@ function urgency(n: Notifd.Notification) {
 
 interface NotificationProps {
 	notification: Notifd.Notification;
+	onDismiss: () => void;
+	onTimeout: () => void;
 }
 
-export function Notification({ notification }: NotificationProps) {
+export function Notification({
+	notification,
+	onDismiss,
+	onTimeout,
+}: NotificationProps) {
 	const appIcon =
 		notification.appIcon ||
 		notification.desktopEntry ||
 		getIconByAppName(notification.appName);
 
-	if (notification.expireTimeout <= 0) {
-		timeout(configs.notifications.defaultExpireTimeout, () => {
-			notification.dismiss();
-		});
-	}
+	timeout(configs.notifications.displayTime, () => {
+		onTimeout();
+	});
 
 	return (
 		<Adw.Clamp maximumSize={400}>
@@ -96,7 +100,7 @@ export function Notification({ notification }: NotificationProps) {
 						label={time(notification.time)}
 					/>
 
-					<button onClicked={() => notification.dismiss()}>
+					<button onClicked={onDismiss}>
 						<image iconName="window-close-symbolic" />
 					</button>
 				</box>

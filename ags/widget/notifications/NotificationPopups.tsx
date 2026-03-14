@@ -3,47 +3,38 @@ import { Astal, Gtk } from "ags/gtk4";
 import app from "ags/gtk4/app";
 import { createBinding, createState, For, onCleanup } from "ags";
 import { Notification } from "./Notification";
-import { interval } from "ags/time";
 
 export function NotificationPopups() {
 	const monitors = createBinding(app, "monitors");
 
 	const notifd = Notifd.get_default();
-	const [notifications, setNotifications] = createState<Notifd.Notification[]>(
-		[],
-	);
+	const [popups, setPopups] = createState<Notifd.Notification[]>([]);
 
-	interval(10000, () => {
-		Notifd.send_notification(
-			new Notifd.Notification({
-				summary: "Notification Popup Example",
-				appIcon: "bluetooth-active-symbolic",
-				// body: "oioi",
-				body:
-					"Lorem ipsum dolor sit amet, qui ad minim labore adipisicing " +
-					"minim sint cillum sint consectetur cupidatat.",
-				appName: "teste",
-				urgency: Notifd.Urgency.NORMAL,
-			}),
-			() => null,
-		);
-	});
+	const addPopup = (notification: Notifd.Notification) => {
+		setPopups((ns) => [notification, ...ns]);
+	};
+
+	const replacePopup = (id: number, notification: Notifd.Notification) => {
+		setPopups((ns) => ns.map((n) => (n.id === id ? notification : n)));
+	};
+
+	const removePopup = (id: number) => {
+		setPopups((ns) => ns.filter((n) => n.id !== id));
+	};
 
 	const notifiedHandler = notifd.connect("notified", (_, id, replaced) => {
 		const notification = notifd.get_notification(id);
 		if (!notification) return;
 
-		console.log(notification.expireTimeout);
-
-		if (replaced && notifications.peek().some((n) => n.id === id)) {
-			setNotifications((ns) => ns.map((n) => (n.id === id ? notification : n)));
+		if (replaced && popups.peek().some((n) => n.id === id)) {
+			replacePopup(id, notification);
 		} else {
-			setNotifications((ns) => [notification, ...ns]);
+			addPopup(notification);
 		}
 	});
 
 	const resolvedHandler = notifd.connect("resolved", (_, id) => {
-		setNotifications((ns) => ns.filter((n) => n.id !== id));
+		removePopup(id);
 	});
 
 	onCleanup(() => {
@@ -58,12 +49,18 @@ export function NotificationPopups() {
 					$={(self) => onCleanup(() => self.destroy())}
 					class="NotificationPopups"
 					gdkmonitor={monitor}
-					visible={notifications((ns) => ns.length > 0)}
+					visible={popups((ns) => ns.length > 0)}
 					anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT}
 				>
 					<box orientation={Gtk.Orientation.VERTICAL}>
-						<For each={notifications}>
-							{(notification) => <Notification notification={notification} />}
+						<For each={popups}>
+							{(notification) => (
+								<Notification
+									notification={notification}
+									onDismiss={() => notification.dismiss()}
+									onTimeout={() => removePopup(notification.id)}
+								/>
+							)}
 						</For>
 					</box>
 				</window>

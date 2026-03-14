@@ -7,6 +7,6 @@ export const configs = {
 		},
 	},
 	notifications: {
-		defaultExpireTimeout: 5000,
+		displayTime: 5000,
 	},
 };
