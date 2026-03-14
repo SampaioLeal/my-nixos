@@ -10,10 +10,10 @@
     ./home/browser
     ./home/hyprland
     ./home/launcher
+    ./home/programs
     ./home/spotify
     ./home/terminal
     ./home/vscode
-    inputs.gazelle.homeModules.gazelle
   ];
 
   home = {
@@ -31,30 +31,20 @@
 
     packages = with pkgs; [
       # CLI Utils
-      fastfetch
       moreutils
-      ripgrep
       lshw
       appimage-run
       tldr
-      fzf
-      bat
-      asciinema
       asciinema-agg
       progress
       lm_sensors
       wl-clipboard
-      cliphist
       xdg-utils
       bc
       bluetui
 
       # Developer Tools
-      jq
       entr
-      gh
-      lazygit
-      lazydocker
       # bruno
       # bruno-cli
       gping
@@ -73,26 +63,14 @@
 
       # Multimedia
       lowfi
-      zathura
-      imv
-      mpv
       ffmpeg
       ffmpegthumbnailer
       imagemagick
 
-      # Communication
-      discord
-
       # Productivity and office
-      obsidian
       bitwarden-desktop
-      xournalpp
 
       # File management and archives
-      fd
-      eza
-      yazi
-      broot
       p7zip
       unzip
       zip
@@ -104,7 +82,6 @@
       ncdu
       duf
       caligula
-      udiskie
 
       # Cursors
       apple-cursor
@@ -112,11 +89,9 @@
       bibata-cursors
 
       # Misc
-      obs-studio
       audacity
       cmatrix
       lolcat
-      swappy
       asciiquarium-transparent
       countryfetch
       cowsay
@@ -126,7 +101,6 @@
       gnome-calculator
       libsecret
       bluez
-      cava
       libnotify
 
       # Network
@@ -185,39 +159,6 @@
     };
   };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Sampaio Leal";
-        email = "sampaioleal14@gmail.com";
-      };
-    };
-  };
-
-  programs.btop = {
-    enable = true;
-  };
-
-  programs.gazelle = {
-    enable = true;
-    settings = {
-      theme = "user-theme";
-    };
-  };
-
-  #
-  # Hyprland Ecosystem
-  #
-
-  programs.hyprlock = {
-    enable = true;
-  };
-
-  programs.hyprshot = {
-    enable = true;
-  };
-
   services.hypridle = {
     enable = true;
     settings = {
@@ -249,47 +190,69 @@
     enable = true;
   };
 
-  xdg.mime = {
+  services.udiskie = {
     enable = true;
-    defaultApplications = {
-      # Web and HTML
-      "x-scheme-handler/http" = "zen.desktop";
-      "x-scheme-handler/https" = "zen.desktop";
-      "x-scheme-handler/chrome" = "zen.desktop";
-      "application/x-extension-htm" = "zen.desktop";
-      "application/x-extension-html" = "zen.desktop";
-      "application/x-extension-shtml" = "zen.desktop";
-      "application/x-extension-xht" = "zen.desktop";
-      "application/x-extension-xhtml" = "zen.desktop";
-      "application/xhtml+xml" = "zen.desktop";
+    tray = "auto"; # "always", "auto" ou "never"
+    settings = {
+      program_options = {
+        udisks_version = 2;
+        notifications = true;
+      };
+    };
+  };
 
-      # Videos (MPV)
-      "video/*" = "mpv.desktop";
-      "x-scheme-handler/mpv" = "mpv.desktop";
-      "application/vnd.apple.mpegurl" = "mpv.desktop";
-      "audio/x-mpegurl" = "mpv.desktop";
+  services.cliphist = {
+    enable = true;
+    allowImages = true;
+  };
 
-      # Imagens (IMV)
-      "image/*" = "imv.desktop";
+  xdg = {
+    enable = true;
+    mime = {
+      enable = true;
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        # Web and HTML
+        "x-scheme-handler/http" = "zen.desktop";
+        "x-scheme-handler/https" = "zen.desktop";
+        "x-scheme-handler/chrome" = "zen.desktop";
+        "application/x-extension-htm" = "zen.desktop";
+        "application/x-extension-html" = "zen.desktop";
+        "application/x-extension-shtml" = "zen.desktop";
+        "application/x-extension-xht" = "zen.desktop";
+        "application/x-extension-xhtml" = "zen.desktop";
+        "application/xhtml+xml" = "zen.desktop";
 
-      # Text and Code (VS Code)
-      "text/*" = "code.desktop";
-      "application/x-shellscript" = "code.desktop";
-      "application/javascript" = "code.desktop";
-      "application/json" = "code.desktop";
+        # Videos (MPV)
+        "video/*" = "mpv.desktop";
+        "x-scheme-handler/mpv" = "mpv.desktop";
+        "application/vnd.apple.mpegurl" = "mpv.desktop";
+        "audio/x-mpegurl" = "mpv.desktop";
 
-      # File management
-      "inode/directory" = "org.gnome.Nautilus.desktop";
+        # Imagens (IMV)
+        "image/*" = "imv.desktop";
 
-      # Terminal
-      "x-scheme-handler/terminal" = "com.mitchellh.ghostty.desktop";
+        # Text and Code (VS Code)
+        "text/*" = "code.desktop";
+        "application/x-shellscript" = "code.desktop";
+        "application/javascript" = "code.desktop";
+        "application/json" = "code.desktop";
 
-      # PDF
-      "application/pdf" = "org.pwmt.zathura.desktop";
+        # File management
+        "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      # Other handlers
-      "x-scheme-handler/about" = "zen.desktop";
-      "x-scheme-handler/unknown" = "zen.desktop";
+        # Terminal
+        "x-scheme-handler/terminal" = "com.mitchellh.ghostty.desktop";
+
+        # PDF
+        "application/pdf" = "org.pwmt.zathura.desktop";
+
+        # Other handlers
+        "x-scheme-handler/about" = "zen.desktop";
+        "x-scheme-handler/unknown" = "zen.desktop";
+      };
     };
   };
 }

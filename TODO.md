@@ -9,6 +9,3 @@
 - Configurar mais widgets pro AGS
 - Configurar notificações no AGS
 - Configurar GRUB
-
-<!-- https://mynixos.com/home-manager/options/programs.obsidian -->
-- Configurar obsidian (home-manager) 
