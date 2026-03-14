@@ -10,7 +10,6 @@
     ./browser
     ./hyprland
     ./launcher
-    ./notifications
     ./spotify
     ./terminal
     ./vscode
@@ -125,6 +124,7 @@
       libsecret
       bluez
       cava
+      libnotify
 
       # Network
       inputs.gazelle.packages.${pkgs.system}.default
