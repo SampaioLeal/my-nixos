@@ -24,6 +24,8 @@
       inputs.astal.packages.${pkgs.system}.notifd
       inputs.astal.packages.${pkgs.system}.tray
       inputs.astal.packages.${pkgs.system}.wireplumber
+      
+      libadwaita
     ];
   };
 }
