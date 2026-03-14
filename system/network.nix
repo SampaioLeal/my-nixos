@@ -15,6 +15,7 @@
       enable = true;
       allowedTCPPorts = [
         8081
+        3000
       ];
       allowedUDPPorts = [
       ];
