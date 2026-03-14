@@ -168,11 +168,11 @@
     # Hyprland Ecosystem
     #
 
-    programs.hyprlock = {
+    hyprlock = {
       enable = true;
     };
 
-    programs.hyprshot = {
+    hyprshot = {
       enable = true;
     };
   };
