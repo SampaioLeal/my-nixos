@@ -145,19 +145,33 @@
           containers = config.programs.zen-browser.profiles.sampaiol.containers;
         in
         {
+          Calendar = {
+            id = "b75e8db1-d3b1-41ea-a46b-8778e3536fd4";
+            container = containers.Personal.id;
+            url = "https://calendar.google.com/calendar/u/0/r";
+            isEssential = true;
+            position = 101;
+          };
           Gmail = {
             id = "8590604c-ec6b-47e4-8bdd-96274ae9ebda";
             container = containers.Personal.id;
             url = "https://gmail.com/";
             isEssential = true;
-            position = 101;
+            position = 102;
+          };
+          Gemini = {
+            id = "5acab064-312e-4f14-ac43-830ec9afb172";
+            container = containers.Personal.id;
+            url = "https://gemini.google.com/app";
+            isEssential = true;
+            position = 103;
           };
           WhatsApp = {
             id = "6a7fa275-01ca-4728-b3d6-c44e9b826c5d";
             container = containers.Personal.id;
             url = "https://web.whatsapp.com/";
             isEssential = true;
-            position = 102;
+            position = 104;
           };
         };
     };
