@@ -1,37 +1,45 @@
 import { Gtk } from "ags/gtk4";
 import Notifd from "gi://AstalNotifd";
-import { Notification } from "../../notifications/Notification";
+import { NotificationCard } from "./NotificationCard";
+import AstalNotifd from "gi://AstalNotifd";
 
 interface Props {
 	notifications: Notifd.Notification[];
 }
 
-// TODO: create new NotificationCard component just for the list
-// TODO: customize to be more like GNOME Shell
-
 export function NotificationList({ notifications }: Props) {
+	const notifd = AstalNotifd.get_default();
+
 	return (
-		<Gtk.ScrolledWindow
-			vexpand
-			hscrollbarPolicy={Gtk.PolicyType.NEVER}
-			class="notif-scroll"
-		>
-			<box
-				orientation={Gtk.Orientation.VERTICAL}
-				spacing={8}
-				class="notif-list"
-			>
-				{notifications.map((notification) => (
-					<Notification
-						notification={notification}
-						onDismiss={() => notification.dismiss()}
-						onTimeout={() => {}}
-					/>
-				))}
-				{/* <For each={notifications}>
-					{(notification) => <Notification notification={notification} />}
-				</For> */}
+		<box orientation={Gtk.Orientation.VERTICAL}>
+			<Gtk.ScrolledWindow vexpand hscrollbarPolicy={Gtk.PolicyType.NEVER}>
+				<box
+					orientation={Gtk.Orientation.VERTICAL}
+					spacing={8}
+					class="notif-list"
+				>
+					{notifications.map((notification) => (
+						<NotificationCard notification={notification} />
+					))}
+				</box>
+			</Gtk.ScrolledWindow>
+
+			<box class="footer" spacing={10}>
+				<label
+					label="Notificações"
+					hexpand
+					halign={Gtk.Align.START}
+					class="section-title"
+				/>
+				<button
+					class="clear-button"
+					onClicked={() =>
+						notifd.get_notifications().forEach((n) => n.dismiss())
+					}
+				>
+					<label label="Limpar" />
+				</button>
 			</box>
-		</Gtk.ScrolledWindow>
+		</box>
 	);
 }

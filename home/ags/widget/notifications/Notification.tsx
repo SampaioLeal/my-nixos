@@ -1,35 +1,12 @@
-// import Adw from "gi://Adw";
 import GLib from "gi://GLib";
 import Notifd from "gi://AstalNotifd";
 import Pango from "gi://Pango";
-import { Gdk, Gtk } from "ags/gtk4";
+import { Gtk } from "ags/gtk4";
 import Adw from "gi://Adw";
-import Apps from "gi://AstalApps";
 import { timeout } from "ags/time";
 import { configs } from "../../configs";
-
-function getIconByAppName(appName: string) {
-	const apps = new Apps.Apps();
-	const app = apps.fuzzy_query(appName)[0];
-
-	if (app && app.icon_name) {
-		return app.icon_name;
-	}
-
-	return "";
-}
-
-function isIcon(icon?: string | null) {
-	const iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default()!);
-
-	if (!icon) return false;
-
-	return iconTheme.has_icon(icon);
-}
-
-function fileExists(path: string) {
-	return GLib.file_test(path, GLib.FileTest.EXISTS);
-}
+import { getIconByAppName, isIcon } from "../../utils/icons";
+import { fileExists } from "../../utils/files";
 
 function time(time: number, format = "%H:%M") {
 	return GLib.DateTime.new_from_unix_local(time).format(format)!;
@@ -54,6 +31,7 @@ interface NotificationProps {
 	onTimeout: () => void;
 }
 
+// TODO: fix timeout when a notification is replaced
 export function Notification({
 	notification,
 	onDismiss,

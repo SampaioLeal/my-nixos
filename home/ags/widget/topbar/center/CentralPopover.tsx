@@ -23,28 +23,10 @@ export function CentralPopover({ now }: CentralPopoverProps) {
 		<box class="central-container" spacing={20}>
 			{/* Lado Esquerdo: Central de Notificações (Estilo GNOME) */}
 			<box
-				orientation={Gtk.Orientation.VERTICAL}
 				class="notifications-section"
+				orientation={Gtk.Orientation.VERTICAL}
 				hexpand
 			>
-				<box class="notif-header" spacing={10}>
-					<label
-						label="Notificações"
-						hexpand
-						halign={Gtk.Align.START}
-						class="section-title"
-					/>
-					<button
-						class="clear-button"
-						onClicked={() =>
-							notifd.get_notifications().forEach((n) => n.dismiss())
-						}
-						visible={notifications.as((n) => n.length > 0)}
-					>
-						<label label="Limpar Tudo" />
-					</button>
-				</box>
-
 				<With value={notifications}>
 					{(list) =>
 						list.length ? (
@@ -55,6 +37,7 @@ export function CentralPopover({ now }: CentralPopoverProps) {
 								valign={Gtk.Align.CENTER}
 								vexpand
 								class="empty-state"
+								spacing={16}
 							>
 								<image
 									iconName="notifications-disabled-symbolic"
