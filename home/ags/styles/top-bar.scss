@@ -1,0 +1,307 @@
+@use "theme";
+
+$surface-bg: theme.gtkalpha(theme.$fg-color, 0.04);
+$surface-hover-bg: theme.gtkalpha(theme.$fg-color, 0.1);
+
+
+window.Bar {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: theme.$radius-md;
+  font-weight: bold;
+  padding: 4px;
+  min-height: 32px;
+
+  color: theme.$fg-color;
+  font-size: 16px;
+
+  /**
+   *
+   *  Tooltips
+   *
+   */
+
+  tooltip {
+    background-color: rgba(30, 30, 30, 0.95);
+    border: 1px solid theme.gtkalpha(theme.$fg-color, 0.1);
+    border-radius: theme.$radius-md;
+    padding: 4px 8px;
+  }
+
+  tooltip label {
+    color: theme.$fg-color;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px;
+  }
+
+  /**
+   *
+   *  Module
+   *
+   */
+
+  .module {
+    border-radius: theme.$radius-xl;
+    padding-left: 8px;
+    padding-right: 8px;
+    transition: background-color 250ms theme.$gentle-curve;
+    background: transparent;
+
+    &:hover {
+      background: theme.gtkalpha(theme.$fg-color, 0.1);
+    }
+  }
+
+  /**
+   *
+   *  Workspaces Module 
+   *
+   */
+
+  .workspaces {
+    padding: 8px;
+  }
+
+  .workspaces button {
+    border-radius: theme.$radius-md;
+    min-width: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    transition: 200ms;
+  }
+
+  .workspaces button.focused {
+    background: theme.$fg-color;
+    min-width: 28px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  .workspaces button.unfocused {
+    background: theme.gtkalpha(theme.$fg-color, 0.5);
+  }
+
+  /**
+   *
+   *  Mpris/Cava Module 
+   *
+   */
+
+  .media {
+    padding: 0;
+
+    button {
+      background: transparent;
+    }
+
+    .cover {
+      margin-left: 8px;
+
+      .cover-art {
+        border-radius: theme.$radius-sm;
+        min-width: 24px;
+        min-height: 24px;
+      }
+    }
+
+    .title {
+      margin-right: 8px;
+    }
+
+    // TODO: fix cava border-radius; align with the button/module border-radius
+    .cava {
+      color: theme.$accent;
+      opacity: 0.4;
+    }
+  }
+
+  /**
+   *
+   *  DateTime Module 
+   *
+   */
+
+  .datetime {
+    button {
+      background: transparent;
+    }
+  }
+
+  /**
+   *
+   *  Calendar & Notifications Center Module 
+   *
+   */
+
+  .central-popover {
+    >contents {
+      background-color: theme.gtkalpha(theme.$bg-color, 0.2);
+      border-radius: theme.$radius-xl;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .central-container {
+      min-width: 750px;
+      min-height: 400px;
+
+      .notifications-section {
+        padding-right: 1.5rem;
+        border-right: 1px solid $surface-hover-bg;
+
+        .notif-list {
+          padding-right: 1rem;
+
+          .notification.card {
+            background-color: $surface-bg;
+            border: 1px solid theme.$border-color;
+            margin: 4px;
+
+            &:hover {
+              background-color: $surface-hover-bg;
+            }
+
+            &.critical {
+              border: 2px solid theme.gtkalpha(theme.$error, 0.3);
+            }
+          }
+        }
+
+        .section-title {
+          font-weight: bold;
+          font-size: 1.1rem;
+          opacity: 0.8;
+        }
+
+        .clear-button {
+          padding: 4px 12px;
+          border-radius: theme.$radius-md;
+          background-color: $surface-bg;
+
+          &:hover {
+            background: $surface-hover-bg;
+          }
+        }
+
+        .empty-state {
+          opacity: 0.3;
+        }
+      }
+
+      .calendar-section {
+        padding-left: 0.5rem;
+
+        .time-header {
+          margin-bottom: 16px;
+
+          .clock-label {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: theme.$fg-color;
+          }
+
+          .date-label {
+            font-size: 0.95rem;
+            color: theme.$accent;
+            font-weight: 500;
+          }
+        }
+
+        /* Estilo do Calendário */
+        .calendar-widget {
+          color: theme.$fg-color;
+          border: none;
+          font-size: 14px;
+          font-weight: normal;
+
+          & :focus,
+          &>grid>label:focus {
+            outline: none;
+            box-shadow: none;
+          }
+
+          /* Dias da semana (Iniciais) */
+          grid>label.day-name {
+            opacity: 0.5;
+            font-size: 0.8rem;
+            padding-bottom: 8px;
+          }
+
+          /* Todos os dias */
+          grid>label {
+            padding: 0;
+            margin: 2px;
+            color: theme.$fg-color;
+            min-width: 34px;
+            min-height: 34px;
+
+            -gtk-icon-shadow: none;
+          }
+
+          /* O DIA SELECIONADO (Efeito Circular Libadwaita) */
+          & :selected {
+            background-color: theme.$accent;
+            border-radius: 99px;
+            font-weight: bold;
+          }
+
+          /* Dia atual (Hoje), mas não selecionado */
+          & .today {
+            color: theme.$fg-color;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            box-shadow: none;
+          }
+
+          /* Dias de outros meses */
+          .other-month {
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   *
+   *  System Tray Module 
+   *
+   */
+  .system-tray {
+    image {
+      -gtk-icon-size: 16px;
+    }
+
+    .tray-item button {
+      background: transparent;
+    }
+  }
+
+  /**
+   *
+   *  Popover Menu 
+   *
+   */
+
+  popover.menu modelbutton {
+    padding: 6px 12px;
+    border-radius: theme.$radius-sm;
+    color: #eeeeec;
+  }
+
+  popover.menu modelbutton:hover {
+    background-color: theme.$accent;
+    color: white;
+  }
+
+  /**
+   *
+   *  Power Menu Module 
+   *
+   */
+
+  .powermenu {
+    color: theme.$accent;
+  }
+}

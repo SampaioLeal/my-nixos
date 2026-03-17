@@ -1,0 +1,73 @@
+@use "theme";
+
+.notification {
+  font-size: 14px;
+  padding: 1rem;
+
+  .header {
+    .app-icon {
+      margin-right: theme.spacing(1);
+    }
+
+    .app-name {
+      font-weight: bold;
+      color: theme.gtkalpha(theme.$fg-color, 0.5);
+      margin-right: theme.spacing(1);
+    }
+
+    .time {
+      font-size: 12px;
+      color: theme.gtkalpha(theme.$fg-color, 0.5);
+    }
+
+    .dismiss-btn {
+      padding: 4px;
+      border-radius: 50%;
+      min-width: 0;
+      min-height: 0;
+      background-color: theme.gtkalpha(theme.$fg-color, 0.1);
+
+      &:hover {
+        background-color: theme.gtkalpha(theme.$fg-color, 0.1);
+      }
+    }
+  }
+
+  separator {
+    margin: 0.5rem 0;
+  }
+
+  .content {
+    .summary {
+      font-weight: bold;
+      color: theme.$fg-color;
+    }
+
+    // .body {}
+
+    .image {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 1rem;
+      border-radius: theme.$radius-md;
+      min-width: 60px;
+      min-height: 60px;
+    }
+  }
+
+  .actions {
+    margin: 1rem;
+    margin-top: 0;
+
+    button {
+      margin: 0 0.3rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import GLib from "gi://GLib";
 import Notifd from "gi://AstalNotifd";
 import Pango from "gi://Pango";
 import { Gtk } from "ags/gtk4";
@@ -7,10 +6,7 @@ import { timeout } from "ags/time";
 import { configs } from "../../configs";
 import { getIconByAppName, isIcon } from "../../utils/icons";
 import { fileExists } from "../../utils/files";
-
-function time(time: number, format = "%H:%M") {
-	return GLib.DateTime.new_from_unix_local(time).format(format)!;
-}
+import { getTimeLabel } from "../../utils/time";
 
 function urgency(n: Notifd.Notification) {
 	const { LOW, NORMAL, CRITICAL } = Notifd.Urgency;
@@ -27,13 +23,15 @@ function urgency(n: Notifd.Notification) {
 
 interface NotificationProps {
 	notification: Notifd.Notification;
+	classes: string;
 	onDismiss: () => void;
-	onTimeout: () => void;
+	onTimeout?: () => void;
 }
 
 // TODO: fix timeout when a notification is replaced
 export function Notification({
 	notification,
+	classes,
 	onDismiss,
 	onTimeout,
 }: NotificationProps) {
@@ -43,20 +41,21 @@ export function Notification({
 		getIconByAppName(notification.appName);
 
 	timeout(configs.notifications.displayTime, () => {
-		onTimeout();
+		onTimeout && onTimeout();
 	});
 
 	return (
-		<Adw.Clamp maximumSize={400}>
+		<Adw.Clamp maximumSize={500}>
 			<box
-				widthRequest={400}
-				class={`notification ${urgency(notification)}`}
+				widthRequest={500}
+				class={`notification ${urgency(notification)} ${classes}`}
 				orientation={Gtk.Orientation.VERTICAL}
 			>
-				<box class="header" valign={Gtk.Align.CENTER}>
+				<box class="header" hexpand>
 					{isIcon(appIcon) && (
 						<image
 							class="app-icon"
+							valign={Gtk.Align.BASELINE}
 							visible={Boolean(appIcon)}
 							iconName={appIcon}
 						/>
@@ -64,21 +63,24 @@ export function Notification({
 
 					<label
 						class="app-name"
-						halign={Gtk.Align.START}
 						valign={Gtk.Align.BASELINE_CENTER}
 						ellipsize={Pango.EllipsizeMode.END}
 						label={notification.appName || "Unknown"}
 					/>
 
 					<label
-						class="time"
 						hexpand
-						halign={Gtk.Align.END}
+						halign={Gtk.Align.START}
 						valign={Gtk.Align.BASELINE_CENTER}
-						label={time(notification.time)}
+						class="time"
+						label={getTimeLabel(notification.time)}
 					/>
 
-					<button onClicked={onDismiss}>
+					<button
+						halign={Gtk.Align.END}
+						class="dismiss-btn"
+						onClicked={onDismiss}
+					>
 						<image iconName="window-close-symbolic" />
 					</button>
 				</box>
@@ -92,7 +94,7 @@ export function Notification({
 							overflow={Gtk.Overflow.HIDDEN}
 							class="image"
 							file={notification.image}
-							pixelSize={100}
+							pixelSize={60}
 						/>
 					)}
 
@@ -106,7 +108,11 @@ export function Notification({
 						</box>
 					)}
 
-					<box orientation={Gtk.Orientation.VERTICAL} valign={Gtk.Align.CENTER}>
+					<box
+						orientation={Gtk.Orientation.VERTICAL}
+						valign={Gtk.Align.CENTER}
+						spacing={6}
+					>
 						<label
 							class="summary"
 							wrap

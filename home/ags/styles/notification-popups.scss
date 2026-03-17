@@ -1,0 +1,19 @@
+@use "theme";
+
+window.NotificationPopups {
+  .popup {
+    box-shadow: 2px 3px 8px 0 theme.gtkalpha(black, 0.1);
+    border-radius: theme.$radius-lg;
+    margin: 1.5rem 1.5rem 0.5rem 0.5rem;
+    background-color: theme.gtkalpha(theme.$bg-color, 0.2);
+    transition: background-color 250ms theme.$gentle-curve;
+
+    &:hover {
+      background: theme.gtkalpha(theme.$bg-color, 0.6);
+    }
+
+    &.critical {
+      background-color: theme.gtkalpha(theme.$error, 0.3);
+    }
+  }
+}

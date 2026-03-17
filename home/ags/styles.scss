@@ -1,0 +1,10 @@
+@use "styles/top-bar";
+@use "styles/notifications";
+@use "styles/notification-popups";
+
+* {
+  min-height: 0px;
+  min-width: 0px;
+  padding: 0px;
+  margin: 0px;
+}

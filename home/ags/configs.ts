@@ -7,6 +7,6 @@ export const configs = {
 		},
 	},
 	notifications: {
-		displayTime: 5000,
+		displayTime: 10000,
 	},
 };

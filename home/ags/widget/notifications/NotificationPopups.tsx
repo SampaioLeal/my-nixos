@@ -50,13 +50,14 @@ export function NotificationPopups() {
 					class="NotificationPopups"
 					gdkmonitor={monitor}
 					visible={popups((ns) => ns.length > 0)}
-					anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT}
+					anchor={Astal.WindowAnchor.TOP}
 				>
 					<box orientation={Gtk.Orientation.VERTICAL}>
 						<For each={popups}>
 							{(notification) => (
 								<Notification
 									notification={notification}
+									classes="popup"
 									onDismiss={() => notification.dismiss()}
 									onTimeout={() => removePopup(notification.id)}
 								/>

@@ -1,7 +1,7 @@
 import { Gtk } from "ags/gtk4";
 import Notifd from "gi://AstalNotifd";
-import { NotificationCard } from "./NotificationCard";
 import AstalNotifd from "gi://AstalNotifd";
+import { Notification } from "../../notifications/Notification";
 
 interface Props {
 	notifications: Notifd.Notification[];
@@ -19,7 +19,11 @@ export function NotificationList({ notifications }: Props) {
 					class="notif-list"
 				>
 					{notifications.map((notification) => (
-						<NotificationCard notification={notification} />
+						<Notification
+							notification={notification}
+							classes="card"
+							onDismiss={() => notification.dismiss()}
+						/>
 					))}
 				</box>
 			</Gtk.ScrolledWindow>
