@@ -60,6 +60,7 @@
       nmap
       rdap
       github-copilot-cli
+      antigravity
 
       # Multimedia
       lowfi
@@ -102,6 +103,7 @@
       libsecret
       bluez
       libnotify
+      firefoxpwa 
 
       # Network
       inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default

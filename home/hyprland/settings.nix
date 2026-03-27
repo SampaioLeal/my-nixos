@@ -2,6 +2,7 @@
   lib,
   pkgs,
   inputs,
+  config,
   ...
 }:
 {
@@ -216,7 +217,7 @@
       "$mainMod, mouse_up, workspace, e-1"
 
       # Print screen
-      ", Print, exec, hyprshot -m region"
+      ", Print, exec, hyprshot -m region -z -o ${config.home.homeDirectory}/Pictures/Screenshots"
     ];
     # ++ (
     #     # workspaces

@@ -1,4 +1,7 @@
 {
+  ...
+}:
+{
   wayland.windowManager.hyprland.settings.windowrule = [
     # Ignore maximize requests from all apps. You'll probably like this.
     "suppress_event maximize, match:class ^(.*)$"
@@ -7,9 +10,10 @@
 
     "float on, pin on, match:title ^(Picture-in-Picture)$"
 
-    "dim_around on, match:class ^(xdg-desktop-portal-gtk)$"
-    "dim_around on, match:class ^(polkit-gnome-authentication-agent-1)$"
-    "dim_around on, match:class ^(zen-beta)$, match:title ^(File Upload)$"
+    "dim_around on, float on, center on, focus_on_activate on, match:class xdg-desktop-portal-gtk"
+    "dim_around on, float on, center on, focus_on_activate on, match:class polkit-gnome-authentication-agent-1"
+    "dim_around on, float on, center on, focus_on_activate on, match:class zen-beta, match:title .*File Upload.*"
+    "dim_around on, float on, center on, focus_on_activate on, match:class zen-beta, match:title .*Extensão.*Bitwarden.*"
 
     "opacity 1 override, match:class com.mitchellh.ghostty"
     "opacity 1 override, match:class zen-beta"
