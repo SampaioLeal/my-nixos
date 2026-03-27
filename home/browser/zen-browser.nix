@@ -46,7 +46,7 @@
         "zen.workspaces.force-container-workspace" = true;
         "zen.pinned-tab-manager.restore-pinned-tabs-to-pinned-url" = true;
 
-        "font.name.serif.x-western" = "FiraCode Nerd Font";
+        # "font.name.serif.x-western" = "FiraCode Nerd Font";
 
         "intl.locale.requested" = "pt-BR,en-US";
 

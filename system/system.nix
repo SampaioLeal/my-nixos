@@ -32,6 +32,7 @@
     nerd-fonts.meslo-lg
     font-awesome
     roboto
+    inter
     material-icons
   ];
 

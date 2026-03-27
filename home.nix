@@ -118,7 +118,7 @@
     enable = true;
 
     font = {
-      name = "FiraCode Nerd Font";
+      name = "Inter";
       size = 10;
     };
 

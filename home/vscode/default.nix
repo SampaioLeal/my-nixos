@@ -19,6 +19,7 @@
       enableExtensionUpdateCheck = true;
     };
 
+    # Set firacode font
     profiles.sampaiol = {
       extensions = with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
