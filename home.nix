@@ -84,6 +84,7 @@
       ncdu
       duf
       caligula
+      usbutils
 
       # Cursors
       apple-cursor

@@ -26,4 +26,8 @@
   };
 
   boot.supportedFilesystems = [ "ntfs" ];
+
+  boot.extraModprobeConfig = ''
+    options rtw88_core disable_lps_deep=y
+  '';
 }
