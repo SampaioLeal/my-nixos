@@ -58,6 +58,7 @@
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.smoothScrolling" = true;
     "editor.unicodeHighlight.ambiguousCharacters" = false;
+    "editor.tabCompletion" = "on";
 
     "todo-tree.highlights.enabled" = true;
     "todo-tree.general.tags" = [
@@ -87,7 +88,6 @@
     "javascript.inlayHints.parameterTypes.enabled" = true;
     "javascript.inlayHints.variableTypes.enabled" = true;
     "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
-    "javascript.inlayHints.enumMemberValues.enabled" = true;
 
     "typescript.updateImportsOnFileMove.enabled" = "always";
     "typescript.inlayHints.parameterTypes.enabled" = true;
@@ -104,7 +104,6 @@
 
     "terminal.integrated.enableMultiLinePasteWarning" = "never";
     "terminal.integrated.stickyScroll.enabled" = false;
-    "terminal.external.linuxExec" = "warp-terminal";
     "terminal.integrated.fontFamily" = "monospace";
     "terminal.integrated.defaultProfile.linux" = "bash";
     "terminal.integrated.profiles.linux" = {
@@ -117,16 +116,11 @@
     };
 
     "prisma.hidePrisma6Prompts" = true;
-    "prisma.showPrismaDataPlatformNotification" = false;
-
-    "settingsSync.ignoredSettings" = [ ];
 
     "githubPullRequests.createOnPublishBranch" = "never";
     "githubPullRequests.pullBranch" = "never";
 
     "liveServer.settings.donotShowInfoMsg" = true;
-
-    "svelte.plugin.svelte.note-new-transformation" = false;
 
     "python.formatting.provider" = "none";
 
@@ -146,24 +140,16 @@
       "scminput" = false;
       "yaml" = true;
     };
-    "github.copilot.selectedCompletionModel" = "";
     "github.copilot.chat.codeGeneration.useInstructionFiles" = true;
     "github.copilot.chat.localeOverride" = "pt-br";
     "github.copilot.nextEditSuggestions.fixes" = false;
     "github.copilot.editor.enableCodeActions" = false;
-    "github.copilot.chat.copilotDebugCommand.enabled" = false;
-    "github.copilot.chat.reviewAgent.enabled" = false;
-    "github.copilot.chat.reviewSelection.enabled" = false;
-    "github.copilot.chat.startDebugging.enabled" = false;
-    "github.copilot.chat.agent.currentEditorContext.enabled" = false;
-    "github.copilot.chat.edits.suggestRelatedFilesForTests" = false;
-    "github.copilot.chat.edits.suggestRelatedFilesFromGitHistory" = false;
-    "github.copilot.chat.setupTests.enabled" = false;
-    "github.copilot.chat.summarizeAgentConversationHistory.enabled" = false;
     "github.copilot.renameSuggestions.triggerAutomatically" = false;
-    "github.copilot.chat.newWorkspaceCreation.enabled" = false;
     "github.copilot.nextEditSuggestions.enabled" = true;
 
+    "chat.mcp.enabled" = true;
+    "chat.mcp.discovery.enabled" = true;
+    "chat.agent.maxRequests" = 100;
     "chat.tools.terminal.autoApprove" = {
       "rm" = false;
       "rmdir" = false;
@@ -189,7 +175,6 @@
       };
       "Check" = true;
     };
-    "chat.agent.maxRequests" = 100;
 
     "[python]" = {
       "editor.defaultFormatter" = "ms-python.black-formatter";
