@@ -14,31 +14,28 @@
   programs.vscode = {
     enable = true;
 
+    # Set firacode font
     profiles.default = {
       enableUpdateCheck = true;
       enableExtensionUpdateCheck = true;
-    };
-
-    # Set firacode font
-    profiles.sampaiol = {
-      extensions = with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
-        jnoortheen.nix-ide
-        pkief.material-icon-theme
-        prisma.prisma
-        mikestead.dotenv
-        mhutchie.git-graph
-        hashicorp.terraform
-        gruntfuggly.todo-tree
-        github.vscode-pull-request-github
-        github.vscode-github-actions
-        denoland.vscode-deno
-        biomejs.biome
-        mkhl.direnv
-        github.copilot-chat
-        ms-azuretools.vscode-containers
-        ms-vscode-remote.remote-containers
-      ];
+      # extensions = with pkgs.vscode-extensions; [
+      #   dracula-theme.theme-dracula
+      #   jnoortheen.nix-ide
+      #   pkief.material-icon-theme
+      #   prisma.prisma
+      #   mikestead.dotenv
+      #   mhutchie.git-graph
+      #   hashicorp.terraform
+      #   gruntfuggly.todo-tree
+      #   github.vscode-pull-request-github
+      #   github.vscode-github-actions
+      #   denoland.vscode-deno
+      #   biomejs.biome
+      #   mkhl.direnv
+      #   github.copilot-chat
+      #   ms-azuretools.vscode-containers
+      #   ms-vscode-remote.remote-containers
+      # ];
     };
   };
 

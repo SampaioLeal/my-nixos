@@ -5,7 +5,7 @@
   ...
 }:
 {
-  programs.vscode.profiles.sampaiol.keybindings = [
+  programs.vscode.profiles.default.keybindings = [
     {
       key = "ctrl+d";
       command = "editor.action.deleteLines";

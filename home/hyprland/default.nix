@@ -8,6 +8,7 @@
   imports = [
     ./autostart.nix
     ./hyprpaper.nix
+    ./hyprsunset.nix
     ./settings.nix
     ./window-rules.nix
   ];

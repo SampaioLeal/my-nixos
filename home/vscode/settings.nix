@@ -5,7 +5,7 @@
   ...
 }:
 {
-  programs.vscode.profiles.sampaiol.userSettings = {
+  programs.vscode.profiles.default.userSettings = {
     "files.eol" = "\n";
     "files.exclude" = {
       "**/.git" = true;
@@ -38,6 +38,7 @@
     "workbench.startupEditor" = "newUntitledFile";
     "workbench.list.smoothScrolling" = true;
     "workbench.colorTheme" = "Dracula Theme";
+    "workbench.preferredDarkColorTheme" = "Dracula Theme";
     "workbench.editor.empty.hint" = "hidden";
     "workbench.secondarySideBar.defaultVisibility" = "hidden";
 
@@ -47,6 +48,8 @@
     "git.ignoreRebaseWarning" = true;
     "git.replaceTagsWhenPull" = true;
     "git.openRepositoryInParentFolders" = "always";
+
+    "window.autoDetectColorScheme" = false;
 
     "editor.inlayHints.fontSize" = 8;
     "editor.fontFamily" = "Fira Code";
@@ -82,6 +85,16 @@
     };
 
     "json.schemas" = [ ];
+    "json.schemaDownload.trustedDomains" = {
+      "https://schemastore.azurewebsites.net/" = true;
+      "https://raw.githubusercontent.com/microsoft/vscode/" = true;
+      "https://raw.githubusercontent.com/devcontainers/spec/" = true;
+      "https://www.schemastore.org/" = true;
+      "https://json.schemastore.org/" = true;
+      "https://json-schema.org/" = true;
+      "https://developer.microsoft.com/json-schemas/" = true;
+      "https://biomejs.dev" = true;
+    };
 
     "javascript.updateImportsOnFileMove.enabled" = "always";
     "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;

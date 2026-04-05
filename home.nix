@@ -46,8 +46,8 @@
 
       # Developer Tools
       entr
-      # bruno
-      # bruno-cli
+      bruno
+      bruno-cli
       gping
       hyperfine
       pastel
@@ -105,7 +105,7 @@
       libsecret
       bluez
       libnotify
-      firefoxpwa 
+      firefoxpwa
 
       # Network
       inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -189,10 +189,6 @@
         }
       ];
     };
-  };
-
-  services.hyprsunset = {
-    enable = true;
   };
 
   services.udiskie = {
