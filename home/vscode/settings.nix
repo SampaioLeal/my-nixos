@@ -97,20 +97,13 @@
       "https://biomejs.dev" = true;
     };
 
-    "javascript.updateImportsOnFileMove.enabled" = "always";
-    "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
-    "javascript.inlayHints.parameterTypes.enabled" = true;
-    "javascript.inlayHints.variableTypes.enabled" = true;
-    "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
-
-    "typescript.updateImportsOnFileMove.enabled" = "always";
-    "typescript.inlayHints.parameterTypes.enabled" = true;
-    "typescript.inlayHints.enumMemberValues.enabled" = true;
-    "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
-    "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
-    "typescript.inlayHints.variableTypes.enabled" = true;
-    "typescript.inlayHints.parameterNames.enabled" = "none";
-
+    "js/ts.inlayHints.variableTypes.enabled" = true;
+    "js/ts.updateImportsOnFileMove.enabled" = "always";
+    "js/ts.inlayHints.parameterTypes.enabled" = true;
+    "js/ts.inlayHints.enumMemberValues.enabled" = true;
+    "js/ts.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "js/ts.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "js/ts.inlayHints.parameterNames.enabled" = "none";
     "js/ts.implicitProjectConfig.checkJs" = true;
 
     "diffEditor.codeLens" = true;
@@ -119,12 +112,12 @@
     "terminal.integrated.enableMultiLinePasteWarning" = "never";
     "terminal.integrated.stickyScroll.enabled" = false;
     "terminal.integrated.fontFamily" = "monospace";
-    "terminal.integrated.defaultProfile.linux" = "bash";
+    "terminal.integrated.defaultProfile.linux" = "zsh";
     "terminal.integrated.profiles.linux" = {
-      "bash" = {
+      "zsh" = {
         "path" = "host-spawn";
         "args" = [
-          "bash"
+          "zsh"
         ];
       };
     };
@@ -134,15 +127,6 @@
     "githubPullRequests.createOnPublishBranch" = "never";
     "githubPullRequests.pullBranch" = "never";
 
-    "liveServer.settings.donotShowInfoMsg" = true;
-
-    "python.formatting.provider" = "none";
-
-    "jupyter.askForKernelRestart" = false;
-
-    "continue.showInlineTip" = false;
-
-    "docker.extension.dockerEngineAvailabilityPrompt" = false;
     "containers.containerClient" = "com.microsoft.visualstudio.containers.docker";
 
     "biome.suggestInstallingGlobally" = false;
@@ -156,57 +140,23 @@
     };
     "github.copilot.chat.codeGeneration.useInstructionFiles" = true;
     "github.copilot.chat.localeOverride" = "pt-br";
-    "github.copilot.nextEditSuggestions.fixes" = false;
-    "github.copilot.editor.enableCodeActions" = false;
     "github.copilot.renameSuggestions.triggerAutomatically" = false;
+    "github.copilot.editor.enableCodeActions" = true;
+    "github.copilot.nextEditSuggestions.fixes" = true;
     "github.copilot.nextEditSuggestions.enabled" = true;
 
-    "chat.mcp.enabled" = true;
-    "chat.mcp.discovery.enabled" = true;
+    "chat.mcp.autostart" = "newAndOutdated";
     "chat.agent.maxRequests" = 100;
-    "chat.tools.terminal.autoApprove" = {
-      "rm" = false;
-      "rmdir" = false;
-      "del" = false;
-      "kill" = false;
-      "curl" = false;
-      "wget" = false;
-      "eval" = false;
-      "chmod" = false;
-      "chown" = false;
-      "/^Remove-Item\\b/i" = false;
-      "mkdir" = true;
-      "touch" = true;
-      "yarn workspace" = true;
-      "deno" = true;
-      "python balance_dataset.py" = {
-        "approve" = true;
-        "matchCommandLine" = true;
-      };
-      "python count_labels.py" = {
-        "approve" = true;
-        "matchCommandLine" = true;
-      };
-      "Check" = true;
-    };
+    "chat.useAgentsMdFile" = true;
 
-    "[python]" = {
-      "editor.defaultFormatter" = "ms-python.black-formatter";
-    };
     "[prisma]" = {
       "editor.defaultFormatter" = "Prisma.prisma";
     };
-    "[rust]" = {
-      "editor.defaultFormatter" = "rust-lang.rust-analyzer";
-    };
     "[typescript]" = {
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.defaultFormatter" = "vscode.typescript-language-features";
     };
     "[html]" = {
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
-    };
-    "[svelte]" = {
-      "editor.defaultFormatter" = "svelte.svelte-vscode";
+      "editor.defaultFormatter" = "vscode.html-language-features";
     };
     "[sass]" = {
       "editor.defaultFormatter" = "syler.sass-indented";
@@ -216,9 +166,6 @@
     };
     "[terraform-vars]" = {
       "editor.defaultFormatter" = "hashicorp.terraform";
-    };
-    "[xml]" = {
-      "editor.defaultFormatter" = "redhat.vscode-xml";
     };
     "[env]" = {
       "editor.defaultFormatter" = "IronGeek.vscode-env";

@@ -62,6 +62,8 @@
       rdap
       github-copilot-cli
       antigravity
+      gemini-cli
+      stripe-cli
 
       # Multimedia
       lowfi
