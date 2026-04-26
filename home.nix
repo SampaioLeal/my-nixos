@@ -15,6 +15,7 @@
     ./home/spotify
     ./home/terminal
     ./home/vscode
+    ./home/zed
   ];
 
   home = {
