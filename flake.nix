@@ -3,7 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -41,24 +41,37 @@
 
   outputs =
     inputs@{ nixpkgs, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
-      nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      formatter.${system} = pkgs.nixfmt-tree;
+
+      nixosConfigurations.workstation = lib.nixosSystem {
+        system = system;
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           ./hardware-configuration.nix
           ./system
-          ./users.nix
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.sampaiol = ./home.nix;
           }
         ];
+      };
+
+      homeConfigurations = {
+        sampaiol = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home.nix ];
+        };
       };
     };
 }

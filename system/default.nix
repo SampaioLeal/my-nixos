@@ -10,6 +10,7 @@
     ./security.nix
     ./services.nix
     ./system.nix
+    ./users.nix
     ./virtualisation.nix
   ];
 }

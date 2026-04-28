@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.zed-editor = {
     enable = true;
 
-    extensions = [ 
+    extensions = [
       "html"
       "dockerfile"
       "scss"
@@ -22,8 +22,41 @@
       "dracula"
     ];
 
-    userKeymaps = [ ];
-    userSettings = { };
-    userTasks = [ ];
+    mutableUserDebug = false;
+    mutableUserKeymaps = false;
+    mutableUserSettings = false;
+    mutableUserTasks = false;
+
+    userKeymaps = [
+      {
+        context = "Workspace";
+        bindings = {
+          ctrl-shift-t = "workspace::NewTerminal";
+        };
+      }
+    ];
+    userSettings = {
+      features = {
+        copilot = false;
+      };
+      telemetry = {
+        metrics = false;
+      };
+      vim_mode = false;
+      ui_font_size = 16;
+      buffer_font_size = 14;
+      base_keymap = "VSCode";
+      buffer_font_family = "FiraCode";
+    };
+    userTasks = [
+      {
+        label = "Format Code";
+        command = "nix";
+        args = [
+          "fmt"
+          "$ZED_WORKTREE_ROOT"
+        ];
+      }
+    ];
   };
 }

@@ -1,5 +1,4 @@
 {
-  lib,
   config,
   pkgs,
   inputs,
@@ -7,15 +6,15 @@
 }:
 {
   imports = [
-    ./home/ags
-    ./home/browser
-    ./home/hyprland
-    ./home/launcher
-    ./home/programs
-    ./home/spotify
-    ./home/terminal
-    ./home/vscode
-    ./home/zed
+    ./ags
+    ./browser
+    ./hyprland
+    ./launcher
+    ./programs
+    ./spotify
+    ./terminal
+    ./vscode
+    ./zed
   ];
 
   home = {
@@ -46,6 +45,9 @@
       bluetui
 
       # Developer Tools
+      nil
+      nixd
+      nixfmt
       entr
       bruno
       bruno-cli
@@ -57,7 +59,6 @@
       openssl
       git-graph
       hyprpicker
-      nixfmt
       dnsutils
       nmap
       rdap
