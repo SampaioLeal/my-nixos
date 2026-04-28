@@ -44,7 +44,12 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
       formatter.${system} = pkgs.nixfmt-tree;
@@ -70,7 +75,7 @@
         sampaiol = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
-          modules = [ ./home.nix ];
+          modules = [ ./home ];
         };
       };
     };
