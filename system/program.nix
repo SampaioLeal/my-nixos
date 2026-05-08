@@ -11,9 +11,5 @@
       enableSSHSupport = true;
       # pinentryFlavor = "";
     };
-
-    nix-ld.enable = true;
-    nix-ld.libraries = with pkgs; [
-    ];
   };
 }

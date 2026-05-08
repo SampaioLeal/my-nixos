@@ -6,11 +6,15 @@
     enable = true;
 
     libraries = with pkgs; [
-      stdenv.cc.cc.lib
+      gcc
+      gnumake
+      pkg-config
+      libffi
       zlib
+      readline
       openssl
-      curl
-      libgcc
+      bzip2
+      sqlite
     ];
   };
 }
