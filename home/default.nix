@@ -11,7 +11,6 @@
     ./hyprland
     ./launcher
     ./mise
-    ./nix-ld
     ./programs
     ./spotify
     ./terminal
