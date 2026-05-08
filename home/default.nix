@@ -10,6 +10,7 @@
     ./browser
     ./hyprland
     ./launcher
+    ./mise
     ./programs
     ./spotify
     ./terminal
