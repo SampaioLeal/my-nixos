@@ -11,6 +11,7 @@
           postinstall = "corepack enable";
         };
         deno = "2";
+        python = "3.12";
       };
 
       settings = {
