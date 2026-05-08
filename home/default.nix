@@ -63,10 +63,11 @@
       dnsutils
       nmap
       rdap
-      github-copilot-cli
-      antigravity
-      gemini-cli
       stripe-cli
+      github-copilot-cli
+      gemini-cli
+      antigravity
+      code-cursor
 
       # Multimedia
       lowfi
