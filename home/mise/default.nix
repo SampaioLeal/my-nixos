@@ -7,17 +7,18 @@
     globalConfig = {
       tools = {
         node = {
-          version = "24";
-          corepack = true;
+          version = "lts";
           postinstall = "corepack enable";
         };
         deno = "2";
       };
 
-      idiomatic_version_file_enable_tools = [
-        "node"
-        "deno"
-      ];
+      settings = {
+        idiomatic_version_file_enable_tools = [
+          "node"
+          "deno"
+        ];
+      };
 
       env = {
         NODE_ENV = "development";
