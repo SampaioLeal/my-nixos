@@ -4,9 +4,11 @@
     enable = true;
 
     extensions = [
+      "git-firefly"
       "html"
-      "dockerfile"
+      "css-modules-kit"
       "scss"
+      "dockerfile"
       "nix"
       "prisma"
       "react-typescript-snippets"
@@ -34,20 +36,82 @@
           ctrl-shift-t = "workspace::NewTerminal";
         };
       }
+      {
+        context = "Editor && mode == full";
+        bindings = {
+          ctrl-shift-enter = "editor::NewlineAbove";
+        };
+      }
+      {
+        context = "Editor && mode == full";
+        bindings = {
+          ctrl-enter = "editor::NewlineBelow";
+        };
+      }
+      {
+        context = "Editor";
+        bindings = {
+          ctrl-d = "editor::DeleteLine";
+        };
+      }
     ];
+
     userSettings = {
-      features = {
-        copilot = false;
-      };
       telemetry = {
         metrics = false;
       };
       vim_mode = false;
       ui_font_size = 16;
       buffer_font_size = 14;
+      tab_size = 2;
       base_keymap = "VSCode";
-      buffer_font_family = "FiraCode";
+      buffer_font_family = "FiraCode Nerd Font";
+      features = {
+        copilot = true;
+        edit_predictions = {
+          provider = "copilot";
+        };
+      };
+      format_on_save = "on";
+      icon_theme = {
+        mode = "system";
+        dark = "Material Icon Theme";
+        light = "Material Icon Theme";
+      };
+      theme = {
+        mode = "system";
+        dark = "GitHub Dark Dimmed";
+        light = "Nord Light";
+      };
+
+      terminal = {
+        font_family = "FiraCode Nerd Font Mono";
+      };
+
+      jsx_tag_auto_close = {
+        enabled = true;
+      };
+
+      languages = {
+        Typescript = {
+          document_symbols = "on";
+        };
+      };
+
+      project_panel = {
+        dock = "left";
+      };
+
+      lsp = {
+        biome = {
+          settings = {
+            require_config_file = true;
+          };
+        };
+
+      };
     };
+
     userTasks = [
       {
         label = "Format Code";
