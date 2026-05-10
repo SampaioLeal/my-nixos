@@ -11,10 +11,12 @@
           postinstall = "corepack enable";
         };
         deno = "2";
-        python = "3.12";
       };
 
       settings = {
+        os = "linux";
+        arch = "x86_64";
+        all_compile = false;
         idiomatic_version_file_enable_tools = [
           "node"
           "deno"
