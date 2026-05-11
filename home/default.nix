@@ -213,11 +213,6 @@
     allowImages = true;
   };
 
-  # services.ollama = {
-  #   enable = true;
-  #   port = 11434;
-  # };
-
   xdg = {
     enable = true;
     mime = {
