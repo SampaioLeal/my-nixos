@@ -22,6 +22,12 @@
       "github-theme"
       "github-actions"
       "dracula"
+      # MCP Servers
+      "postgres-context-server"
+      "prisma-mcp"
+      "mcp-server-sequential-thinking"
+      "mcp-server-mui"
+      "mcp-server-nextjs"
     ];
 
     mutableUserDebug = false;
@@ -66,12 +72,6 @@
       tab_size = 2;
       base_keymap = "VSCode";
       buffer_font_family = "FiraCode Nerd Font";
-      features = {
-        copilot = true;
-        edit_predictions = {
-          provider = "copilot";
-        };
-      };
       format_on_save = "on";
       icon_theme = {
         mode = "system";
@@ -93,7 +93,7 @@
       };
 
       languages = {
-        Typescript = {
+        TypeScript = {
           document_symbols = "on";
         };
       };
@@ -108,7 +108,34 @@
             require_config_file = true;
           };
         };
+      };
 
+      agent = {
+        dock = "right";
+        sidebar_side = "right";
+        default_model = {
+          provider = "ollama";
+          model = "qwen2.5-coder:1.5b";
+          enable_thinking = false;
+        };
+        favorite_models = [ ];
+        model_parameters = [ ];
+      };
+      edit_predictions = {
+        ollama = {
+          model = "qwen2.5-coder:1.5b";
+        };
+        provider = "ollama";
+      };
+      agent_servers = {
+        gemini = {
+          type = "registry";
+        };
+      };
+      language_models = {
+        ollama = {
+          api_url = "http://localhost:11434";
+        };
       };
     };
 

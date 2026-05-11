@@ -65,7 +65,6 @@
       rdap
       stripe-cli
       github-copilot-cli
-      gemini-cli
       antigravity
       code-cursor
 

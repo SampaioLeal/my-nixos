@@ -178,5 +178,53 @@
       enable = true;
       saveLocation = "${config.home.homeDirectory}/Pictures/Screenshots";
     };
+
+    gemini-cli = {
+      enable = true;
+      settings = {
+        general = {
+          previewFeatures = true;
+        };
+        security = {
+          auth = {
+            selectedType = "oauth-personal";
+          };
+        };
+      };
+      # commands = {
+      #   changelog = {
+      #     prompt =
+      #       ''
+      #       Your task is to parse the `<version>`, `<change_type>`, and `<message>` from their input and use the `write_file` tool to correctly update the `CHANGELOG.md` file.
+      #       '';
+      #     description = "Adds a new entry to the project's CHANGELOG.md file.";
+      #   };
+      #   "git/fix" = { Becomes /git:fix
+      #     prompt = "Please analyze the staged git changes and provide a code fix for the issue described here: {{args}}.";
+      #     description = "Generates a fix for a given GitHub issue.";
+      #   };
+      # };
+    };
+
+    opencode = {
+      enable = true;
+      tui = {
+        theme = "github";
+      };
+      settings = {
+        provider = {
+          ollama = {
+            npm = "@ai-sdk/openai-compatible";
+            name = "Ollama (local)";
+            options = {
+              baseURL = "http://localhost:11434/v1";
+            };
+            models = { };
+          };
+          model = "gemma4:e2b";
+          small_model = "qwen2.5-coder:1.5b";
+        };
+      };
+    };
   };
 }
