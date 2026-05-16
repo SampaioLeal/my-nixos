@@ -15,6 +15,7 @@
       syncModels = true;
       loadModels = [
         "gemma4:e2b"
+        "gemma4:e4b"
         # Best for: Front‑end development with UI screenshots, debugging from error screenshots, working with architecture diagrams, and any workflow that benefits from a model that sees images.
         # "gemma3:4b"
         # "granite4.1:3b"

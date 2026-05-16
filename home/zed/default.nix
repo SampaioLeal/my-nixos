@@ -115,7 +115,7 @@
         sidebar_side = "right";
         default_model = {
           provider = "ollama";
-          model = "qwen2.5-coder:1.5b";
+          model = "qwen2.5-coder:7b";
           enable_thinking = false;
         };
         favorite_models = [ ];
@@ -123,7 +123,7 @@
       };
       edit_predictions = {
         ollama = {
-          model = "qwen2.5-coder:1.5b";
+          model = "qwen2.5-coder:7b";
         };
         provider = "ollama";
       };
