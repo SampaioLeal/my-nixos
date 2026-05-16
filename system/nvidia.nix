@@ -1,10 +1,4 @@
-{
-  pkgs,
-  config,
-  libs,
-  ...
-}:
-
+{ ... }:
 {
   # https://nixos.wiki/wiki/Nvidia
 
