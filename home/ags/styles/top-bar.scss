@@ -1,11 +1,9 @@
 @use "theme";
 
-$surface-bg: theme.gtkalpha(theme.$fg-color, 0.04);
-$surface-hover-bg: theme.gtkalpha(theme.$fg-color, 0.1);
-
-
 window.Bar {
-  background: rgba(0, 0, 0, 0.15);
+  background: theme.$glass-bg;
+  border: 1px solid theme.$glass-border;
+  box-shadow: theme.$shadow-md;
   border-radius: theme.$radius-md;
   font-weight: bold;
   padding: 4px;
@@ -21,8 +19,9 @@ window.Bar {
    */
 
   tooltip {
-    background-color: rgba(30, 30, 30, 0.95);
-    border: 1px solid theme.gtkalpha(theme.$fg-color, 0.1);
+    background-color: theme.$glass-bg;
+    border: 1px solid theme.$glass-border;
+    box-shadow: theme.$shadow-md;
     border-radius: theme.$radius-md;
     padding: 4px 8px;
   }
@@ -48,7 +47,7 @@ window.Bar {
     background: transparent;
 
     &:hover {
-      background: theme.gtkalpha(theme.$fg-color, 0.1);
+      background: theme.$glass-bg-hover;
     }
   }
 
@@ -135,10 +134,11 @@ window.Bar {
 
   .central-popover {
     >contents {
-      background-color: theme.gtkalpha(theme.$bg-color, 0.2);
+      background-color: theme.$glass-bg;
+      border: 1px solid theme.$glass-border;
+      box-shadow: theme.$shadow-lg;
       border-radius: theme.$radius-xl;
       padding: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .central-container {
@@ -147,18 +147,18 @@ window.Bar {
 
       .notifications-section {
         padding-right: 1.5rem;
-        border-right: 1px solid $surface-hover-bg;
+        border-right: 1px solid theme.$glass-border;
 
         .notif-list {
           padding-right: 1rem;
 
           .notification.card {
-            background-color: $surface-bg;
-            border: 1px solid theme.$border-color;
+            background-color: theme.$glass-bg;
+            border: 1px solid theme.$glass-border;
             margin: 4px;
 
             &:hover {
-              background-color: $surface-hover-bg;
+              background-color: theme.$glass-bg-hover;
             }
 
             &.critical {
@@ -176,10 +176,10 @@ window.Bar {
         .clear-button {
           padding: 4px 12px;
           border-radius: theme.$radius-md;
-          background-color: $surface-bg;
+          background-color: theme.$glass-bg;
 
           &:hover {
-            background: $surface-hover-bg;
+            background: theme.$glass-bg-hover;
           }
         }
 
