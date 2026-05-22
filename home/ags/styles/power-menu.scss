@@ -1,0 +1,67 @@
+@use "theme";
+
+$action-bg: rgba(255, 255, 255, 0.05);
+$action-border: rgba(255, 255, 255, 0.06);
+
+window.PowerMenu {
+  .power-menu-grid {
+    background-color: theme.$glass-bg;
+    border: 1px solid theme.$glass-border;
+    box-shadow: theme.$shadow-lg;
+    border-radius: theme.$radius-xl;
+    padding: 1rem;
+  }
+
+  .action-btn {
+    background: $action-bg;
+    border: 1px solid $action-border;
+    border-radius: theme.$radius-md;
+    padding: 14px 10px;
+    transition: all 200ms theme.$gentle-curve;
+
+    &:hover {
+      background: $action-bg;
+      border-color: theme.$glass-border-hover;
+    }
+
+    .action-icon {
+      font-size: 22px;
+    }
+
+    .action-label {
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+  }
+
+  .power-confirm {
+    background-color: theme.$glass-bg;
+    border: 1px solid theme.$glass-border;
+    box-shadow: theme.$shadow-lg;
+    border-radius: theme.$radius-lg;
+    padding: 1.2rem;
+    min-width: 220px;
+
+    .confirm-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .confirm-btn {
+      background-color: theme.$accent;
+      color: white;
+      border-radius: theme.$radius-md;
+      padding: 8px 24px;
+      font-weight: bold;
+    }
+
+    .cancel-btn {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: theme.$radius-md;
+      padding: 8px 24px;
+    }
+  }
+}
