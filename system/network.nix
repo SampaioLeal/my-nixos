@@ -27,7 +27,6 @@
 
   environment.systemPackages = with pkgs; [
     # Network and Bluetooth
-    networkmanager
     aria2
   ];
 }

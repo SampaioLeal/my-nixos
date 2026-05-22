@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  config,
-  ...
-}:
+{ config, ... }:
 {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier
@@ -139,7 +133,6 @@
 
     # See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more
     dwindle = {
-      pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
       preserve_split = true; # You probably want this
       smart_resizing = true;
       permanent_direction_override = false;
@@ -175,8 +168,6 @@
       "$mainMod, code:60, exec, rofi -show emoji"
 
       "$mainMod, L, exec, hyprlock"
-      "$mainMod, P, pseudo," # dwindle
-      "$mainMod, J, togglesplit," # dwindle
 
       # Move focus with mainMod + arrow keys
       "$mainMod, left, movefocus, l"
