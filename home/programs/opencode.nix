@@ -17,7 +17,7 @@ in
     enable = true;
 
     tui = {
-      theme = "github";
+      theme = "system";
     };
 
     settings = {
