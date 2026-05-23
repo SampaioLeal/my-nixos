@@ -248,7 +248,7 @@
     ];
 
     layerrule = [
-      "blur on, blur_popups on, ignore_alpha 0.1, match:namespace gtk4-layer-shell"
+      "blur on, blur_popups on, ignore_alpha 0.2, match:namespace gtk4-layer-shell"
       "blur on, ignore_alpha 0, match:namespace rofi"
     ];
 

@@ -10,7 +10,7 @@ window.NotificationPopups {
     transition: background-color 250ms theme.$gentle-curve;
 
     &:hover {
-      background: theme.$glass-bg-hover;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     &.critical {

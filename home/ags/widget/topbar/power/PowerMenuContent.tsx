@@ -55,11 +55,10 @@ export function PowerMenuContent() {
 	}
 
 	return (
-		<box class="power-menu-grid" orientation={Gtk.Orientation.VERTICAL} spacing={8}>
+		<box orientation={Gtk.Orientation.VERTICAL} spacing={8}>
 			<box spacing={8} homogeneous>
 				{ACTIONS.slice(0, 3).map((action) => (
 					<button
-						key={action.id}
 						class="action-btn"
 						onClicked={() => executeAction(action)}
 						hexpand
@@ -74,7 +73,6 @@ export function PowerMenuContent() {
 			<box spacing={8} homogeneous>
 				{ACTIONS.slice(3, 6).map((action) => (
 					<button
-						key={action.id}
 						class="action-btn"
 						onClicked={() => executeAction(action)}
 						hexpand

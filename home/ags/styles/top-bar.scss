@@ -158,7 +158,7 @@ window.Bar {
             margin: 4px;
 
             &:hover {
-              background-color: theme.$glass-bg-hover;
+              background-color: theme.gtkalpha(theme.$fg-color, 0.1);
             }
 
             &.critical {

@@ -26,7 +26,7 @@ $gentle-curve: cubic-bezier(0.4, 0, 0.2, 1);
 
 // Glass backgrounds
 $glass-bg: rgba(0, 0, 0, 0.25);
-$glass-bg-hover: rgba(0, 0, 0, 0.35);
+$glass-bg-hover: rgba(200, 200, 200, 0.2);
 $glass-bg-active: rgba(0, 0, 0, 0.4);
 
 // Glass borders
@@ -34,7 +34,8 @@ $glass-border: rgba(255, 255, 255, 0.1);
 $glass-border-hover: rgba(255, 255, 255, 0.15);
 
 // Shadows (depth hierarchy)
-$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
-$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.35);
-$shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.4);
+// Keep max alpha below Hyprland's ignore_alpha (0.2) to prevent blur on shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.14);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.18);
+$shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.19);
