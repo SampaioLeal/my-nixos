@@ -29,6 +29,9 @@
         # zshConfigEarlyInit = lib.mkOrder 500 ''
         # '';
         zshConfig = lib.mkOrder 1000 ''
+          autoload -Uz select-word-style
+          select-word-style bash
+
           bindkey '^[[1;5C' emacs-forward-word
           bindkey '^[[1;5D' emacs-backward-word
           bindkey '^H' backward-kill-word
