@@ -64,9 +64,8 @@
       nmap
       rdap
       stripe-cli
-      github-copilot-cli
-      antigravity
-      code-cursor
+      opentofu
+      awscli2
 
       # Multimedia
       lowfi
@@ -75,7 +74,7 @@
       imagemagick
 
       # Productivity and office
-      bitwarden-desktop
+      # bitwarden-desktop
 
       # File management and archives
       p7zip
@@ -110,7 +109,6 @@
       libsecret
       bluez
       libnotify
-      firefoxpwa
 
       # Network
       inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default
