@@ -6,6 +6,10 @@
     dconf.enable = true;
     zsh.enable = true;
 
+    whois = {
+      enable = true;
+    };
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
