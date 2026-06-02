@@ -44,6 +44,7 @@
     "8250.nr_uarts=0"
     "nvme_core.default_ps_max_latency_us=0"
   ];
+  boot.blacklistedKernelModules = [ "tpm" "tpm_tis" "tpm_tis_core" "tpm_crb" ];
   boot.extraModprobeConfig = ''
     options rtw88_core disable_lps_deep=y
   '';
@@ -51,10 +52,11 @@
   systemd.settings.Manager = {
     DefaultIOAccounting = true;
     DefaultIPAccounting = true;
-    DefaultTimeoutStartSec = "10s";
+    DefaultTimeoutStartSec = "5s";
     DefaultTimeoutStopSec = "5s";
   };
 
+  systemd.units."dev-tpm0.device".enable = false;
   systemd.units."dev-tpmrm0.device".enable = false;
   systemd.tpm2.enable = false;
 }
