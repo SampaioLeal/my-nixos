@@ -13,7 +13,7 @@
   programs.zen-browser = {
     enable = true;
     nativeMessagingHosts = [
-      pkgs.firefoxpwa
+      # pkgs.firefoxpwa
     ];
 
     policies = lib.mkForce {
