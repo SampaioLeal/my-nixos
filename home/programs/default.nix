@@ -167,20 +167,7 @@
       };
     };
 
-    #
-    # Hyprland Ecosystem
-    #
-
-    hyprlock = {
-      enable = true;
-    };
-
-    hyprshot = {
-      enable = true;
-      saveLocation = "${config.home.homeDirectory}/Pictures/Screenshots";
-    };
-
-    gemini-cli = {
+    antigravity-cli = {
       enable = true;
       settings = {
         general = {

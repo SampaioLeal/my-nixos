@@ -21,7 +21,7 @@
   home = {
     username = "sampaiol";
     homeDirectory = "/home/sampaiol";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -167,33 +167,6 @@
     };
   };
 
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock"; # avoid starting multiple hyprlock instances.
-        before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
-        after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
-      };
-
-      listener = [
-        {
-          timeout = 600;
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 900;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-        # {
-        #   timeout = 3600;
-        #   on-timeout = "systemctl suspend";
-        # }
-      ];
-    };
-  };
-
   services.udiskie = {
     enable = true;
     tray = "auto"; # "always", "auto" ou "never"
@@ -209,6 +182,10 @@
     enable = true;
     allowImages = true;
   };
+
+  # services.polkit-gnome = {
+  #   enable = true;
+  # };
 
   xdg = {
     enable = true;
@@ -263,7 +240,7 @@
 
 # https://github.com/hyprland-community/awesome-hyprland
 # https://raw.githubusercontent.com/00Darxk/dotfiles/refs/heads/main/showcases/sayu-showcase.png
-# https://home-manager-options.extranix.com/?query=hyprlock&release=release-25.11
+# https://home-manager-options.extranix.com/?query=hyprlock&release=release-26.05
 # https://ghostty.org/
 # https://gitlab.com/Zaney/zaneyos/-/blob/main/modules/core/user.nix?ref_type=heads
 # https://wearewaylandnow.com/

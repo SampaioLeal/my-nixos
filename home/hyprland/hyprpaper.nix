@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
+{ config, ... }:
 {
   home.file."${config.home.homeDirectory}/Pictures/Wallpapers" = {
     source = ./wallpapers;

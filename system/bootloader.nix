@@ -30,7 +30,6 @@
     };
   };
 
-  boot.initrd.systemd.enable = true;
   boot.initrd.systemd.tpm2.enable = false;
   boot.initrd.verbose = false;
   boot.consoleLogLevel = 0;

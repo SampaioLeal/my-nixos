@@ -7,7 +7,10 @@
 {
   imports = [
     ./autostart.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./hyprpaper.nix
+    ./hyprshot.nix
     ./hyprsunset.nix
     ./settings.nix
     ./window-rules.nix

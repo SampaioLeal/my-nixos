@@ -13,10 +13,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-
     astal = {
       url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
