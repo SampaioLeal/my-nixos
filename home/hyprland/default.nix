@@ -16,6 +16,8 @@
     ./window-rules.nix
   ];
 
+  wayland.windowManager.hyprland.configType = "hyprlang";
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
