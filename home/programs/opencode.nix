@@ -48,7 +48,9 @@ in
       };
       model = "gemma4:e4b";
       small_model = "qwen2.5-coder:7b";
-      plugin = [ "superpowers@git+https://github.com/obra/superpowers.git" ];
+      plugin = [
+        "superpowers@git+https://github.com/obra/superpowers.git"
+      ];
     };
   };
 

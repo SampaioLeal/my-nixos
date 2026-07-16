@@ -36,6 +36,6 @@
     systemd-networkd-wait-online.enable = false;
 
     # Enable to use Docker Containers with GPU support
-    nvidia-container-toolkit-cdi-generator.enable = false;
+    nvidia-container-toolkit-cdi-generator.enable = true;
   };
 }

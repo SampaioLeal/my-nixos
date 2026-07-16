@@ -66,6 +66,7 @@
       stripe-cli
       opentofu
       awscli2
+      ssm-session-manager-plugin
 
       # Multimedia
       lowfi
