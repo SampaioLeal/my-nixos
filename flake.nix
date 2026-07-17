@@ -38,6 +38,16 @@
       url = "github:JuliusBrussee/caveman";
       flake = false;
     };
+
+    distro-grub-themes = {
+      url = "github:AdisonCavani/distro-grub-themes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    darkmatter-grub-theme = {
+      url = "gitlab:VandalByte/darkmatter-grub-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -60,9 +70,11 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          inputs.distro-grub-themes.nixosModules.${system}.default
+          inputs.darkmatter-grub-theme.nixosModule
+          inputs.home-manager.nixosModules.home-manager
           ./hardware-configuration.nix
           ./system
-          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;

@@ -26,7 +26,7 @@
     portalPackage = null;
 
     plugins = [
-      # pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      pkgs.hyprlandPlugins.hypr-dynamic-cursors
     ];
 
     systemd.variables = [ "--all" ];

@@ -67,6 +67,7 @@
       opentofu
       awscli2
       ssm-session-manager-plugin
+      opencode-desktop
 
       # Multimedia
       lowfi
@@ -95,6 +96,7 @@
       apple-cursor
       whitesur-cursors
       bibata-cursors
+      rose-pine-hyprcursor
 
       # Misc
       audacity
@@ -114,6 +116,17 @@
       # Network
       inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
+
+    pointerCursor = {
+      package = pkgs.bibata-cursors;
+      enable = true;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+      hyprcursor = {
+        enable = true;
+        size = 24;
+      };
+    };
   };
 
   dconf.settings = {

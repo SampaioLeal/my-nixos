@@ -17,7 +17,13 @@
       useOSProber = true;
 
       configurationLimit = 5;
-      splashImage = null;
+
+      # darkmatter-theme = {
+      #   enable = true;
+      #   style = "nixos";
+      #   icon = "color";
+      #   resolution = "1080p";
+      # };
 
       extraEntries = ''
         menuentry "Reboot" {
@@ -28,6 +34,11 @@
         }
       '';
     };
+  };
+
+  distro-grub-themes = {
+    enable = true;
+    theme = "nixos";
   };
 
   boot.initrd.systemd.tpm2.enable = false;
@@ -43,7 +54,12 @@
     "8250.nr_uarts=0"
     "nvme_core.default_ps_max_latency_us=0"
   ];
-  boot.blacklistedKernelModules = [ "tpm" "tpm_tis" "tpm_tis_core" "tpm_crb" ];
+  boot.blacklistedKernelModules = [
+    "tpm"
+    "tpm_tis"
+    "tpm_tis_core"
+    "tpm_crb"
+  ];
   boot.extraModprobeConfig = ''
     options rtw88_core disable_lps_deep=y
   '';
