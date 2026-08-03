@@ -56,18 +56,18 @@ if hl.plugin.dynamic_cursors then
   hl.config({
     plugin = {
       dynamic_cursors = {
-        enabled   = true,
-        mode      = "tilt",
-        threshold = 2,
+        enabled    = true,
+        mode       = "tilt",
+        threshold  = 2,
 
-        tilt = {
+        tilt       = {
           limit      = 5000,
           activation = "negative_quadratic",
           window     = 100,
           full       = 60,
         },
 
-        shake = {
+        shake      = {
           enabled   = true,
           threshold = 6.0,
           base      = 4.0,
@@ -351,8 +351,10 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
-hl.bind(mainMod .. " + M",
-  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit")
+hl.bind(
+  mainMod .. " + M",
+  hl.dsp.exit()
+-- hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit")
 )
 
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
