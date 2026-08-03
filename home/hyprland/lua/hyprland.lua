@@ -1,15 +1,3 @@
--- This is an example Hyprland Lua config file.
--- Refer to the wiki for more information.
--- https://wiki.hypr.land/Configuring/Start/
-
--- Please note not all available settings / options are set here.
--- For a full list, see the wiki
-
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
-
-
 ------------------
 ---- MONITORS ----
 ------------------
@@ -50,9 +38,57 @@ local browser     = "zen-beta"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function ()
+hl.on("hyprland.start", function()
+  hl.exec_cmd("@polkitGnome@/libexec/polkit-gnome-authentication-agent-1")
   hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 end)
+
+
+-----------------
+---- PLUGINS ----
+-----------------
+
+-- dynamic-cursors: realistic cursor behavior (tilt + shake-to-find)
+-- See https://github.com/VirtCode/hypr-dynamic-cursors
+hl.plugin.load("@dynamicCursors@/lib/libhypr-dynamic-cursors.so")
+
+if hl.plugin.dynamic_cursors then
+  hl.config({
+    plugin = {
+      dynamic_cursors = {
+        enabled   = true,
+        mode      = "tilt",
+        threshold = 2,
+
+        tilt = {
+          limit      = 5000,
+          activation = "negative_quadratic",
+          window     = 100,
+          full       = 60,
+        },
+
+        shake = {
+          enabled   = true,
+          threshold = 6.0,
+          base      = 4.0,
+          speed     = 4.0,
+          influence = 0.0,
+          limit     = 0.0,
+          timeout   = 2000,
+          effects   = false,
+          ipc       = false,
+        },
+
+        hyprcursor = {
+          nearest    = true,
+          enabled    = true,
+          resolution = -1,
+          fallback   = "clientside",
+        },
+      },
+    },
+  })
+end
 
 
 -------------------------------
@@ -200,15 +236,10 @@ hl.curve("quick", {
   }
 })
 
--- Default springs
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
-
 hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
 hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easy" })
--- hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easeOutQuint" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easy", style = "popin 87%" })
--- hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easeOutQuint", style = "popin 87%" })
+hl.animation({ leaf = "windows", enabled = true, speed = 4.79, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, bezier = "easeOutQuint", style = "popin 87%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" })
@@ -283,6 +314,12 @@ hl.config({
   },
 })
 
+hl.config({
+  cursor = {
+    enable_hyprcursor = true,
+  },
+})
+
 -- hl.gesture({
 --   fingers = 3,
 --   direction = "horizontal",
@@ -315,7 +352,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 hl.bind(mainMod .. " + M",
-  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit")
 )
 
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
@@ -397,6 +434,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name  = "move-hyprland-run",
+  match = { class = "hyprland-run" },
+
+  move  = "20 monitor_h-120",
+  float = true,
+})
+
+hl.window_rule({
   name = "picture-in-picture",
   match = { title = "^(Picture-in-Picture)$" },
   float = true,
@@ -472,13 +517,13 @@ hl.window_rule({
 hl.window_rule({
   name = "ghostty",
   match = { class = "com.mitchellh.ghostty" },
-  opacity = 1
+  opacity = "1 override"
 })
 
 hl.window_rule({
   name = "zen-beta",
   match = { class = "zen-beta" },
-  opacity = 1
+  opacity = "1 override"
 })
 
 hl.layer_rule({
@@ -497,9 +542,3 @@ hl.layer_rule({
 })
 
 hl.workspace_rule({ workspace = "10", monitor = "DP-3", default = true, persistent = true })
-
-
-    -- "plugin:dynamic-cursors" = {
-    --   enabled = true;
-    --   mode = "none";
-    -- };

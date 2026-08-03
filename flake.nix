@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sysc-greet = {
       url = "github:Nomadcxx/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";

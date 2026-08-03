@@ -6,29 +6,32 @@
 }:
 {
   imports = [
-    ./autostart.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
     ./hyprshot.nix
     ./hyprsunset.nix
-    ./settings.nix
-    ./window-rules.nix
   ];
-
-  wayland.windowManager.hyprland.configType = "hyprlang";
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
-    package = null;
-    portalPackage = null;
+    configType = "lua";
 
-    plugins = [
-      pkgs.hyprlandPlugins.hypr-dynamic-cursors
-    ];
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     systemd.variables = [ "--all" ];
+  };
+
+  xdg.configFile."hypr/hyprland.lua".source = pkgs.replaceVarsWith {
+    src = ./lua/hyprland.lua;
+    replacements = {
+      dynamicCursors = "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}";
+      polkitGnome = "${pkgs.polkit_gnome}";
+      DEFAULT_AUDIO_SINK = null;
+      DEFAULT_AUDIO_SOURCE = null;
+    };
   };
 }
