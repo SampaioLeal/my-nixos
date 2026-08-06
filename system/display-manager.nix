@@ -46,6 +46,7 @@
 
   services.sysc-greet = {
     enable = true;
-    compositor = "hyprland";
+    compositor = "niri";
+    niriPackage = pkgs.niri;
   };
 }
