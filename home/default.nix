@@ -10,6 +10,7 @@
     ./browser
     ./hyprland
     ./launcher
+    ./minecraft
     ./mise
     ./programs
     ./spotify
