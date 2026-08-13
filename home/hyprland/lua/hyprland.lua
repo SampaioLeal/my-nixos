@@ -39,8 +39,13 @@ local browser     = "zen-beta"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
+  hl.exec_cmd("dbus-update-activation-environment --systemd --all && systemctl --user stop hyprland-session.target && systemctl --user start hyprland-session.target")
   hl.exec_cmd("@polkitGnome@/libexec/polkit-gnome-authentication-agent-1")
   hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+end)
+
+hl.on("hyprland.shutdown", function()
+  os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
 end)
 
 
@@ -381,8 +386,8 @@ hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "special:mag
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region -z -o $HOME/Pictures/Screenshots"))
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
