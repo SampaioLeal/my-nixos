@@ -69,6 +69,7 @@
       awscli2
       ssm-session-manager-plugin
       opencode-desktop
+      jetbrains.idea
 
       # Multimedia
       lowfi
