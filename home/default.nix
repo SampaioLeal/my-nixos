@@ -93,6 +93,7 @@
       duf
       caligula
       usbutils
+      parted
 
       # Cursors
       apple-cursor
