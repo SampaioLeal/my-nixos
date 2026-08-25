@@ -4,6 +4,13 @@
 
 { ... }:
 {
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8*1024;
+    }
+  ];
+
   # nixpkgs.config.allowBroken = true;
 
   nix.settings = {
