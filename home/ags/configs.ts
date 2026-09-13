@@ -1,7 +1,7 @@
 export const configs = {
 	primaryMonitor: 0,
 	topbar: {
-		margin: 8,
+		margin: 0,
 		media: {
 			maxTitleLength: 20,
 		},
