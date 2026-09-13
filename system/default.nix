@@ -3,6 +3,7 @@
     ./bluetooth.nix
     ./bootloader.nix
     ./display-manager.nix
+    ./gaming.nix
     ./network.nix
     ./nvidia.nix
     ./pipewire.nix
