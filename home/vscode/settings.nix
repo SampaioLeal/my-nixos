@@ -41,6 +41,12 @@
     "workbench.preferredDarkColorTheme" = "Dracula Theme";
     "workbench.editor.empty.hint" = "hidden";
     "workbench.secondarySideBar.defaultVisibility" = "hidden";
+    "workbench.editorAssociations" = {
+      "*.copilotmd" = "vscode.markdown.preview.editor";
+      "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc" =
+        "default";
+      "*.qrc" = "qt-core.qrcEditor";
+    };
 
     "git.enableSmartCommit" = true;
     "git.confirmSync" = false;
@@ -148,6 +154,10 @@
     "chat.mcp.autostart" = "newAndOutdated";
     "chat.agent.maxRequests" = 100;
     "chat.useAgentsMdFile" = true;
+
+    "qt-qml.qmlls.customExePath" = "/home/sampaiol/.nix-profile/bin/qmlls";
+    "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
+    "qt-core.showWelcomePageOnActivation" = false;
 
     "[prisma]" = {
       "editor.defaultFormatter" = "Prisma.prisma";

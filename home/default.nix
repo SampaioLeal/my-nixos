@@ -13,6 +13,7 @@
     ./minecraft
     ./mise
     ./programs
+    ./quickshell
     ./spotify
     ./terminal
     ./vscode

@@ -542,6 +542,14 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
+  name = "blur-quickshell",
+  match = { namespace = "quickshell:.*" },
+  blur = true,
+  blur_popups = true,
+  ignore_alpha = 0.2,
+})
+
+hl.layer_rule({
   name = "blur-rofi",
   match = { namespace = "rofi" },
   blur = true,
