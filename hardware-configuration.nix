@@ -41,6 +41,11 @@
     ];
   };
 
+  fileSystems."/mnt/hdd" = {
+    device = "/dev/disk/by-uuid/60CEBB43CEBB1070";
+    fsType = "ntfs-3g";
+  };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
