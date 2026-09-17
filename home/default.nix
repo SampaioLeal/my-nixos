@@ -8,8 +8,8 @@
   imports = [
     ./ags
     ./browser
+    # ./gaming
     ./hyprland
-    ./launcher
     ./minecraft
     ./mise
     ./programs
@@ -63,6 +63,7 @@
       git-graph
       hyprpicker
       dnsutils
+      cloudflare-warp
       nmap
       rdap
       stripe-cli

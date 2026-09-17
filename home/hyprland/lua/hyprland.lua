@@ -355,6 +355,8 @@ hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("serpantinum msg toggle launcher"))
+hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("serpantinum msg toggle clipboard"))
 
 hl.bind(
   mainMod .. " + M",
@@ -362,7 +364,6 @@ hl.bind(
 -- hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit")
 )
 
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + code:60", hl.dsp.exec_cmd("rofi -show emoji"))
 
 -- Move focus with mainMod + arrow keys

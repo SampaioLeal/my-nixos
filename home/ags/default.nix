@@ -10,7 +10,7 @@
   ];
 
   programs.ags = {
-    enable = true;
+    enable = false;
     configDir = ../ags;
     systemd.enable = true;
     extraPackages = with pkgs; [
