@@ -53,6 +53,10 @@
       #   matugen = true;
       # };
 
+      idle = {
+        "enabled" = false;
+      };
+
       # notifications = {
       #   dnd = false;
       #   position = "top right";
