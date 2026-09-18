@@ -44,6 +44,10 @@
   fileSystems."/mnt/hdd" = {
     device = "/dev/disk/by-uuid/60CEBB43CEBB1070";
     fsType = "ntfs-3g";
+    options = [
+      "uid=1000"
+      "gid=1000"
+    ];
   };
 
   swapDevices = [ ];
