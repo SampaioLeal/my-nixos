@@ -4,14 +4,6 @@
   inputs,
   ...
 }:
-let
-  cavemanPlugin = pkgs.runCommand "caveman-opencode-plugin" { } ''
-    mkdir -p $out
-    cp ${inputs.caveman}/src/plugins/opencode/plugin.js $out/
-    cp ${inputs.caveman}/src/plugins/opencode/package.json $out/
-    cp ${inputs.caveman}/src/hooks/caveman-config.js $out/caveman-config.cjs
-  '';
-in
 {
   programs.opencode = {
     enable = true;
@@ -53,23 +45,4 @@ in
       ];
     };
   };
-
-  #
-  # Caveman Plugin
-  #
-  xdg.configFile."opencode/plugins/caveman" = {
-    source = cavemanPlugin;
-    recursive = true;
-  };
-
-  home.file."${config.xdg.configHome}/opencode/commands/caveman.md".source =
-    "${inputs.caveman}/src/plugins/opencode/commands/caveman.md";
-  home.file."${config.xdg.configHome}/opencode/commands/caveman-commit.md".source =
-    "${inputs.caveman}/src/plugins/opencode/commands/caveman-commit.md";
-  home.file."${config.xdg.configHome}/opencode/commands/caveman-help.md".source =
-    "${inputs.caveman}/src/plugins/opencode/commands/caveman-help.md";
-  home.file."${config.xdg.configHome}/opencode/commands/caveman-review.md".source =
-    "${inputs.caveman}/src/plugins/opencode/commands/caveman-review.md";
-  home.file."${config.xdg.configHome}/opencode/commands/caveman-stats.md".source =
-    "${inputs.caveman}/src/plugins/opencode/commands/caveman-stats.md";
 }

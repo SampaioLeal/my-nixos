@@ -29,28 +29,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sysc-greet = {
       url = "github:Nomadcxx/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    caveman = {
-      url = "github:JuliusBrussee/caveman";
-      flake = false;
-    };
-
     distro-grub-themes = {
       url = "github:AdisonCavani/distro-grub-themes";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    darkmatter-grub-theme = {
-      url = "gitlab:VandalByte/darkmatter-grub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -81,7 +66,6 @@
         modules = [
           ./configuration.nix
           inputs.distro-grub-themes.nixosModules.${system}.default
-          inputs.darkmatter-grub-theme.nixosModule
           inputs.home-manager.nixosModules.home-manager
           ./hardware-configuration.nix
           ./system
