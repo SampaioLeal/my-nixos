@@ -63,7 +63,6 @@
       git-graph
       hyprpicker
       dnsutils
-      cloudflare-warp
       nmap
       rdap
       stripe-cli
