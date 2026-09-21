@@ -9,6 +9,10 @@
     inputs.serpantinum.homeManagerModules.default
   ];
 
+  home.packages = with pkgs; [
+    qt6.qtdeclarative
+  ];
+
   programs.quickshell = {
     enable = true;
   };
@@ -29,22 +33,22 @@
       bar = {
         position = "top";
         style = "fill";
-      #   width = 40;
-      #   workspaceCount = 10;
-      #   modules = {
-      #     left = [ "workspaces" ];
-      #     center = [ "time" ];
-      #     right = [
-      #       "tray"
-      #       [
-      #         "kb"
-      #         "wifi"
-      #         "bt"
-      #         "vol"
-      #         "bat"
-      #       ]
-      #     ];
-      #   };
+        #   width = 40;
+        #   workspaceCount = 10;
+        #   modules = {
+        #     left = [ "workspaces" ];
+        #     center = [ "time" ];
+        #     right = [
+        #       "tray"
+        #       [
+        #         "kb"
+        #         "wifi"
+        #         "bt"
+        #         "vol"
+        #         "bat"
+        #       ]
+        #     ];
+        #   };
       };
 
       # theme = {
