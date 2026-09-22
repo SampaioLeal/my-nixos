@@ -8,7 +8,7 @@
   imports = [
     ./ags
     ./browser
-    # ./gaming
+    ./gaming
     ./hyprland
     ./minecraft
     ./mise
