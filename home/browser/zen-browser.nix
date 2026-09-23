@@ -164,12 +164,19 @@
             isEssential = true;
             position = 103;
           };
+          Keep = {
+            id = "444c6d28-070d-476c-9f1a-72f651866b47";
+            container = containers.Personal.id;
+            url = "https://keep.google.com";
+            isEssential = true;
+            position = 104;
+          };
           WhatsApp = {
             id = "6a7fa275-01ca-4728-b3d6-c44e9b826c5d";
             container = containers.Personal.id;
             url = "https://web.whatsapp.com/";
             isEssential = true;
-            position = 104;
+            position = 105;
           };
         };
     };
