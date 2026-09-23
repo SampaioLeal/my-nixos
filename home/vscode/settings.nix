@@ -69,6 +69,7 @@
     "editor.unicodeHighlight.ambiguousCharacters" = false;
     "editor.tabCompletion" = "on";
 
+    "todo-tree.ripgrep" = "/home/sampaiol/.nix-profile/bin/rg";
     "todo-tree.highlights.enabled" = true;
     "todo-tree.general.tags" = [
       "TODO"
