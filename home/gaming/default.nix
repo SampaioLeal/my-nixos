@@ -6,16 +6,28 @@
 }:
 let
   emulationstation-de = import ./es-de-derivation.nix { inherit pkgs; };
+  themes = import ./es-de-themes.nix;
+  themeFiles = lib.mapAttrs' (
+    name: theme:
+    lib.nameValuePair "ES-DE/themes/${name}" {
+      source = pkgs.fetchgit {
+        inherit (theme) url rev hash;
+      };
+    }
+  ) themes;
 in
 {
-  home.packages = with pkgs; [
+  home.packages = [
     emulationstation-de
   ];
 
-  home.file."ES-DE" = {
-    source = ./es-de;
-    recursive = true;
-  };
+  home.file = {
+    "ES-DE" = {
+      source = ./es-de;
+      recursive = true;
+    };
+  }
+  // themeFiles;
 
   programs.retroarch = {
     enable = true;
