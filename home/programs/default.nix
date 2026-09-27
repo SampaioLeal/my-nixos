@@ -13,6 +13,13 @@
   ];
 
   programs = {
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      enableNushellIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     gazelle = {
       enable = true;
       settings = {
