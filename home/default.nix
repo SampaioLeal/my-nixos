@@ -126,6 +126,14 @@
     };
     mimeApps = {
       enable = true;
+      associations.added = {
+        "x-scheme-handler/http" = [ "zen-beta.desktop" ];
+        "x-scheme-handler/https" = [ "zen-beta.desktop" ];
+        "video/*" = [ "mpv.desktop" ];
+        "image/*" = [ "imv.desktop" ];
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+      };
       defaultApplications = {
         # Web and HTML
         "x-scheme-handler/http" = "zen-beta.desktop";
