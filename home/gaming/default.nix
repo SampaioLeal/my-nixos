@@ -18,8 +18,16 @@ let
 in
 {
   home.packages = [
+    pkgs.mangohud
+    
     emulationstation-de
   ];
+
+  
+  home.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+      "\\\${HOME}/.steam/root/compatibilitytools.d";
+  };
 
   home.file = {
     "ES-DE" = {
@@ -54,5 +62,9 @@ in
   xdg.configFile."retroarch" = {
     source = ./retroarch;
     recursive = true;
+  };
+
+  programs.lutris = {
+    enable = true;
   };
 }
