@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   inputs,
   ...
 }:
@@ -11,18 +10,7 @@
 
   services.logind.settings.Login.HandlePowerKey = "suspend";
 
-  #
-  # Greetd
-  #
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        # command = "${pkgs.tuigreet}/bin/tuigreet --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --time --remember --remember-user-session --user-menu --user-menu-min-uid 1000 --asterisks --power-shutdown 'shutdown -P now' --power-reboot 'shutdown -r now'";
-      };
-    };
-  };
+  # sysc-greet gerencia o greetd sozinho. Não definir services.greetd manualmente.
 
   # this is a life saver.
   # literally no documentation about this anywhere.
