@@ -4,12 +4,7 @@
 
 { ... }:
 {
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 8*1024;
-    }
-  ];
+  # Swap gerenciado em system/swap.nix (zram + swapfile)
 
   # nixpkgs.config.allowBroken = true;
 

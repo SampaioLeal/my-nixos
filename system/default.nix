@@ -10,6 +10,7 @@
     ./program.nix
     ./security.nix
     ./services.nix
+    ./swap.nix
     ./system.nix
     ./users.nix
     ./virtualisation.nix
