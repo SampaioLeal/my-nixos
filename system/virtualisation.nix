@@ -18,9 +18,6 @@
             size = 24;
           }
         ];
-        features = {
-          cdi = true;
-        };
       };
     };
   };

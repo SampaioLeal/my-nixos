@@ -42,8 +42,5 @@
     systemd-udev-settle.enable = false;
     NetworkManager-wait-online.enable = false;
     systemd-networkd-wait-online.enable = false;
-
-    # Enable to use Docker Containers with GPU support
-    nvidia-container-toolkit-cdi-generator.enable = true;
   };
 }
