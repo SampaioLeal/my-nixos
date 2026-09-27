@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, ... }:
 {
   services = {
     libinput.enable = true;
@@ -27,6 +27,14 @@
       # Best for: Developers who want a single model that handles coding tasks alongside writing, documentation, Q&A, and general development work without switching between models.
       # "llama3.1:8b"
       # ];
+    };
+
+    transmission = {
+      enable = true;
+      package = pkgs.transmission_4;
+      settings = {
+        download-dir = "${config.services.transmission.home}/Downloads";
+      };
     };
   };
 

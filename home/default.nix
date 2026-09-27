@@ -116,9 +116,11 @@
       libsecret
       bluez
       libnotify
+      transmission_4-gtk
 
       # Network
       inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default
+      proton-vpn
     ];
 
     pointerCursor = {
