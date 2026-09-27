@@ -41,12 +41,16 @@
     ];
   };
 
-  fileSystems."/mnt/hdd" = {
+  fileSystems."/run/media/sampaiol/hdd" = {
     device = "/dev/disk/by-uuid/60CEBB43CEBB1070";
     fsType = "ntfs-3g";
     options = [
+      # "rw"
       "uid=1000"
       "gid=1000"
+      "umask=000"
+      "nofail"
+      "x-gvfs-show"
     ];
   };
 
