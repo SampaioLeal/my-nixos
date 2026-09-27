@@ -66,9 +66,6 @@
 
   console.keyMap = "br-abnt2";
 
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-  };
+  # Updates manuais via rebuild — autoUpgrade desabilitado (Item 11)
   system.stateVersion = "26.05";
 }
