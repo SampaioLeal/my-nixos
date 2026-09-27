@@ -1,1 +1,3 @@
-nix run home-manager -- switch --flake ~/my-nixos#sampaiol
+#!/usr/bin/env bash
+set -euo pipefail
+nh home switch ~/my-nixos
