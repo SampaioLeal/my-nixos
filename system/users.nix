@@ -14,6 +14,9 @@
       "wheel"
       "plugdev"
       "dialout"
+      "video"
+      "render"
+      "input"
     ];
 
     shell = pkgs.zsh;
