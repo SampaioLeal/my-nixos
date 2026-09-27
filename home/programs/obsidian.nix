@@ -36,11 +36,11 @@
     vaults = {
       personal = {
         enable = true;
-        target = "Documents/obisidan-vaults/personal";
+        target = "Documents/obsidian-vaults/personal";
       };
       work = {
         enable = true;
-        target = "Documents/obisidan-vaults/work";
+        target = "Documents/obsidian-vaults/work";
       };
     };
   };
