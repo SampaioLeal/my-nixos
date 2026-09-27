@@ -1,0 +1,39 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    moreutils
+    lshw
+    appimage-run
+    tldr
+    asciinema-agg
+    progress
+    lm_sensors
+    wl-clipboard
+    xdg-utils
+    bc
+    bluetui
+    p7zip
+    unzip
+    zip
+    unrar
+    file-roller
+    nautilus
+    ncdu
+    duf
+    caligula
+    usbutils
+    parted
+    cmatrix
+    lolcat
+    asciiquarium-transparent
+    countryfetch
+    cowsay
+    figlet
+    lavat
+    bemoji
+    gnome-calculator
+    proton-vpn
+    # Cursor: só Bibata (ativo em home.pointerCursor)
+    bibata-cursors
+  ];
+}

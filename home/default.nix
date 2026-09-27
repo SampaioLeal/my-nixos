@@ -18,6 +18,9 @@
     ./terminal
     ./vscode
     ./zed
+    ./packages/dev.nix
+    ./packages/media.nix
+    ./packages/sys-utils.nix
   ];
 
   home = {
@@ -33,95 +36,7 @@
       VISUAL = "code";
     };
 
-    packages = with pkgs; [
-      # CLI Utils
-      moreutils
-      lshw
-      appimage-run
-      tldr
-      asciinema-agg
-      progress
-      lm_sensors
-      wl-clipboard
-      xdg-utils
-      bc
-      bluetui
-
-      # Developer Tools
-      nil
-      nixd
-      nixfmt
-      entr
-      bruno
-      bruno-cli
-      gping
-      hyperfine
-      pastel
-      scooter
-      tokei
-      openssl
-      git-graph
-      hyprpicker
-      dnsutils
-      nmap
-      rdap
-      stripe-cli
-      opentofu
-      awscli2
-      ssm-session-manager-plugin
-      opencode-desktop
-      jetbrains.idea
-
-      # Multimedia
-      lowfi
-      ffmpeg
-      ffmpegthumbnailer
-      imagemagick
-
-      # Productivity and office
-      # bitwarden-desktop
-
-      # File management and archives
-      p7zip
-      unzip
-      zip
-      unrar
-      file-roller
-      nautilus
-
-      # Disk Management
-      ncdu
-      duf
-      caligula
-      usbutils
-      parted
-
-      # Cursors
-      apple-cursor
-      whitesur-cursors
-      bibata-cursors
-      rose-pine-hyprcursor
-
-      # Misc
-      audacity
-      cmatrix
-      lolcat
-      asciiquarium-transparent
-      countryfetch
-      cowsay
-      figlet
-      lavat
-      bemoji
-      gnome-calculator
-      libsecret
-      bluez
-      libnotify
-      transmission_4-gtk
-
-      # Network
-      inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default
-      proton-vpn
-    ];
+    # Pacotes em home/packages/{dev,media,sys-utils}.nix (Item 15)
 
     pointerCursor = {
       package = pkgs.bibata-cursors;
