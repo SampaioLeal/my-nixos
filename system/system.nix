@@ -2,7 +2,7 @@
 {
   nix = {
     settings = {
-      auto-optimise-store = true;
+      auto-optimise-store = false; # evita duplicar com optimise.automatic
       experimental-features = [
         "nix-command"
         "flakes"
@@ -10,10 +10,10 @@
     };
 
     optimise.automatic = true;
-    
+
     gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly"; # era daily — weekly basta com 7d de retenção
       options = "--delete-older-than 7d";
     };
   };
