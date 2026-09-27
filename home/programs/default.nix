@@ -120,7 +120,54 @@
 
     mpv = {
       enable = true;
-      # config = {};
+      config = {
+        # Base de alta qualidade do libplacebo (define scaler, deband, dither, HDR)
+        profile = "high-quality";
+
+        # Renderer moderno + Vulkan (ideal p/ RTX 3060 no Wayland)
+        vo = "gpu-next";
+        gpu-api = "vulkan";
+        gpu-context = "waylandvk";
+
+        # NVDEC com cópia p/ GPU: acelera sem pular scaler/deband/tone-mapping
+        # nvdec puro entrega frames opacos e ignora o pipeline de qualidade
+        hwdec = "nvdec-copy";
+        hwdec-codecs = "all";
+
+        # Upscaling superior ao spline36, sem custo relevante na 3060
+        scale = "ewa_lanczossharp";
+        cscale = "ewa_lanczos";
+        dscale = "mitchell";
+        correct-downscaling = "yes";
+        linear-downscaling = "yes";
+        sigmoid-upscaling = "yes";
+
+        # Anti-banding (visível em degradês/cenas escuras)
+        deband = "yes";
+        deband-iterations = 4;
+        deband-threshold = 48;
+        deband-range = 16;
+        deband-grain = 48;
+
+        # Dither temporal p/ painel 8-bit (evita banding sem ruído parado)
+        dither-depth = "auto";
+        temporal-dither = "yes";
+
+        # HDR -> SDR correto + pico por cena
+        hdr-compute-peak = "yes";
+        tone-mapping = "bt.2390";
+        target-colorspace-hint = "yes";
+        target-contrast = "auto";
+        target-peak = "auto";
+
+        # Sincronia com o display (motion suave, sem judder)
+        video-sync = "display-resample";
+        interpolation = "yes";
+        tscale = "oversample";
+
+        # Mantém proporção da janela
+        keepaspect-window = "yes";
+      };
     };
 
     discord = {

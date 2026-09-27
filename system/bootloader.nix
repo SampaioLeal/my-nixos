@@ -46,6 +46,7 @@
     "udev.log_priority=3"
     "8250.nr_uarts=0"
     "nvme_core.default_ps_max_latency_us=0"
+    "nvidia-drm.fbdev=1"
   ];
   boot.blacklistedKernelModules = [
     "tpm"

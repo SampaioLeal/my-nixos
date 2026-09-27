@@ -1,10 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # https://nixos.wiki/wiki/Nvidia
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver # Ponte VA-API para NVDEC na NVIDIA
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -43,11 +46,5 @@
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
-  };
-
-  environment.sessionVariables = {
-    # NVIDIA specific
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
   };
 }
