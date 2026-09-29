@@ -33,6 +33,7 @@
     bemoji
     gnome-calculator
     proton-vpn
+    libnotify
     # Cursor: só Bibata (ativo em home.pointerCursor)
     bibata-cursors
   ];
