@@ -19,6 +19,7 @@ in
 {
   home.packages = [
     pkgs.mangohud
+    pkgs.hydralauncher
     
     emulationstation-de
   ];
