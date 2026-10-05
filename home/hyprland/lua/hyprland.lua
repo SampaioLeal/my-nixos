@@ -8,6 +8,7 @@ hl.monitor({
   mode     = "2560x1080@75",
   position = "0x0",
   scale    = 1,
+  vrr      = 3,
 })
 
 hl.monitor({
@@ -39,7 +40,8 @@ local browser     = "zen-beta"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-  hl.exec_cmd("dbus-update-activation-environment --systemd --all && systemctl --user stop hyprland-session.target && systemctl --user start hyprland-session.target")
+  hl.exec_cmd(
+    "dbus-update-activation-environment --systemd --all && systemctl --user stop hyprland-session.target && systemctl --user start hyprland-session.target")
   hl.exec_cmd("@polkitGnome@/libexec/polkit-gnome-authentication-agent-1")
   hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 end)
@@ -115,6 +117,8 @@ hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("NVD_BACKEND", "direct")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 hl.env("XDG_DESKTOP_PORTAL", "gtk")
+hl.env("__GL_GSYNC_ALLOWED", "1")
+hl.env("__DAR_ALLOW_VRR", "1")
 
 
 -----------------------
@@ -323,6 +327,8 @@ hl.config({
 hl.config({
   cursor = {
     enable_hyprcursor = true,
+    no_break_fs_vrr = 2,
+    no_hardware_cursors = 2,
   },
 })
 
@@ -533,6 +539,13 @@ hl.window_rule({
   name = "zen-beta",
   match = { class = "zen-beta" },
   opacity = "1 override"
+})
+
+hl.window_rule({
+  name = "games",
+  match = { class = "gamescope" },
+  immediate = true,
+  content = "game",
 })
 
 hl.layer_rule({
