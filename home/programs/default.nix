@@ -4,19 +4,12 @@
   pkgs,
   ...
 }:
-let
-  libredb-studio = import ./libredb-studio-derivation.nix { inherit pkgs; };
-in
 {
   imports = [
     ./eza.nix
     ./obsidian.nix
     ./opencode.nix
     inputs.gazelle.homeModules.gazelle
-  ];
-
-  home.packages = [
-    libredb-studio
   ];
 
   programs = {
