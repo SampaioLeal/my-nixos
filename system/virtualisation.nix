@@ -18,9 +18,10 @@
             size = 24;
           }
         ];
-        features = {
-          cdi = true;
-        };
+        # NVIDIA Container Toolkit enables GPU support in Docker and Podman containers.
+        # features = {
+        #   cdi = true;
+        # };
       };
     };
   };

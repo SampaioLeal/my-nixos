@@ -21,6 +21,7 @@
     systemd-udev-settle.enable = false;
     NetworkManager-wait-online.enable = false;
     systemd-networkd-wait-online.enable = false;
-    nvidia-container-toolkit-cdi-generator.enable = true;
+    # NVIDIA Container Toolkit enables GPU support in Docker and Podman containers.
+    # nvidia-container-toolkit-cdi-generator.enable = true;
   };
 }

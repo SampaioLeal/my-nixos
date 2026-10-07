@@ -16,7 +16,8 @@
   nixpkgs.config.nvidia.acceptLicense = true;
   nixpkgs.config.cudaSupport = true;
 
-  hardware.nvidia-container-toolkit.enable = true;
+  # NVIDIA Container Toolkit enables GPU support in Docker and Podman containers.
+  # hardware.nvidia-container-toolkit.enable = true;
 
   systemd.services."systemd-suspend" = {
     serviceConfig = {
