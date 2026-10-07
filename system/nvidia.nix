@@ -16,6 +16,8 @@
   nixpkgs.config.nvidia.acceptLicense = true;
   nixpkgs.config.cudaSupport = true;
 
+  hardware.nvidia-container-toolkit.enable = true;
+
   systemd.services."systemd-suspend" = {
     serviceConfig = {
       Environment = ''"SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false"'';
