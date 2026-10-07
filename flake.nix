@@ -54,6 +54,9 @@
         inherit system;
         config = {
           allowUnfree = true;
+          permittedInsecurePackages = [
+            "beekeeper-studio-6.1.4"
+          ];
         };
       };
     in
