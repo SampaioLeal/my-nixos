@@ -20,14 +20,12 @@ in
   home.packages = [
     pkgs.mangohud
     pkgs.hydralauncher
-    
+
     emulationstation-de
   ];
 
-  
   home.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-      "\\\${HOME}/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\\\${HOME}/.steam/root/compatibilitytools.d";
   };
 
   home.file = {
@@ -67,5 +65,10 @@ in
 
   programs.lutris = {
     enable = true;
+  };
+
+  programs.prismlauncher = {
+    enable = true;
+    settings = { };
   };
 }

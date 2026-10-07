@@ -10,7 +10,6 @@
     ./browser
     ./gaming
     ./hyprland
-    ./minecraft
     ./mise
     ./programs
     ./quickshell
