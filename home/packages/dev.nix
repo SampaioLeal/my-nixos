@@ -1,6 +1,8 @@
 { pkgs, inputs, ... }:
 {
   home.packages = [
+    pkgs.ttl
+    pkgs.taws
     pkgs.nil
     pkgs.nixd
     pkgs.nixfmt
