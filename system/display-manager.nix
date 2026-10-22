@@ -4,13 +4,17 @@
   ...
 }:
 {
-  imports = [
-    inputs.sysc-greet.nixosModules.default
-  ];
-
   services.logind.settings.Login.HandlePowerKey = "suspend";
 
-  # sysc-greet gerencia o greetd sozinho. Não definir services.greetd manualmente.
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        user = "greeter";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --remember --remember-user-session --cmd Hyprland";
+      };
+    };
+  };
 
   # this is a life saver.
   # literally no documentation about this anywhere.
@@ -26,15 +30,5 @@
     TTYReset = true;
     TTYVHangup = true;
     TTYVTDisallocate = true;
-  };
-
-  #
-  # Sysc-greet
-  #
-
-  services.sysc-greet = {
-    enable = true;
-    compositor = "niri";
-    niriPackage = pkgs.niri;
   };
 }

@@ -19,6 +19,7 @@
     pkgs.rdap
     pkgs.stripe-cli
     pkgs.opentofu
+    pkgs.otree
     pkgs.awscli2
     pkgs.ssm-session-manager-plugin
     pkgs.opencode-desktop
