@@ -38,6 +38,11 @@
       url = "github:ilyamiro/serpantinum";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tui-center = {
+      url = "git+file:///home/sampaiol/Documents/tui-center";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

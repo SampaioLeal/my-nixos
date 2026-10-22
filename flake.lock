@@ -167,6 +167,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "serpantinum": "serpantinum",
+        "tui-center": "tui-center",
         "zen-browser": "zen-browser"
       }
     },
@@ -235,6 +236,26 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "tui-center": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792690256,
+        "narHash": "sha256-taEsmnkBDole+MplzGXYFcRiA8FBF0vgH8hHBKWqris=",
+        "ref": "refs/heads/main",
+        "rev": "92a665d6df7667c0efb6c9e455f378b76c82c2f3",
+        "revCount": 8,
+        "type": "git",
+        "url": "file:///home/sampaiol/Documents/tui-center"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/sampaiol/Documents/tui-center"
       }
     },
     "zen-browser": {

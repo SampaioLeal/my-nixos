@@ -20,6 +20,7 @@
     ./packages/dev.nix
     ./packages/media.nix
     ./packages/sys-utils.nix
+    ./packages/tui-center.nix
   ];
 
   home = {
