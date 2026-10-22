@@ -245,11 +245,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792690256,
-        "narHash": "sha256-taEsmnkBDole+MplzGXYFcRiA8FBF0vgH8hHBKWqris=",
+        "lastModified": 1792692139,
+        "narHash": "sha256-ksOBgwMMafSJptIL96mPkI3ZwkcXujykIQdnYn6bTys=",
         "ref": "refs/heads/main",
-        "rev": "92a665d6df7667c0efb6c9e455f378b76c82c2f3",
-        "revCount": 8,
+        "rev": "4237db5df34f649bde22b9c821cedd11854eced4",
+        "revCount": 10,
         "type": "git",
         "url": "file:///home/sampaiol/Documents/tui-center"
       },
