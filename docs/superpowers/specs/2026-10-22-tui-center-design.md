@@ -19,7 +19,7 @@ sistema.
 - Navegar com `j`/`k`/`h`/`l`, setas e `Enter`.
 - Filtrar em tempo real por nome, categoria ou descrição.
 - Criar automaticamente `~/.config/tui-center/config.toml` quando ele não existir.
-- Restaurar corretamente o terminal antes e depois de executar um subprocesso.
+- Restaurar o terminal e substituir o processo do launcher pelo programa escolhido.
 - Mostrar um erro tratado na TUI quando o executável não existir ou falhar ao iniciar.
 - Poder ser compilado com Cargo e empacotado pelo flake do próprio projeto
   (`nix build` em `~/Documents/tui-center`).
@@ -298,8 +298,8 @@ Erros:
 - Executável não encontrado ou sem permissão de execução: overlay dispensável
   `Erro ao executar`, fechado com `Enter` ou `Esc`; `q` não encerra enquanto o
   overlay estiver aberto.
-- Falha de spawn ou saída não zero do filho: mensagem na status bar até a
-  próxima tecla.
+- Falha ao substituir o processo (`exec`): a TUI é restaurada e mostra um overlay
+  dispensável com o erro.
 
 ## Process Execution Lifecycle
 
@@ -309,22 +309,20 @@ Ao confirmar um app:
    tratados como caminho (absoluto ou relativo) e verificados diretamente;
    comandos sem `/` são procurados em cada entrada de `PATH` na ordem definida.
    Um arquivo existente sem bit de execução (em Unix) conta como inválido. Em
-   qualquer falha, mostrar o overlay e não iniciar o subprocesso.
+   qualquer falha, mostrar o overlay e não iniciar o programa.
 2. Restaurar o terminal: desabilitar raw mode, sair do alternate screen, mostrar
-   o cursor e limpar a tela.
-3. Criar `std::process::Command` com o comando e argumentos, com
-   `stdin`/`stdout`/`stderr` herdados.
-4. Executar `spawn()` e aguardar `wait()` de forma bloqueante.
-5. Em caso de erro no spawn, reinicializar o terminal e mostrar o erro.
-6. Quando o filho terminar, reabilitar raw mode, entrar no alternate screen,
-   esconder o cursor, limpar e redesenhar a UI.
-7. Se o filho sair com código diferente de zero, manter a UI e mostrar o código
-   na status bar.
+   o cursor, limpar a tela e posicionar o cursor no topo.
+3. Criar `std::process::Command` com o comando e argumentos, herdando o terminal.
+4. Substituir o processo atual pelo programa escolhido com `exec()`; o
+   `tui-center` deixa de existir e não fica em background.
+5. Quando o programa termina, o shell volta e a saída permanece visível — por
+   exemplo, o texto de `--help` não é apagado por um redraw do launcher.
+6. Se o `exec()` falhar, a TUI é reinicializada e mostra um overlay dispensável
+   com o erro.
 
 O terminal será encapsulado em uma estrutura com `restore()` idempotente e um
 guard de `Drop` para restaurar o estado em caso de pânico ou saída antecipada.
-O ciclo de suspender/retomar será usado tanto na execução normal quanto no
-tratamento de erros.
+O ciclo de suspender/retomar será usado apenas no caminho de falha do `exec()`.
 
 ## CLI
 
