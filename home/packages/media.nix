@@ -5,7 +5,7 @@
     ffmpeg
     ffmpegthumbnailer
     imagemagick
-    audacity
+    # audacity
     transmission_4-gtk
     hyprpicker
   ];
