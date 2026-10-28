@@ -35,7 +35,6 @@
   };
 
   boot.initrd.systemd.tpm2.enable = false;
-  boot.initrd.verbose = false;
   boot.consoleLogLevel = 0;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [

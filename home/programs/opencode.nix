@@ -8,7 +8,7 @@
   programs.opencode = {
     enable = true;
 
-    tui = {
+    cli = {
       theme = "system";
     };
 
