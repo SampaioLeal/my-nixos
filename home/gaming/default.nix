@@ -20,6 +20,7 @@ in
   home.packages = [
     pkgs.mangohud
     pkgs.hydralauncher
+    pkgs.heroic
 
     emulationstation-de
   ];
@@ -61,10 +62,6 @@ in
   xdg.configFile."retroarch" = {
     source = ./retroarch;
     recursive = true;
-  };
-
-  programs.lutris = {
-    enable = true;
   };
 
   programs.prismlauncher = {
