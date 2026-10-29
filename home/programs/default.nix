@@ -4,12 +4,19 @@
   pkgs,
   ...
 }:
+let
+  openchamber = import ./openchamber-derivation.nix { inherit pkgs; };
+in
 {
   imports = [
     ./eza.nix
     ./obsidian.nix
     ./opencode.nix
     inputs.gazelle.homeModules.gazelle
+  ];
+
+  home.packages = [
+    openchamber
   ];
 
   programs = {
