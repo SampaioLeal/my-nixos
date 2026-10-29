@@ -54,6 +54,17 @@
     ];
   };
 
+  fileSystems."/run/media/sampaiol/ssd" = {
+    device = "/dev/disk/by-uuid/9be6f2a2-194f-447a-8169-926bbbb95f6c";
+    fsType = "btrfs";
+    options = [
+      "defaults"
+      "noatime"
+      "compress=zstd"
+      "nofail"
+    ];
+  };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
