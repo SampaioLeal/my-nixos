@@ -12,7 +12,6 @@ in
     ./eza.nix
     ./obsidian.nix
     ./opencode.nix
-    inputs.gazelle.homeModules.gazelle
   ];
 
   home.packages = [
@@ -25,13 +24,6 @@ in
       enableZshIntegration = true;
       enableNushellIntegration = true;
       nix-direnv.enable = true;
-    };
-
-    gazelle = {
-      enable = true;
-      settings = {
-        theme = "user-theme";
-      };
     };
 
     btop = {

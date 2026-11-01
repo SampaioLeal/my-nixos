@@ -24,11 +24,6 @@
       inputs.astal.follows = "astal";
     };
 
-    gazelle = {
-      url = "github:Zeus-Deus/gazelle-tui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     distro-grub-themes = {
       url = "github:AdisonCavani/distro-grub-themes";
       inputs.nixpkgs.follows = "nixpkgs";

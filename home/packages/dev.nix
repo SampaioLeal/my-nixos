@@ -27,6 +27,5 @@
     pkgs.opencode-desktop
     pkgs.jetbrains.idea
     pkgs.beekeeper-studio
-    inputs.gazelle.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
