@@ -49,6 +49,7 @@
         inherit system;
         config = {
           allowUnfree = true;
+          # TODO: remove this once the issue is fixed upstream
           permittedInsecurePackages = [
             "beekeeper-studio-6.1.4"
           ];
