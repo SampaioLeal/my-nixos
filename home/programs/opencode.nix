@@ -80,6 +80,11 @@
           effect = "ask";
         }
         {
+          action = "shell";
+          resource = "df *";
+          effect = "ask";
+        }
+        {
           action = "read";
           resource = "*";
           effect = "allow";
@@ -98,6 +103,11 @@
           action = "read";
           resource = "*.env.example";
           effect = "allow";
+        }
+        {
+          action = "read";
+          resource = "*.tfvars";
+          effect = "deny";
         }
         {
           action = "read";
@@ -128,6 +138,11 @@
           action = "external_directory";
           resource = "*";
           effect = "ask";
+        }
+        {
+          action = "external_directory";
+          resource = "~/.cache/opencode/npm*";
+          effect = "allow";
         }
       ];
     };
