@@ -38,10 +38,18 @@
       url = "git+file:///home/sampaiol/Documents/tui-center";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, ... }:
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nix-cachyos-kernel,
+      ...
+    }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -63,6 +71,12 @@
         system = system;
         specialArgs = { inherit inputs; };
         modules = [
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+            }
+          )
           ./configuration.nix
           inputs.distro-grub-themes.nixosModules.${system}.default
           inputs.home-manager.nixosModules.home-manager
