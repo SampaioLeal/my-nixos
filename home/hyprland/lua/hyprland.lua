@@ -57,7 +57,7 @@ end)
 
 -- dynamic-cursors: realistic cursor behavior (tilt + shake-to-find)
 -- See https://github.com/VirtCode/hypr-dynamic-cursors
-hl.plugin.load("@dynamicCursors@/lib/libhypr-dynamic-cursors.so")
+-- hl.plugin.load("@ dynamicCursors @/lib/libhypr-dynamic-cursors.so")
 
 if hl.plugin.dynamic_cursors then
   hl.config({

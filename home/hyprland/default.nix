@@ -23,7 +23,7 @@
   xdg.configFile."hypr/hyprland.lua".source = pkgs.replaceVarsWith {
     src = ./lua/hyprland.lua;
     replacements = {
-      dynamicCursors = "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}";
+      # dynamicCursors = "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}";
       polkitGnome = "${pkgs.polkit_gnome}";
       DEFAULT_AUDIO_SINK = null;
       DEFAULT_AUDIO_SOURCE = null;
