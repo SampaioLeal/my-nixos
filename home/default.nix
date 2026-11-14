@@ -6,7 +6,6 @@
 }:
 {
   imports = [
-    ./ags
     ./browser
     ./gaming
     ./hyprland
