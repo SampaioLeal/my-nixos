@@ -207,6 +207,10 @@ hl.config({
   animations = {
     enabled = true,
   },
+
+  render = {
+    cm_auto_hdr = 0,
+  },
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -538,6 +542,12 @@ hl.window_rule({
 hl.window_rule({
   name = "zen-beta",
   match = { class = "zen-beta" },
+  opacity = "1 override"
+})
+
+hl.window_rule({
+  name = "brave",
+  match = { class = "brave-.*" },
   opacity = "1 override"
 })
 
