@@ -6,6 +6,7 @@
 }:
 let
   emulationstation-de = import ./es-de-derivation.nix { inherit pkgs; };
+  epic-games-launcher = import ./epic-games-launcher.nix { inherit pkgs; };
   themes = import ./es-de-themes.nix;
   themeFiles = lib.mapAttrs' (
     name: theme:
@@ -23,6 +24,8 @@ in
     pkgs.heroic
 
     emulationstation-de
+
+    epic-games-launcher
   ];
 
   home.sessionVariables = {
